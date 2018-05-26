@@ -1,0 +1,35 @@
+{% extends 'user/support/index.html.twig' %}
+{% block panel_content %}
+    <div class="form">
+        {{ form_start(create_ticket_form) }}
+        <div class="form-row">
+            {{ form_label(create_ticket_form.title) }}
+            {{ form_widget(create_ticket_form.title, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(create_ticket_form.title) %}
+                <span class="form-error">{{ form_errors(create_ticket_form.title) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(create_ticket_form.category) }}
+            {{ form_widget(create_ticket_form.category, { 'attr' : { 'class' : 'input-select' } }) }}
+            {% if form_errors(create_ticket_form.category) %}
+                <span class="form-error">{{ form_errors(create_ticket_form.category) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(create_ticket_form.content) }}
+            {{ form_widget(create_ticket_form.content, { 'attr' : { 'class' : 'text_area' } }) }}
+            {% if form_errors(create_ticket_form.content) %}
+                <span class="form-error">{{ form_errors(create_ticket_form.content) }}</span>
+            {% endif %}
+        </div>
+        {#<div class="form-row-file">#}
+            {#{{ form_widget(create_ticket_form.attachment, { 'attr' : { 'class' : 'file' } }) }}#}
+            {#{% if form_errors(create_ticket_form.attachment) %}#}
+                {#<span class="form-error">{{ form_errors(create_ticket_form.attachment) }}</span>#}
+            {#{% endif %}#}
+        {#</div>#}
+        <p><input type="submit" value="" name="" class="button_send"/></p>
+        {{ form_end(create_ticket_form) }}
+    </div>
+{% endblock %}

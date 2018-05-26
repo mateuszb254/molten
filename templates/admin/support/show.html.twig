@@ -1,0 +1,23 @@
+temat ticketa to: {{ ticket.title }}<br>
+treśc ticketa to: {{ ticket.content }}<br><br>
+status ticketa to: {{ ticket.status }}<br><br>
+
+odpowiedzi:<br>
+{% for answer in ticket.answers %}
+    {{ dump(answer) }}
+    {{ answer.content }}<br>
+{% endfor %}
+
+<div class="form">
+    {{ form_start(ticket_answer_form) }}
+    {% if form_errors(ticket_answer_form.content) %}
+        <span class="form-error">{{ form_errors(ticket_answer_form.content) }}</span>
+    {% endif %}
+    <div class="form-row">
+        {{ form_widget(ticket_answer_form.content) }}
+    </div>
+    <p>
+        <button style="margin: 10px 0 0 205px;" type="submit" value="" name="" class="button_send"/>
+    </p>
+    {{ form_end(ticket_answer_form) }}
+</div>

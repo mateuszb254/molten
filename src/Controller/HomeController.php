@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Article;
+use App\Repository\ArticleRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class HomeController extends AbstractController
+{
+    /**
+     * @Route("/", name="homepage")
+     * @Method("GET")
+     */
+    public function index(ArticleRepository $articles): Response
+    {
+        $threeLastArticles = $articles->findFirstArticles();
+
+        $count = $articles->getCountOfArticles();
+
+        return $this->render('user/index.html.twig', [
+            'articles' => $threeLastArticles,
+            'countOfArticles' => $count
+        ]);
+    }
+
+    /**
+     * @Route("/terms", name="terms")
+     * @Method("GET")
+     */
+    public function rules(): Response
+    {
+        return $this->render('user/terms.html.twig');
+    }
+
+    /**
+     * @Route("/download", name="download")
+     * @Method("GET")
+     */
+    public function download(): Response
+    {
+        return $this->render('user/download.html.twig');
+    }
+}

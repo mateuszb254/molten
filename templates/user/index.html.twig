@@ -1,0 +1,88 @@
+{% extends 'user/base.html.twig' %}
+{% block content %}
+    {{ parent() }}
+    <div class="left" id="news">
+        <ul>
+            {% for article in articles %}
+                <li id="{{ article.id }}">
+                    <div class="date">
+                        <p><big>{{ article.createdAt|date("d") }}</big><br/>{{ article.createdAt|date("M") }}</p>
+                    </div>
+                    <div class="image">
+                        <div class="image_container">
+                            <img src="content/thumb.png" alt=""/>
+                            <div class="frame"></div>
+                            <p>Autor: {{ article.author.login }}</p>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h2>{{ article.title }}</h2>
+                        <p>{{ article.content }}</p>
+                        {% if article.more %}
+                            <a href="{{ article.more }}" title="" class="button_more"></a>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if countOfArticles > 3 %}
+            <p class="see_more">
+                <a href="" title="" class="button_see_more"></a>
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            var countDisplayedArticles = $('ul').length;
+            var countAllArticles = {{ countOfArticles }};
+
+            $('.button_see_more').click(function (e) {
+                e.preventDefault();
+
+                var basePath = '{{ path('json_articles', {'start' : 3 }) }}';
+
+                var splitedPath = basePath.split('/');
+
+                splitedPath[3] = countDisplayedArticles;
+
+                var requestPath = splitedPath.join('/');
+
+                $.ajax({
+                    dataType: "json",
+                    url: requestPath,
+                    success: function (data) {
+                        var html = '';
+
+                        for (var i = 0; i < data.length; i++) {
+                            var article = data[i];
+
+                            var createdAt = article.createdAt;
+                            var date = new Date(createdAt);
+
+                            var months = [
+                                'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                            ];
+
+                            html += '<li id="' + article.id + '">';
+                            html += '<div class="date"> <p><big>' + date.getDate() + '</big><br/>' + months[date.getMonth()] + '</p></div>';
+                            html += '<div class="image"> <div class="image_container"> <img src="content/thumb.png" alt=""/> <div href="" title="" class="frame"></div><p>Autor:' + article.author.login + '</p></div></div>';
+                            html += '<div class="desc"> <h2>' + article.title + '.</h2> <p>' + article.content + '</p> <a href="" title="" class="button_more"></a> </div>';
+                            html += '</li>';
+                        }
+
+                        $('#news > ul').append(html);
+                    }
+                });
+
+                countDisplayedArticles += 3;
+
+                if (countDisplayedArticles >= countAllArticles) {
+                    $('.see_more').remove();
+                }
+            });
+        });
+    </script>
+{% endblock %}

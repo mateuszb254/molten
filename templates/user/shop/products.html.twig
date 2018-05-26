@@ -1,0 +1,25 @@
+{% extends 'user/shop/index.html.twig' %}
+{% block panel_content %}
+    <div class="shop-content">
+        {% for product in shopCategory.products %}
+            <div class="box">
+                <div class="image">
+                    <div class="image_container">
+                        <img src="content/thumb.png" alt=""/>
+                        <a href="" title="" class="frame"></a>
+                    </div>
+                </div>
+                <div class="title">
+                    <h2>{{ product.name }}</h2>
+                    <p>
+                        Cena : <strong>{{ product.price }} SM</strong>
+                    </p>
+                </div>
+                <div class="desc">
+                    <p>{{ product.description }}</p>
+                    <a href="" title="Kup" class="button_buy"></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

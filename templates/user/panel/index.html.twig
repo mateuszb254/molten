@@ -1,0 +1,42 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- Panel użytkownika{% endblock %}
+{% block content %}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+            <div class="box_menu">
+                <div class="box_menu_left">
+                </div>
+                <div class="box_menu_mid">
+                    <ul>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'user_change_password' %}active{% endif %}"
+                               href="{{ path('user_change_password') }}" title="Zmiana hasła">{% trans %}
+                                change.password{% endtrans %}</a></li>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'user_change_email' %}active{% endif %}"
+                               href="{{ path('user_change_email') }}" title="Zmiana hasła">{% trans %}
+                                change.email{% endtrans %}</a></li>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'user_change_code' %}active{% endif %}"
+                               href="{{ path('user_change_code') }}" title="Zmiana hasła">{% trans %}
+                                change.code{% endtrans %}</a></li>
+                        <li><a href="{{ path('payments_index') }}" title="">{% trans %}buy_coins{% endtrans %}</a></li>
+                        <li><a class="{% if app.request.get('_route') == 'shop_index' %}active{% endif %}"
+                               href="{{ path('shop_index') }}" title="Sklep">{% trans %}shop{% endtrans %}</a></li>
+                        <li><a class="{% if app.request.get('_route') == 'shop_index' %}active{% endif %}"
+                               href="{{ path('support_index') }}" title="Sklep">{% trans %}support{% endtrans %}</a>
+                        </li>
+                        <li><a class="{% if app.request.get('_route') == 'user_logs' %}active{% endif %}"
+                               href="{{ path('user_logs') }}" title="Sklep">{% trans %}logs{% endtrans %}</a></li>
+                    </ul>
+                </div>
+                {% include 'user/partials/flash_messages.html.twig' %}
+                <div class="box_menu_right">
+                </div>
+            </div>
+        </div>
+        {% block panel_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

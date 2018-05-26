@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit TicketCategory</title>
+
+{% block body %}
+    <h1>Edit TicketCategory</h1>
+
+    {{ include('admin/ticket_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('ticket_category_index') }}">back to list</a>
+
+    {{ include('admin/ticket_category/_delete_form.html.twig') }}
+{% endblock %}

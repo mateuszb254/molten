@@ -1,0 +1,31 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- Panel użytkownika{% endblock %}
+{% block content %}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+            <div class="box_menu">
+                <div class="box_menu_left">
+                </div>
+                <div class="box_menu_mid">
+                    <ul>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'support_show' %}active{% endif %}"
+                               href="{{ path('support_show') }}" title="Zmiana hasła">{% trans %}
+                                support.show{% endtrans %}</a>
+                        </li>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'support_new' %}active{% endif %}"
+                               href="{{ path('support_new') }}" title="Zmiana hasła">{% trans %}
+                                support.new{% endtrans %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box_menu_right">
+                </div>
+            </div>
+        </div>
+        {% block panel_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

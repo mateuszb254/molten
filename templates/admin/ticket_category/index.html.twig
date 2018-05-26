@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<title>TicketCategory index</title>
+
+{% block body %}
+    <h1>TicketCategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket_category in ticket_categories %}
+            <tr>
+                <td>{{ ticket_category.id }}</td>
+                <td>{{ ticket_category.name }}</td>
+                <td>
+                    <a href="{{ path('ticket_category_show', {'id': ticket_category.id}) }}">show</a>
+                    <a href="{{ path('ticket_category_edit', {'id': ticket_category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ticket_category_new') }}">Create new</a>
+{% endblock %}

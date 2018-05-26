@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="recaptcha">
+                <source>recaptcha</source>
+                <target>Musisz potwierdzić captchę przed wysłaniem formularza.</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.old">
+                <source>label.password.old</source>
+                <target>Aktualne hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.new">
+                <source>label.password.new</source>
+                <target>Nowe hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.repeat">
+                <source>label.password.repeat</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.old">
+                <source>label.email.old</source>
+                <target>Aktualny e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.new">
+                <source>label.email.new</source>
+                <target>Nowy e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.repeat">
+                <source>label.email.repeat</source>
+                <target>Powtórz e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.code">
+                <source>label.code</source>
+                <target>Kod usunięcia</target>
+            </trans-unit>
+            <trans-unit id="label.code.old">
+                <source>label.code.old</source>
+                <target>Aktualny kod</target>
+            </trans-unit>
+            <trans-unit id="label.code.new">
+                <source>label.code.new</source>
+                <target>Nowy kod</target>
+            </trans-unit>
+            <trans-unit id="label.code.repeat">
+                <source>label.code.repeat</source>
+                <target>Powtórz kod</target>
+            </trans-unit>
+            <trans-unit id="label.question">
+                <source>label.question</source>
+                <target>Pytanie pomocnicze</target>
+            </trans-unit>
+            <trans-unit id="label.answer">
+                <source>label.answer</source>
+                <target>Odpowiedz</target>
+            </trans-unit>
+            <trans-unit id="label.support_answer">
+                <source>label.support_answer</source>
+                <target>Odpowiedz</target>
+            </trans-unit>
+            <trans-unit id="label.support.block_answers">
+                <source>label.support.block_answers</source>
+                <target>Zablokuj możliwość odpowiedzi</target>
+            </trans-unit>
+            <trans-unit id="label.terms.statement">
+                <source>label.terms.statement</source>
+                <target>Oświadczam, że przeczytałem/przeczytałam i akceptuję regulamin.</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Temat</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Treść</target>
+            </trans-unit>
+            <trans-unit id="change.password">
+                <source>change.password</source>
+                <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="change.password.success">
+                <source>change.password.success</source>
+                <target>Hasło zostało zmienione.</target>
+            </trans-unit>
+            <trans-unit id="change.email">
+                <source>change.email</source>
+                <target>Zmień e-mail</target>
+            </trans-unit>
+            <trans-unit id="change.email.success">
+                <source>change.email.success</source>
+                <target>E-mail został zmieniony.</target>
+            </trans-unit>
+            <trans-unit id="change.code">
+                <source>change.code</source>
+                <target>Zmień kod</target>
+            </trans-unit>
+            <trans-unit id="change.code.success">
+                <source>change.code.success</source>
+                <target>Kod został zmieniony.</target>
+            </trans-unit>
+            <trans-unit id="buy_coins">
+                <source>buy_coins</source>
+                <target>Kup monety</target>
+            </trans-unit>
+            <trans-unit id="shop">
+                <source>shop</source>
+                <target>Sklep</target>
+            </trans-unit>
+            <trans-unit id="support">
+                <source>support</source>
+                <target>Zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="support.show">
+                <source>support.show</source>
+                <target>Moje zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="support.new">
+                <source>support.new</source>
+                <target>Nowe zgłoszenie</target>
+            </trans-unit>
+            <trans-unit id="logs">
+                <source>logs</source>
+                <target>Historia akcji</target>
+            </trans-unit>
+            <trans-unit id="registration.success">
+                <source>registration.success</source>
+                <target>Rejestracja przebiegła pomyślnie.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_PASSWORD">
+                <source>CHANGE_PASSWORD</source>
+                <target>Zmiana hasła.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_EMAIL">
+                <source>CHANGE_EMAIL</source>
+                <target>Zmiana email.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_CODE">
+                <source>CHANGE_CODE</source>
+                <target>Zmiana kodu.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

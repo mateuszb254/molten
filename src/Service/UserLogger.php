@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Service;
+
+use App\Entity\Account;
+use App\Entity\UserLog;
+use Doctrine\Common\Persistence\ObjectManager;
+
+class UserLogger
+{
+    private $entityManager;
+
+    public function __construct(ObjectManager $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
+    public function addLog(Account $account, string $type): void
+    {
+        $userLog = new UserLog();
+
+        $userLog->setUser($account);
+        $userLog->setType($type);
+        $userLog->setDate(new \DateTime());
+
+        $entityManager = $this->entityManager;
+        $entityManager->persist($userLog);
+        $entityManager->flush();
+    }
+}

@@ -1,0 +1,79 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- Rejestracja{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+{% block content %}
+    <div class="left" id="register">
+        <div class="upper">
+            <h1></h1>
+        </div>
+        <div class="lower">
+            {{ parent() }}
+            <div class="form">
+                {{ form_start(register_form) }}
+                <div class="form-row">
+                    {{ form_label(register_form.login) }}
+                    {{ form_widget(register_form.login, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.login) %}
+                        <span class="form-error">{{ form_errors(register_form.login) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.plainPassword.first) }}
+                    {{ form_widget(register_form.plainPassword.first, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.plainPassword.first) %}
+                        <span class="form-error">{{ form_errors(register_form.plainPassword.first) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.plainPassword.second) }}
+                    {{ form_widget(register_form.plainPassword.second, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.plainPassword.second) %}
+                        <span class="form-error">{{ form_errors(register_form.plainPassword.second) }}</span>
+                    {% endif %}                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.email) }}
+                    {{ form_widget(register_form.email, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.email) %}
+                        <span class="form-error">{{ form_errors(register_form.email) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.code) }}
+                    {{ form_widget(register_form.code, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.code) %}
+                        <span class="form-error">{{ form_errors(register_form.code) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.question) }}
+                    {{ form_widget(register_form.question, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.question) %}
+                        <span class="form-error">{{ form_errors(register_form.question) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.answer) }}
+                    {{ form_widget(register_form.answer, { 'attr' : { 'class' : 'input_register' } }) }}
+                    {% if form_errors(register_form.answer) %}
+                        <span class="form-error">{{ form_errors(register_form.answer) }}</span>
+                    {% endif %}
+                </div>
+                <div class="form-row">
+                    {{ form_label(register_form.rules) }}
+                    {{ form_widget(register_form.rules) }}
+                    {% if form_errors(register_form.rules) %}
+                    <span class="form-error" style="left: 43px;">{{ form_errors(register_form.rules) }}</span>
+                    {% endif %}
+                </div>
+                <div style="display: block; width: 50%; margin: auto;">
+                    {{ recaptcha|raw }}
+                </div>
+                <p><input type="submit" value="" name="" class="button_register"/></p>
+                {{ form_end(register_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

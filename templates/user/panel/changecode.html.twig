@@ -1,0 +1,29 @@
+{% extends 'user/panel/index.html.twig' %}
+{% block panel_content %}
+    <div class="form">
+        {{ form_start(change_code_form) }}
+        <div class="form-row">
+            {{ form_label(change_code_form.oldCode) }}
+            {{ form_widget(change_code_form.oldCode, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_code_form.oldCode) %}
+                <span class="form-error">{{ form_errors(change_code_form.oldCode) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(change_code_form.newCode.first) }}
+            {{ form_widget(change_code_form.newCode.first, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_code_form.newCode.first) %}
+                <span class="form-error">{{ form_errors(change_code_form.newCode.first) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(change_code_form.newCode.second) }}
+            {{ form_widget(change_code_form.newCode.second, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_code_form.newCode.second) %}
+                <span class="form-error">{{ form_errors(change_code_form.newCode.second) }}</span>
+            {% endif %}
+        </div>
+        <p><input type="submit" value="" name="" class="button_send"/></p>
+        {{ form_end(change_code_form) }}
+    </div>
+{% endblock %}

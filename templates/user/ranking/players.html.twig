@@ -1,0 +1,99 @@
+{% extends 'user/ranking/index.html.twig' %}
+{% block content_ranking %}
+    <div class="lower">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th class="rank">
+                    Ranking
+                </th>
+                <th class="player">
+                    Nazwa Postaci
+                </th>
+                <th class="kingdom">
+                    Królestwo
+                </th>
+                <th class="lvl">
+                    Level
+                </th>
+            </tr>
+
+            {% set lp = 1 + 25*(players.getCurrentPage-1) %}
+            {% for player in players %}
+                <tr>
+                    <td class="rank">
+                        {{ lp }}
+                    </td>
+                    <td class="player">
+                        {{ player.name }}
+                    </td>
+                    <td class="kingdom">
+                        <img src="{{ player.kingdom|kingdom }}" alt=""/>
+                    </td>
+                    <td class="lvl">
+                        {{ player.level }}
+                    </td>
+                </tr>
+                {% set lp = lp +1 %}
+            {% endfor %}
+        </table>
+        {% if players.haveToPaginate %}
+            <div class="rank-pagination">
+                {{ pagerfanta(players, 'twitter_bootstrap3_translated', {routeName: 'ranking_players'}) }}
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        $(function () {
+            $('#search-form').submit(function (e) {
+                var name = $('input[name=search]').val();
+                var path = '{{ path('ranking_player_search') }}';
+
+                var request_path = path + '/' + name;
+
+                $.ajax({
+                    dataType: 'json',
+                    url: request_path,
+                    beforeSend: function () {
+                        $('.lower table tr:not(:first-child)').remove();
+                        $('.rank-pagination').remove();
+                    },
+                    success: function (data) {
+                        var tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="kingdom"><img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.level + ' </td> </tr>';
+
+                        $('.lower table').append(tableRow);
+                    },
+                    statusCode: {
+                        404: function () {
+                            var tableRow = '<tr> <td class="rank"></td> <td class="player">Nie znaleziono postaci.</td> <td class="kingdom"> <img src="content/kingdom.png" alt=""> </td> <td class="lvl"></td></tr>';
+
+                            $('.lower table').append(tableRow);
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+        function kingdom(id) {
+            var path = '{{ kingdom_extension_settings.path }}';
+            switch (id) {
+                case 1:
+                    path += '/{{ kingdom_extension_settings.shinsoo }}';
+                    break;
+                case 2:
+                    path += '/{{ kingdom_extension_settings.chunjo }}';
+                    break;
+                case 3:
+                    path += '/{{ kingdom_extension_settings.jinno }}';
+                    break;
+            }
+
+            path += '.{{ kingdom_extension_settings.format }}';
+
+            return path;
+        }
+    </script>
+{% endblock %}

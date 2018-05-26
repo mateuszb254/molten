@@ -1,0 +1,27 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- Ranking{% endblock %}
+{% block content %}
+    <div class="left" id="ranking">
+        <div class="upper">
+            <h1></h1>
+            <ul>
+                <li><a href="{{ path('ranking_players') }}" title="Gracze"
+                       class="players {{ app.request.get('_route') in ['ranking_players', 'ranking_index'] ? ' active' : '' }}"></a>
+                </li>
+                <li><a href="{{ path('ranking_guilds') }}" title="Gildie"
+                       class="guilds{{ app.request.get('_route') == 'ranking_guilds' ? ' active' : '' }}"></a></li>
+            </ul>
+            <form id="search-form" action="" method="post">
+                <fieldset>
+                    <input type="text" name="search" class="input_search" value="Szukane słowo.."
+                           onfocus="if(this.value==this.defaultValue)this.value='';"
+                           onblur="if(this.value=='')this.value=this.defaultValue;">
+                    <button id="button-search" type="submit" class="button_search"></button>
+                </fieldset>
+            </form>
+        </div>
+        {% block content_ranking %}
+            It shouldn't be seen.. ;'(
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- Panel użytkownika{% endblock %}
+{% block content %}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+            <div class="box_menu">
+                <div class="box_menu_left">
+                </div>
+                <div class="box_menu_mid">
+                    <ul>
+                        {% for category in categories %}
+                            <li>
+                                <a class="{% if path('shop_products', {'slug': category.slug}) == app.request.pathInfo %}active{% endif %}"
+                                   href="{{ path('shop_products', {'slug': category.slug}) }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% include 'user/partials/flash_messages.html.twig' %}
+                <div class="box_menu_right">
+                </div>
+            </div>
+        </div>
+        {% block panel_content %}
+        {% endblock %}
+    </div>
+{% endblock %}

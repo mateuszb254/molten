@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/reset.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/global.css?v2') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css?v2') }}"/>
+    {% block javascript %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+        <script src="{{ asset('js/slides.min.jquery.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/cufon-yui.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/Mongolian_Baiti_400.font.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('js/js.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/ranking-widget.js') }}"></script>
+    {% endblock %}
+    <title>Molten {% block head_title %}{% endblock %}</title>
+</head>
+<body>
+<div class="wrapper" id="bg_bottom">
+    <div class="wrapper" id="bg_top">
+        <div class="content">
+            <div class="row" id="top">
+                <a href="" title="" id="logo"></a>
+                <ul>
+                    <li><a href="{{ path('homepage') }}" title="Home" class="menu_1"></a></li>
+                    <li><a href="#" title="Vip/Sm" class="menu_2"></a></li>
+                    <li><a href="{{ path('shop_index') }}" title="Items Shop" class="menu_3"></a></li>
+                    <li><a href="{{ path('register') }}" title="Rejestracja" class="menu_4"></a></li>
+                    <li><a href="{{ path('ranking_index') }}" title="Ranking" class="menu_5"></a></li>
+                    <li><a href="{{ path('support_index') }}" title="Zgłoszenia" class="menu_6"></a></li>
+                    <li><a href="{{ path('download') }}" title="Download" class="menu_7"></a></li>
+                    <li><a href="#" title="Forum" class="menu_8"></a></li>
+                </ul>
+            </div>
+            <div class="row" id="slider">
+                <div class="slider">
+                    {% if app.user %}
+                        <div class="box_login">
+                            <div class="upper">
+                                <p>
+                                    Witaj, {{ app.user.login }}<br/>Posiadasz : <span>{{ app.user.coins }}
+                                        Monet</span><br/>
+                                    <a href="{{ path('user_panel') }}" title="">Panel gracza</a> {% if is_granted('ROLE_ADMIN') %} / <a style="color: red" href="{{ path('admin_index') }}">ACP</a> {% endif %}
+                                </p>
+                            </div>
+                            <div class="lower">
+                                <a href="{{ path('logout') }}" title="" class="button_logout"></a>
+                            </div>
+                        </div>
+                    {% elseif not app.user %}
+                        <div class="box_login not_logged">
+                            <form action="{{ path('login') }}" method="post">
+                                <dl>
+                                    <dt><label>Login</label></dt>
+                                    <dd><input type="text" id="username" name="_username" class="input_login"/></dd>
+                                    <dt><label>Hasło</label></dt>
+                                    <dd><input type="password" value="" name="_password" class="input_login"/></dd>
+                                </dl>
+                                <div class="links">
+                                    <a href="{{ path('forgotten') }}" title="Zapomniałem hasła" class="remind">Zapomniałem
+                                        hasła</a><br/>
+                                    <a href="{{ path('register') }}" title="Rejestracja"
+                                       class="register">Rejestracja</a>
+                                </div>
+                                <div class="button">
+                                    <input type="submit" value="" class="button_login"/>
+                                </div>
+                            </form>
+                        </div>
+                    {% endif %}
+                    <div class="box_slider">
+                        <div id="slides">
+                            <div class="slides_container">
+                                <div class="slide">
+                                    <img src="/content/img.jpg" alt="Slide 1"/>
+                                </div>
+                                <div class="slide">
+                                    <img src="/content/img.jpg" alt="Slide 1"/>
+                                </div>
+                                <div class="slide">
+                                    <img src="/content/img.jpg" alt="Slide 1"/>
+                                </div>
+                                <div class="slide">
+                                    <img src="/content/img.jpg" alt="Slide 1"/>
+                                </div>
+                                <div class="slide">
+                                    <img src="/content/img.jpg" alt="Slide 1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_status">
+                        <p>
+                            <span style="color: red;">OFFLINE
+                            <br/><br/><br/><br/>0 graczy
+                                </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="middle">
+                <div class="box_main">
+                    <div class="box_main_top">
+                        &nbsp;
+                    </div>
+                    <div class="box_main_mid" id="index">
+                        <div class="outer">
+                            <div class="inner">
+                                {% block content %}
+                                    {% include 'user/partials/flash_messages.html.twig' %}
+                                {% endblock %}
+                                <div class="right">
+                                    <div class="right_content">
+                                        <div class="right_outer">
+                                            <div class="right_inner">
+                                                <h3></h3>
+                                                <ul>
+                                                    <li><a href="" title="Gracze" class="players active"></a></li>
+                                                    <li><a href="" title="Gildie" class="guilds"></a></li>
+                                                </ul>
+                                                {{ render(controller('App\\Controller\\RankingController:rankingSidebar')) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right_bottom">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_main_bottom">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="footer">
+                <p>&#169; 2017-{{ "now"|date("Y") }} by nagadev.pl. <br/>All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

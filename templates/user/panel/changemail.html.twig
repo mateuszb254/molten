@@ -1,0 +1,29 @@
+{% extends 'user/panel/index.html.twig' %}
+{% block panel_content %}
+    <div class="form">
+        {{ form_start(change_email_form) }}
+        <div class="form-row">
+            {{ form_label(change_email_form.oldEmail) }}
+            {{ form_widget(change_email_form.oldEmail, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_email_form.oldEmail) %}
+                <span class="form-error">{{ form_errors(change_email_form.oldEmail) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(change_email_form.newEmail.first) }}
+            {{ form_widget(change_email_form.newEmail.first, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_email_form.newEmail.first) %}
+                <span class="form-error">{{ form_errors(change_email_form.newEmail.first) }}</span>
+            {% endif %}
+        </div>
+        <div class="form-row">
+            {{ form_label(change_email_form.newEmail.second) }}
+            {{ form_widget(change_email_form.newEmail.second, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_email_form.newEmail.second) %}
+                <span class="form-error">{{ form_errors(change_email_form.newEmail.second) }}</span>
+            {% endif %}
+        </div>
+        <p><input type="submit" value="" name="" class="button_send"/></p>
+        {{ form_end(change_email_form) }}
+    </div>
+{% endblock %}

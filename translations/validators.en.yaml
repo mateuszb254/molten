@@ -1,0 +1,5 @@
+default.not_blank: To pole nie może być puste.
+default.email: Pole zawiera niepoprawny adres mailowy.
+
+account.login.minLength: Login może zawierać od 6 do 24 znaków.
+account.login.maxLength: Login może zawierać od 6 do 24 znaków.

@@ -1,0 +1,37 @@
+{% extends 'user/support/index.html.twig' %}
+{% block panel_content %}
+    <section class="support-content">
+        <article class="support-ticket">
+            <div class="support-ticket-title">
+                <span class="title">Temat zgłoszenia:</span>
+                <h4>{{ ticket.title }}</h4>
+                <span class="category">{{ ticket.category }}</span>
+            </div>
+            <div class="support-ticket-content">
+                <p>{{ ticket.content|nl2br }}</p>
+            </div>
+        </article>
+        <section class="support-answers">
+            {% for answer in ticket.getAnswers %}
+                <article class="support-ticket-answer{% if answer.isAdminAnswer %}-admin{% endif %}">
+                    {{ answer.getContent|nl2br }} <br>
+                </article>
+            {% endfor %}
+        </section>
+        {% if ticket.getStatus() != constant('STATUS_CLOSED', ticket) %}
+            <div class="form">
+                {{ form_start(ticket_answer_form) }}
+                {% if form_errors(ticket_answer_form.content) %}
+                    <span class="form-error">{{ form_errors(ticket_answer_form.content) }}</span>
+                {% endif %}
+                <div class="form-row">
+                    {{ form_widget(ticket_answer_form.content) }}
+                </div>
+                <p>
+                    <button style="margin: 10px 0 0 205px;" type="submit" value="" name="" class="button_send"/>
+                </p>
+                {{ form_end(ticket_answer_form) }}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

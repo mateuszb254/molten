@@ -1,0 +1,111 @@
+{% extends 'user/ranking/index.html.twig' %}
+{% block content_ranking %}
+    <div class="lower">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th class="rank">
+                    Ranking
+                </th>
+                <th class="player">
+                    Nazwa gildii
+                </th>
+                <th class="rank">
+                    Wygrane
+                </th>
+                <th class="rank">
+                    Przegrane
+                </th>
+                <th class="kingdom">
+                    Królestwo
+                </th>
+                <th class="lvl">
+                    Punkty
+                </th>
+            </tr>
+
+            {% set lp = 1 + 25*(guilds.getCurrentPage-1) %}
+            {% for guild in guilds %}
+                <tr>
+                    <td class="rank">
+                        1
+                    </td>
+                    <td class="player">
+                        {{ guild.name }}
+                    </td>
+                    <td class="rank">
+                        {{ guild.wins }}
+                    </td>
+                    <td class="rank">
+                        {{ guild.loses }}
+                    </td>
+                    <td class="kingdom">
+                        <img src="{{ guild.kingdom|kingdom }}" alt=""/>
+                    </td>
+                    <td class="lvl">
+                        {{ guild.points }}
+                    </td>
+                </tr>
+                {% set lp = lp +1 %}
+            {% endfor %}
+        </table>
+        {% if guilds.haveToPaginate %}
+            <div class="rank-pagination">
+                {{ pagerfanta(guilds, 'twitter_bootstrap3_translated', {routeName: 'ranking_guilds'}) }}
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        $(function () {
+            $('#search-form').submit(function (e) {
+                var name = $('input[name=search]').val();
+                var path = '{{ path('ranking_guild_search') }}';
+
+                var request_path = path + '/' + name;
+
+                $.ajax({
+                    dataType: 'json',
+                    url: request_path,
+                    beforeSend: function () {
+                        $('.lower table tr:not(:first-child)').remove();
+                        $('.rank-pagination').remove();
+                    },
+                    success: function (data) {
+                        var tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="rank">'+data.wins+'</td><td class="rank">'+data.loses+'</td> <td class="kingdom"> <img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.points + ' </td> </tr>';
+
+                        $('.lower table').append(tableRow);
+                    },
+                    statusCode: {
+                        404: function () {
+                            var tableRow = '<tr> <td class="rank"></td> <td class="player">Nie znaleziono gildii.</td> <td class="kingdom"> <img src="content/kingdom.png" alt=""> </td> <td class="lvl"></td></tr>';
+
+                            $('.lower table').append(tableRow);
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+        function kingdom(id) {
+            var path = '{{ kingdom_extension_settings.path }}';
+            switch (id) {
+                case 1:
+                    path += '/{{ kingdom_extension_settings.shinsoo }}';
+                    break;
+                case 2:
+                    path += '/{{ kingdom_extension_settings.chunjo }}';
+                    break;
+                case 3:
+                    path += '/{{ kingdom_extension_settings.jinno }}';
+                    break;
+            }
+
+            path += '.{{ kingdom_extension_settings.format }}';
+
+            return path;
+        }
+    </script>
+{% endblock %}

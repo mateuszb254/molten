@@ -1,0 +1,49 @@
+{% extends 'user/support/index.html.twig' %}
+{% block panel_content %}
+    <div class="support">
+        <table class="support_table" cellpadding="0" cellspacing="0">
+            <tr>
+                <th class="support_title">
+                    Temat
+                </th>
+                <th class="support_content">
+                    Treść zgłoszenia
+                </th>
+                <th class="support_status">
+                    Status
+                </th>
+            </tr>
+            {% for ticket in tickets %}
+                <a href="">
+                    <tr>
+                        <td class="support_title">
+                            <a href="{{ path('support_ticket_details', {'id' : ticket.id}) }}">{{ ticket.title }} </a>
+                        </td>
+                        <td class="support_content">
+                            {% if ticket.content|length > 40 %}
+                                {{ ticket.content|slice(0, 40) }} (...)
+                            {% else %}
+                                {{ ticket.content }}
+                            {% endif %}
+                        </td>
+                        <td class="support_status">
+                            {{ ticket.status == constant('STATUS_OPEN', ticket) ? 'Oczekuje' : ticket.status == constant('STATUS_CLOSED', ticket) ? 'Zamkniete' : 'Udzielono odpowiedzi' }}
+                        </td>
+                    </tr>
+                </a>
+            {% else %}
+                <tr>
+                    <td class="support_title">
+                        -
+                    </td>
+                    <td class="support_content">
+                        Nie wysłałeś żadnego zgłoszenia
+                    </td>
+                    <td class="support_status">
+                        -
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
