@@ -75,25 +75,24 @@
                 });
                 e.preventDefault();
             });
-        });
+            function kingdom(id) {
+                var path = '{{ kingdom_extension_settings.path }}';
+                switch (id) {
+                    case 1:
+                        path += '/{{ kingdom_extension_settings.shinsoo }}';
+                        break;
+                    case 2:
+                        path += '/{{ kingdom_extension_settings.chunjo }}';
+                        break;
+                    case 3:
+                        path += '/{{ kingdom_extension_settings.jinno }}';
+                        break;
+                }
 
-        function kingdom(id) {
-            var path = '{{ kingdom_extension_settings.path }}';
-            switch (id) {
-                case 1:
-                    path += '/{{ kingdom_extension_settings.shinsoo }}';
-                    break;
-                case 2:
-                    path += '/{{ kingdom_extension_settings.chunjo }}';
-                    break;
-                case 3:
-                    path += '/{{ kingdom_extension_settings.jinno }}';
-                    break;
+                path += '.{{ kingdom_extension_settings.format }}';
+
+                return path;
             }
-
-            path += '.{{ kingdom_extension_settings.format }}';
-
-            return path;
-        }
+        });
     </script>
 {% endblock %}

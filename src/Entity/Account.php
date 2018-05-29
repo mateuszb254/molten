@@ -71,8 +71,8 @@ class Account implements UserInterface
     private $coins = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\UserLog", mappedBy="user")
-     * @ORM\OrderBy({"date": "DESC"})
+     * @ORM\OneToMany(targetEntity="App\Entity\UserLog", mappedBy="user", orphanRemoval=true)
+     * @ORM\OrderBy({"createdAt": "DESC"})
      */
     private $logs;
 
@@ -194,7 +194,8 @@ class Account implements UserInterface
         ];
     }
 
-    public function hasRole(string $string) {
+    public function hasRole(string $string)
+    {
         return in_array($string, $this->getRoles());
     }
 
@@ -206,5 +207,15 @@ class Account implements UserInterface
     public function __toString(): string
     {
         return $this->getLogin();
+    }
+
+    public function addLog(UserLog $log): self
+    {
+        if (!$this->logs->contains($log)) {
+            $this->logs[] = $log;
+            $log->setUser($this);
+        }
+
+        return $this;
     }
 }

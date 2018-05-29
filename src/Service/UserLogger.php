@@ -17,13 +17,13 @@ class UserLogger
 
     public function addLog(Account $account, string $type): void
     {
+        $entityManager = $this->entityManager;
+
         $userLog = new UserLog();
 
         $userLog->setUser($account);
         $userLog->setType($type);
-        $userLog->setDate(new \DateTime());
 
-        $entityManager = $this->entityManager;
         $entityManager->persist($userLog);
         $entityManager->flush();
     }

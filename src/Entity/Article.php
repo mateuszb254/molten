@@ -52,6 +52,11 @@ class Article
      * @return mixed
      */
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
     public function getId()
     {
         return $this->id;

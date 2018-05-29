@@ -34,6 +34,7 @@ class AccountFixtures extends Fixture
             $user->setQuestion($userData['question']);
             $user->setAnswer($userData['answer']);
             $user->setRoles($userData['roles']);
+            $user->setCoins($userData['coins']);
 
             $manager->persist($user);
 
@@ -57,7 +58,8 @@ class AccountFixtures extends Fixture
                 'answer' => 'It\'s me',
                 'roles' => [
                     'ROLE_USER', 'ROLE_ADMIN'
-                ]
+                ],
+                'coins' => 5000
             ],
             [
                 'login' => 'user',
@@ -68,7 +70,8 @@ class AccountFixtures extends Fixture
                 'answer' => 'Yes, but unique!',
                 'roles' => [
                     'ROLE_USER'
-                ]
+                ],
+                'coins' => 5000
             ]
         ];
     }

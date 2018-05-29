@@ -122,6 +122,22 @@
                 <source>shop</source>
                 <target>Sklep</target>
             </trans-unit>
+            <trans-unit id="shop.product.inactive">
+                <source>shop.product.inactive</source>
+                <target>Produkt jest aktualnie niedostepny.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.not.found">
+                <source>shop.product.not.found</source>
+                <target>Nie znalezlismy produktu w naszej ofercie.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.bought">
+                <source>shop.product.bought</source>
+                <target>Zakupiono produkt..</target>
+            </trans-unit>
+            <trans-unit id="shop.not.enough.coins">
+                <source>shop.not.enough.coins</source>
+                <target>Niewystarczająca ilość monet.</target>
+            </trans-unit>
             <trans-unit id="support">
                 <source>support</source>
                 <target>Zgłoszenia</target>
@@ -153,6 +169,10 @@
             <trans-unit id="CHANGE_CODE">
                 <source>CHANGE_CODE</source>
                 <target>Zmiana kodu.</target>
+            </trans-unit>
+            <trans-unit id="BUY_ITEM">
+                <source>BUY_ITEM</source>
+                <target>Zakupiono przedmiot.</target>
             </trans-unit>
         </body>
     </file>

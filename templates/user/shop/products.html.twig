@@ -17,7 +17,7 @@
                 </div>
                 <div class="desc">
                     <p>{{ product.description }}</p>
-                    <a href="" title="Kup" class="button_buy"></a>
+                    <a href="{{ path('shop_buy', {"slug": product.category.slug}) }}?product={{ product.id }}" title="Kup" class="button_buy"></a>
                 </div>
             </div>
         {% endfor %}

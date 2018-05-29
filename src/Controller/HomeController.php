@@ -19,11 +19,11 @@ class HomeController extends AbstractController
     {
         $threeLastArticles = $articles->findFirstArticles();
 
-        $count = $articles->getCountOfArticles();
+        $countOfArticles = $articles->getCountOfArticles();
 
         return $this->render('user/index.html.twig', [
             'articles' => $threeLastArticles,
-            'countOfArticles' => $count
+            'countOfArticles' => $countOfArticles
         ]);
     }
 

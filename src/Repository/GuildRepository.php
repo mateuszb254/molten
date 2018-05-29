@@ -22,7 +22,7 @@ class GuildRepository extends ServiceEntityRepository
         parent::__construct($registry, Guild::class);
     }
 
-    public function findGuildsForSidebar()
+    public function findGuildsForSidebar(): array
     {
         $queryBuilder = $this->createQueryBuilder('g')
             ->orderBy('g.points', 'DESC')
@@ -32,7 +32,7 @@ class GuildRepository extends ServiceEntityRepository
         return $queryBuilder->getResult();
     }
 
-    public function findGuildsForMainRanking(int $page)
+    public function findGuildsForMainRanking(int $page): Pagerfanta
     {
         $query = $this->createQueryBuilder('g')
             ->orderBy('g.points', 'DESC')

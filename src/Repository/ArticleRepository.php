@@ -22,12 +22,12 @@ class ArticleRepository extends ServiceEntityRepository
     public function getCountOfArticles()
     {
         $queryBuilder = $this->createQueryBuilder('a')
-            ->select('count(a.id)')
+            ->select('count(a)')
             ->getQuery();
 
-        $result = $queryBuilder->execute();
+        $result = $queryBuilder->getSingleScalarResult();
 
-        return $result[0][1];
+        return $result;
     }
 
     public function findFirstArticles()
@@ -40,7 +40,8 @@ class ArticleRepository extends ServiceEntityRepository
         return $queryBuilder->execute();
     }
 
-    public function findArticlesByOffset($start) {
+    public function findArticlesByOffset($start)
+    {
         $queryBuilder = $this->createQueryBuilder('a')
             ->orderBy('a.createdAt', 'DESC')
             ->setFirstResult($start)

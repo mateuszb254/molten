@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TicketAnswerType extends AbstractType
 {
-    public const ADMIN_ROUTE_NAME = 'admin_ticket_show';
+    private const ADMIN_ROUTE_NAME = 'admin_ticket_show';
 
     private $request;
 

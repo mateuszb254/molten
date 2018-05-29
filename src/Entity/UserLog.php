@@ -17,43 +17,34 @@ class UserLog
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $type;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Account", inversedBy="logs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ShopProduct")
      */
-    private $date;
+    private $product;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="datetime")
      */
-    private $type;
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setUser(?Account $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getType(): ?string
@@ -64,6 +55,42 @@ class UserLog
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getUser(): ?Account
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Account $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getProduct(): ?ShopProduct
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?ShopProduct $product): self
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
