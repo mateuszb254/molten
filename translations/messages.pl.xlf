@@ -2,6 +2,18 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="articles">
+                <source>articles</source>
+                <target>Artykuły</target>
+            </trans-unit>
+            <trans-unit id="articles.new">
+                <source>articles.new</source>
+                <target>Nowy</target>
+            </trans-unit>
+            <trans-unit id="articles.manage">
+                <source>articles.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
             <trans-unit id="recaptcha">
                 <source>recaptcha</source>
                 <target>Musisz potwierdzić captchę przed wysłaniem formularza.</target>
@@ -173,6 +185,14 @@
             <trans-unit id="BUY_ITEM">
                 <source>BUY_ITEM</source>
                 <target>Zakupiono przedmiot.</target>
+            </trans-unit>
+            <trans-unit id="CONTROL_PANEL">
+                <source>CONTROL_PANEL</source>
+                <target>Panel administracyjny</target>
+            </trans-unit>
+            <trans-unit id="LOGGED_BY">
+                <source>LOGGED_BY</source>
+                <target>Zalogowany jako: {{test}}</target>
             </trans-unit>
         </body>
     </file>
