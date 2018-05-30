@@ -83,12 +83,14 @@ class TicketCategoryController extends Controller
     /**
      * @Route("/{id}", name="ticket_category_delete", methods="DELETE")
      */
-    public function delete(Request $request, TicketCategory $ticketCategory): Response
+    public function delete(Request $request, TicketCategory $ticketCategory, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete' . $ticketCategory->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($ticketCategory);
             $em->flush();
+
+            $this->addFlash('success', $translator->trans('support.category.delete.success'));
         }
 
         return $this->redirectToRoute('ticket_category_index');

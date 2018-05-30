@@ -218,6 +218,10 @@
                 <source>support.category.manage</source>
                 <target>Zarządzaj kategoriami</target>
             </trans-unit>
+            <trans-unit id="support.category.delete.success">
+                <source>support.category.delete.success</source>
+                <target>Usunięto kategorię.</target>
+            </trans-unit>
             <trans-unit id="logs">
                 <source>logs</source>
                 <target>Historia akcji</target>
