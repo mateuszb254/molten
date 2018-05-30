@@ -66,7 +66,7 @@ class ArticleController extends Controller
     /**
      * @Route("/{id}/edit", name="admin_article_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Article $article): Response
+    public function edit(Request $request, Article $article, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
@@ -74,7 +74,8 @@ class ArticleController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('article_edit', ['id' => $article->getId()]);
+            $this->addFlash('success', $translator->trans('articles.edit.success'));
+            return $this->redirectToRoute('admin_article_index', ['id' => $article->getId()]);
         }
 
         return $this->render('admin/article/edit.html.twig', [

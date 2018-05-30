@@ -63,7 +63,7 @@ class TicketCategoryController extends Controller
     /**
      * @Route("/{id}/edit", name="ticket_category_edit", methods="GET|POST")
      */
-    public function edit(Request $request, TicketCategory $ticketCategory): Response
+    public function edit(Request $request, TicketCategory $ticketCategory, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(TicketCategoryType::class, $ticketCategory);
         $form->handleRequest($request);
@@ -71,7 +71,8 @@ class TicketCategoryController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ticket_category_edit', ['id' => $ticketCategory->getId()]);
+            $this->addFlash('success', $translator->trans('support.category.edit.success'));
+            return $this->redirectToRoute('ticket_category_index');
         }
 
         return $this->render('admin/ticket_category/edit.html.twig', [
