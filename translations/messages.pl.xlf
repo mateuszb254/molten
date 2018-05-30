@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edycja</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Usuń</target>
+            </trans-unit>
             <trans-unit id="articles">
                 <source>articles</source>
                 <target>Artykuły</target>
@@ -9,6 +17,10 @@
             <trans-unit id="articles.new">
                 <source>articles.new</source>
                 <target>Nowy</target>
+            </trans-unit>
+            <trans-unit id="articles.new.success">
+                <source>articles.new.success</source>
+                <target>Dodano nowy artykuł. Przejdz do całej <![CDATA[<a href="%admin_article_index%">listy.</a>]]></target>
             </trans-unit>
             <trans-unit id="articles.title">
                 <source>articles.title</source>
@@ -33,6 +45,10 @@
             <trans-unit id="articles.manage">
                 <source>articles.manage</source>
                 <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="article.delete.success">
+                <source>article.delete.success</source>
+                <target>Usunięto artykuł.</target>
             </trans-unit>
             <trans-unit id="recaptcha">
                 <source>recaptcha</source>

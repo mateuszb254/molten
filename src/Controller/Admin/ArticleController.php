@@ -86,14 +86,16 @@ class ArticleController extends Controller
     /**
      * @Route("/{id}", name="admin_article_delete", methods="DELETE")
      */
-    public function delete(Request $request, Article $article): Response
+    public function delete(Request $request, Article $article, TranslatorInterface $translator): Response
     {
         if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($article);
             $em->flush();
+
+            $this->addFlash('success', $translator->trans('article.delete.success'));
         }
 
-        return $this->redirectToRoute('article_index');
+        return $this->redirectToRoute('admin_article_index');
     }
 }
