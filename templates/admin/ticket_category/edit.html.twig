@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-
-<title>Edit TicketCategory</title>
-
-{% block body %}
-    <h1>Edit TicketCategory</h1>
-
-    {{ include('admin/ticket_category/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('ticket_category_index') }}">back to list</a>
-
-    {{ include('admin/ticket_category/_delete_form.html.twig') }}
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}articles{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-validation">
+                        {% include 'admin/ticket_category/_form.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
