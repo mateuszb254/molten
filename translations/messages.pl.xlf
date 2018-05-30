@@ -182,6 +182,14 @@
                 <source>support.view</source>
                 <target>Przeglądaj</target>
             </trans-unit>
+            <trans-unit id="support.category.name">
+                <source>support.category.name</source>
+                <target>Nazwa kategorii</target>
+            </trans-unit>
+            <trans-unit id="support.category.single_manage">
+                <source>support.category.single_manage</source>
+                <target>Zarządzaj kategorią</target>
+            </trans-unit>
             <trans-unit id="support.category.new">
                 <source>support.category.new</source>
                 <target>Dodaj kategorię</target>

@@ -23,7 +23,7 @@ class TicketCategoryController extends Controller
      */
     public function index(TicketCategoryRepository $ticketCategoryRepository): Response
     {
-        return $this->render('admin/ticket_category/index.html.twig', ['ticket_categories' => $ticketCategoryRepository->findAll()]);
+        return $this->render('admin/ticket_category/index.html.twig', ['categories' => $ticketCategoryRepository->findAll()]);
     }
 
     /**

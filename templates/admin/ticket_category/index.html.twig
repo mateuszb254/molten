@@ -1,35 +1,38 @@
-<!DOCTYPE html>
-
-<title>TicketCategory index</title>
-
-{% block body %}
-    <h1>TicketCategory index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for ticket_category in ticket_categories %}
-            <tr>
-                <td>{{ ticket_category.id }}</td>
-                <td>{{ ticket_category.name }}</td>
-                <td>
-                    <a href="{{ path('ticket_category_show', {'id': ticket_category.id}) }}">show</a>
-                    <a href="{{ path('ticket_category_edit', {'id': ticket_category.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('ticket_category_new') }}">Create new</a>
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}articles{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive m-t-40">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}support.category.name{% endtrans %}</th>
+                        <th>{% trans %}support.category.single_manage{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                          <td>{{ category.name }}</td>
+                          <td></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/lib/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/datatables-init.js') }}"></script>
 {% endblock %}
