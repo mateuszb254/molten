@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("acp/ticket/category")
@@ -28,7 +29,7 @@ class TicketCategoryController extends Controller
     /**
      * @Route("/new", name="ticket_category_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TranslatorInterface $translator): Response
     {
         $ticketCategory = new TicketCategory();
         $form = $this->createForm(TicketCategoryType::class, $ticketCategory);
@@ -39,7 +40,10 @@ class TicketCategoryController extends Controller
             $em->persist($ticketCategory);
             $em->flush();
 
-            return $this->redirectToRoute('ticket_category_index');
+            $this->addFlash('success', $translator->trans('support.category.new.success', [
+                '%ticket_category_index%' => $this->generateUrl('ticket_category_index')
+            ]));
+            return $this->redirectToRoute('ticket_category_new');
         }
 
         return $this->render('admin/ticket_category/new.html.twig', [
@@ -81,7 +85,7 @@ class TicketCategoryController extends Controller
      */
     public function delete(Request $request, TicketCategory $ticketCategory): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$ticketCategory->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $ticketCategory->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($ticketCategory);
             $em->flush();

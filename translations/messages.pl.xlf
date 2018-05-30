@@ -22,10 +22,6 @@
                 <source>articles.more</source>
                 <target>Adres url:</target>
             </trans-unit>
-            <trans-unit id="articles.new.success">
-                <source>articles.new.success</source>
-                <target>Dodano nowy artykuł. Przejdz do całej <![CDATA[<a href="%admin_article_index%">listy.</a>]]></target>
-            </trans-unit>
             <trans-unit id="articles.author">
                 <source>articles.author</source>
                 <target>Autor</target>
@@ -182,9 +178,21 @@
                 <source>support.show</source>
                 <target>Moje zgłoszenia</target>
             </trans-unit>
-            <trans-unit id="support.new">
-                <source>support.new</source>
-                <target>Nowe zgłoszenie</target>
+            <trans-unit id="support.view">
+                <source>support.view</source>
+                <target>Przeglądaj</target>
+            </trans-unit>
+            <trans-unit id="support.category.new">
+                <source>support.category.new</source>
+                <target>Dodaj kategorię</target>
+            </trans-unit>
+            <trans-unit id="support.category.new.success">
+                <source>support.category.new.success</source>
+                <target>Dodano nową kategorię. Przejdz do całej <![CDATA[<a href="%ticket_category_index%">listy.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="support.category.manage">
+                <source>support.category.manage</source>
+                <target>Zarządzaj kategoriami</target>
             </trans-unit>
             <trans-unit id="logs">
                 <source>logs</source>

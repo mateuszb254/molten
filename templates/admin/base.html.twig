@@ -169,9 +169,9 @@
                     <li><a class="has-arrow " href="#" aria-expanded="false"><i class="fas fa-phone"></i><span
                                     class="hide-menu">Zgłoszenia</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="#">Przeglądaj</a></li>
-                            <li><a href="#">Dodaj kategorię</a></li>
-                            <li><a href="#">Zarządzaj kategoriami</a></li>
+                            <li><a href="{{ path('admin_support_index') }}">{% trans %}support.view{% endtrans %}</a></li>
+                            <li><a href="{{ path('ticket_category_new') }}">{% trans %}support.category.new{% endtrans %}</a></li>
+                            <li><a href="{{ path('ticket_category_index') }}">{% trans %}support.category.manage{% endtrans %}</a></li>
                             </li>
                         </ul>
                     </li>
