@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("/acp/articles")
@@ -18,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/", name="article_index", methods="GET")
+     * @Route("/", name="admin_article_index", methods="GET")
      */
     public function index(ArticleRepository $articleRepository): Response
     {
@@ -26,9 +27,9 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/new", name="article_new", methods="GET|POST")
+     * @Route("/new", name="admin_article_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, TranslatorInterface $translator): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
@@ -42,7 +43,10 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('article_index');
+            $this->addFlash('success', $translator->trans('articles.new.success', [
+                '%admin_article_index%' => $this->generateUrl('admin_article_index')
+            ]));
+            return $this->redirectToRoute('admin_article_new');
         }
 
         return $this->render('admin/article/new.html.twig', [
@@ -52,7 +56,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="article_show", methods="GET")
+     * @Route("/{id}", name="admin_article_show", methods="GET")
      */
     public function show(Article $article): Response
     {
@@ -60,7 +64,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="article_edit", methods="GET|POST")
+     * @Route("/{id}/edit", name="admin_article_edit", methods="GET|POST")
      */
     public function edit(Request $request, Article $article): Response
     {
@@ -80,11 +84,11 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="article_delete", methods="DELETE")
+     * @Route("/{id}", name="admin_article_delete", methods="DELETE")
      */
     public function delete(Request $request, Article $article): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($article);
             $em->flush();

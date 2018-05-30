@@ -72,7 +72,7 @@ class AccountFixtures extends Fixture
                     'ROLE_USER'
                 ],
                 'coins' => 5000
-            ]
+            ],
         ];
     }
 }
