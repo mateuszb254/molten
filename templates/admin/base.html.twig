@@ -167,7 +167,7 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow " href="#" aria-expanded="false"><i class="fas fa-phone"></i><span
-                                    class="hide-menu">Zgłoszenia</span></a>
+                                    class="hide-menu">Zgłoszenia<span class="label label-rouded label-danger pull-right">{{ render(controller('App\\Controller\\API\\TicketController::count'))|trim('"') }}</span></span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{ path('admin_support_index') }}">{% trans %}support.view{% endtrans %}</a></li>
                             <li><a href="{{ path('ticket_category_new') }}">{% trans %}support.category.new{% endtrans %}</a></li>

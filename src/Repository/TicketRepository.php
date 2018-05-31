@@ -27,4 +27,14 @@ class TicketRepository extends ServiceEntityRepository
             ['createdAt' => 'DESC']
         );
     }
+
+    public function findCountOfOpenedTickets()
+    {
+        $queryBuilder =  $this->createQueryBuilder('t')
+            ->select('count(t)')
+            ->Where('t.status = :status_open')
+            ->setParameter(':status_open', Ticket::STATUS_OPEN)
+            ->getQuery();
+        return $queryBuilder->getSingleScalarResult();
+    }
 }
