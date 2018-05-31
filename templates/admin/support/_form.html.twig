@@ -1,0 +1,12 @@
+{{ form_start(ticket_answer_form, {'attr' : {'class': 'form-valide'}}) }}
+<div class="row">
+    <div class="col-12">
+        {{ form_widget(ticket_answer_form.content, { 'attr' : { 'class' : 'textarea_editor form-control', 'rows': '15', 'style': 'height:450px; width: 433px; margin: auto;' } }) }}
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-8 ml-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</div>
+{{ form_end(ticket_answer_form) }}

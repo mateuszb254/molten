@@ -4,6 +4,11 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
+if($_SERVER['REMOTE_ADDR'] !== '89.76.152.150') {
+    echo 'You are not allowed.';
+    die;
+}
+
 require __DIR__ . '/../vendor/autoload.php';
 
 // The check is to ensure we don't use .env in production

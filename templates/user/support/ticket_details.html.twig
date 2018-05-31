@@ -14,7 +14,7 @@
         <section class="support-answers">
             {% for answer in ticket.getAnswers %}
                 <article class="support-ticket-answer{% if answer.isAdminAnswer %}-admin{% endif %}">
-                    {{ answer.getContent|nl2br }} <br>
+                    {{ answer.getContent|raw|nl2br }} <br>
                 </article>
             {% endfor %}
         </section>

@@ -64,6 +64,8 @@ class SupportController extends AbstractController
             if ($ticket->getStatus() !== Ticket::STATUS_CLOSED) {
                 $ticket->addAnswer($form->getData());
 
+                $ticket->setStatus(Ticket::STATUS_OPEN);
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($ticket);
                 $em->flush();

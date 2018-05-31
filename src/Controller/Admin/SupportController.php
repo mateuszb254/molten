@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("/acp/support")
@@ -32,7 +33,7 @@ class SupportController extends AbstractController
     /**
      * @Route("/ticket/{id}", name="admin_ticket_show", requirements={"id": "\d+"})
      */
-    public function show(Request $request, Ticket $ticket): Response
+    public function show(Request $request, Ticket $ticket, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(TicketAnswerType::class);
         $form->handleRequest($request);
@@ -56,6 +57,9 @@ class SupportController extends AbstractController
             $em->persist($ticket);
             $em->flush();
 
+            $this->addFlash('success', $translator->trans('support.answer.success', [
+                '%admin_support_index%' => $this->generateUrl('admin_support_index')
+            ]));
             return $this->redirectToRoute('admin_ticket_show', [
                 'id' => $ticket->getId()
             ]);

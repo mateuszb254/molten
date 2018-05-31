@@ -1,37 +1,56 @@
-{{ dump(tickets) }}
-<!DOCTYPE html>
-
-<title>Article index</title>
-
-{% block body %}
-    <h1>Support index</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Author</th>
-            <th>Category</th>
-            <th>Created</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ticket in tickets %}
-            <tr>
-                <td>{{ ticket.title }}</td>
-                <td><a href="{{ path('admin_ticket_show', {'id': ticket.id } ) }}">{{ ticket.content }}</a></td>
-                <td>{{ ticket.author }}</td>
-                <td>{{ ticket.category }}</td>
-                <td>{{ ticket.createdAt|date('Y-m-d H:i:s') }}</td>
-                <td>{{ ticket.status }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}tickets{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive m-t-40">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}tickets.title{% endtrans %}</th>
+                        <th>{% trans %}tickets.content{% endtrans %}</th>
+                        <th>{% trans %}tickets.author{% endtrans %}</th>
+                        <th>{% trans %}tickets.createdAt{% endtrans %}</th>
+                        <th>{% trans %}tickets.category{% endtrans %}</th>
+                        <th style="width: 12%">{% trans %}tickets.manage{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ticket in tickets %}
+                        <tr{{ ticket.status == constant('STATUS_OPEN', ticket) ? ' style="background-color: #e2d1d1;"' : '' }}>
+                            {% if ticket.title|length  < 25 %}
+                                <td>{{ ticket.title }}</td>
+                            {% else %}
+                                <td>{{ ticket.title|slice(0, 25) }}...</td>
+                            {% endif %}
+                            {% if ticket.content|length  < 50 %}
+                                <td>{{ ticket.content }}</td>
+                            {% else %}
+                                <td>{{ ticket.content|slice(0, 100) }}...</td>
+                            {% endif %}
+                            <td>{{ ticket.author }}</td>
+                            <td>{{ ticket.createdAt|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ ticket.category }}</td>
+                            <td>
+                                <a href="{{ path('admin_ticket_show', {'id': ticket.id}) }}" class="btn btn-info">{% trans %}view{% endtrans %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/lib/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/datatables-init.js') }}"></script>
 {% endblock %}
