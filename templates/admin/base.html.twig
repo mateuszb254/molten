@@ -155,7 +155,8 @@
                 <ul id="sidebarnav">
                     <li class="nav-devider"></li>
                     <li class="nav-label">Home</li>
-                    <li> <a class="has-arrow  " href="{{ path('admin_index') }}" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                    <li><a class="has-arrow  " href="{{ path('admin_index') }}" aria-expanded="false"><i
+                                    class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li class="nav-label">Zarządzanie www</li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-newspaper"></i><span
@@ -167,14 +168,20 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow " href="#" aria-expanded="false"><i class="fas fa-phone"></i><span
-                                    class="hide-menu">Zgłoszenia<span class="label label-rouded label-danger pull-right">{{ render(controller('App\\Controller\\API\\TicketController::count'))|trim('"') }}</span></span></a>
+                                    class="hide-menu">Zgłoszenia<span
+                                        class="label label-rouded label-danger pull-right">{{ render(controller('App\\Controller\\API\\TicketController::count'))|trim('"') }}</span></span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><a href="{{ path('admin_support_index') }}">{% trans %}support.view{% endtrans %}</a></li>
-                            <li><a href="{{ path('ticket_category_new') }}">{% trans %}support.category.new{% endtrans %}</a></li>
-                            <li><a href="{{ path('ticket_category_index') }}">{% trans %}support.category.manage{% endtrans %}</a></li>
+                            <li><a href="{{ path('admin_support_index') }}">{% trans %}support.view{% endtrans %}</a>
+                            </li>
+                            <li><a href="{{ path('ticket_category_new') }}">{% trans %}
+                                    support.category.new{% endtrans %}</a></li>
+                            <li><a href="{{ path('ticket_category_index') }}">{% trans %}
+                                    support.category.manage{% endtrans %}</a></li>
                             </li>
                         </ul>
                     </li>
+                    <li><a href="{{ path('admin_users_index') }}" aria-expanded="false"><i class="fa fa-user"></i><span
+                                    class="hide-menu">{% trans %}users{% endtrans %}</span></a></li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

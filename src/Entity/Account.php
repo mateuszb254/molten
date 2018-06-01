@@ -35,6 +35,7 @@ class Account implements UserInterface
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -76,57 +77,77 @@ class Account implements UserInterface
      */
     private $logs;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $lastActivity;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private $registeredAt;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
+        $this->registeredAt = new \DateTime();
+        $this->lastActivity = new \DateTime();
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getLogin()
+    public function getLogin(): string
     {
         return $this->login;
     }
 
-    public function setLogin($login)
+    public function setLogin($login): self
     {
         $this->login = $login;
+
+        return $this;
     }
 
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword($password)
+    public function setPassword($password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
 
-    public function setCode($code)
+    public function setCode($code): self
     {
         $this->code = $code;
+
+        return $this;
     }
 
-    public function getQuestion()
+    public function getQuestion(): string
     {
         return $this->question;
     }
@@ -136,7 +157,7 @@ class Account implements UserInterface
         $this->question = $question;
     }
 
-    public function getAnswer()
+    public function getAnswer(): string
     {
         return $this->answer;
     }
@@ -146,7 +167,7 @@ class Account implements UserInterface
         $this->answer = $answer;
     }
 
-    public function getCoins()
+    public function getCoins(): int
     {
         return $this->coins;
     }
@@ -156,7 +177,7 @@ class Account implements UserInterface
         $this->coins = $coins;
     }
 
-    public function getPlainPassword()
+    public function getPlainPassword(): string
     {
         return $this->plainPassword;
     }
@@ -166,7 +187,7 @@ class Account implements UserInterface
         $this->plainPassword = $plainPassword;
     }
 
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->login;
     }
@@ -217,5 +238,22 @@ class Account implements UserInterface
         }
 
         return $this;
+    }
+
+    public function setLastActivity(\DateTime $lastActivity): self
+    {
+        $this->lastActivity = $lastActivity;
+
+        return $this;
+    }
+
+    public function getLastActivity(): \DateTime
+    {
+        return $this->registeredAt;
+    }
+
+    public function getRegisteredAt(): \DateTime
+    {
+        return $this->registeredAt;
     }
 }

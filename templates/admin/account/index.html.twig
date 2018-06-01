@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}users{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive m-t-40">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}users.login{% endtrans %}</th>
+                        <th>{% trans %}users.email{% endtrans %}</th>
+                        <th>{% trans %}users.code{% endtrans %}</th>
+                        <th>{% trans %}users.lastActivity{% endtrans %}</th>
+                        <th>{% trans %}users.registredAt{% endtrans %}</th>
+                        <th>{% trans %}users.role{% endtrans %}</th>
+                        <th style="width: 12%">{% trans %}users.manage{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.login }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.code }}</td>
+                            <td>{{ user.lastActivity|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ user.registeredAt|date('Y-m-d H:i:s') }}</td>
+                            {% if user.hasRole('ROLE_ADMIN') %}
+                                <td><i class="fa fa-graduation-cap" style="color: #9c6363;">{% trans %}ROLE_ADMIN{% endtrans %}</i></td>
+                            {% else %}
+                                <td><i class="fa fa-user">{% trans %}ROLE_USER{% endtrans %}</i></td>
+                            {% endif %}
+                            <td>
+                                <a href="{{ path('admin_users_edit', {'login': user.login}) }}"
+                                   class="btn btn-info">{% trans %}view{% endtrans %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/lib/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/datatables-init.js') }}"></script>
+{% endblock %}

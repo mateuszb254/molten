@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{% trans %}user.edit{% endtrans %}</h4>
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.login) }}
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="ti-user"></i></div>
+                        {{ form_widget(form.login, {'attr' : {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="ti-email"></i></div>
+                        {{ form_widget(form.email, {'attr' : {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.password) }}
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                        {{ form_widget(form.password, {'attr' : {'class': 'form-control', 'value': 'password'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.code) }}
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                        {{ form_widget(form.code, {'attr' : {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.coins) }}
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="ti-heart"></i></div>
+                        {{ form_widget(form.coins, {'attr' : {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">{% trans %}edit{% endtrans %}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <button type="button" class="btn btn-default btn-block m-b-10">{% trans %}
+                    ban.user{% endtrans %}</button>
+                {% if app.user.hasRole('ROLE_ADMIN') %}
+                    <button type="button" class="btn btn-primary btn-block m-b-10">{% trans %}
+                        revoke.admin.permissions{% endtrans %}</button>
+                {% else %}
+                    <button type="button" class="btn btn-primary btn-block m-b-10">{% trans %}
+                        grant.admin.permissions{% endtrans %}</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
