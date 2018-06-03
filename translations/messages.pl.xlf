@@ -274,6 +274,54 @@
                 <source>registration.success</source>
                 <target>Rejestracja przebiegła pomyślnie.</target>
             </trans-unit>
+            <trans-unit id="user.edit">
+                <source>user.edit</source>
+                <target>Edycja użytkownika {{user.login}}</target>
+            </trans-unit>
+            <trans-unit id="user.edit.success">
+                <source>user.edit.success</source>
+                <target>Zmieniono dane użytkownika. Przejdz do całej <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="users.login">
+                <source>users.login</source>
+                <target>Loginy</target>
+            </trans-unit>
+            <trans-unit id="users.email">
+                <source>users.email</source>
+                <target>Adresy e-mail</target>
+            </trans-unit>
+            <trans-unit id="users.code">
+                <source>users.code</source>
+                <target>Kody usunięcia postaci</target>
+            </trans-unit>
+            <trans-unit id="users.lastActivity">
+                <source>users.lastActivity</source>
+                <target>Ostatnia aktywność</target>
+            </trans-unit>
+            <trans-unit id="users.registredAt">
+                <source>users.registredAt</source>
+                <target>Data rejestracji</target>
+            </trans-unit>
+            <trans-unit id="users.role">
+                <source>users.role</source>
+                <target>Rola</target>
+            </trans-unit>
+            <trans-unit id="users.manage">
+                <source>users.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="ban.user">
+                <source>ban.user</source>
+                <target>Zablokuj użytkownika</target>
+            </trans-unit>
+            <trans-unit id="revoke.admin.permissions">
+                <source>revoke.admin.permissions</source>
+                <target>Zdejmij uprawnienia admina</target>
+            </trans-unit>
             <trans-unit id="CHANGE_PASSWORD">
                 <source>CHANGE_PASSWORD</source>
                 <target>Zmiana hasła.</target>

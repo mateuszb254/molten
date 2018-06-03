@@ -43,7 +43,9 @@ class AccountController extends AbstractController
             $entityManager->persist($account);
             $entityManager->flush();
 
-            $this->addFlash('success', $translator->trans('user.edit.success'));
+            $this->addFlash('success', $translator->trans('user.edit.success', [
+                '%admin_users_index%' => $this->generateUrl('admin_users_index')
+            ]));
 
             return $this->redirectToRoute('admin_users_edit', [
                 'login' => $account->getLogin()
