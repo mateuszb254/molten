@@ -21,6 +21,11 @@ class TicketCategory
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="category", orphanRemoval=true)
+     */
+    private $tickets;
+
     public function getId()
     {
         return $this->id;

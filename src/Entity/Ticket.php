@@ -58,7 +58,7 @@ class Ticket
     private $answers;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TicketCategory")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TicketCategory", inversedBy="tickets")
      * @Assert\NotBlank(message="ticket.category.select")
      */
     private $category;
