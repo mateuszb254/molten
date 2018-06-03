@@ -2,7 +2,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">{% trans %}user.edit{% endtrans %}</h4>
+                <h4 class="card-title">{% trans with {'{{user.login}}': form.vars.value.login} %}user.edit{% endtrans %}</h4>
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.login) }}
@@ -10,6 +10,9 @@
                         <div class="input-group-addon"><i class="ti-user"></i></div>
                         {{ form_widget(form.login, {'attr' : {'class': 'form-control'}}) }}
                     </div>
+                    {% if form_errors(form.login) %}
+                        <small class="form-control-feedback"> {{ form_errors(form.login) }}</small>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.email) }}
@@ -17,13 +20,19 @@
                         <div class="input-group-addon"><i class="ti-email"></i></div>
                         {{ form_widget(form.email, {'attr' : {'class': 'form-control'}}) }}
                     </div>
+                    {% if form_errors(form.email) %}
+                        <small class="form-control-feedback"> {{ form_errors(form.email) }}</small>
+                    {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form_label(form.password) }}
+                    {{ form_label(form.plainPassword) }}
                     <div class="input-group">
                         <div class="input-group-addon"><i class="ti-lock"></i></div>
-                        {{ form_widget(form.password, {'attr' : {'class': 'form-control', 'value': 'password'}}) }}
+                        {{ form_widget(form.plainPassword, {'attr' : {'class': 'form-control', 'value': form.vars.default_value_pass }}) }}
                     </div>
+                    {% if form_errors(form.plainPassword) %}
+                        <small class="form-control-feedback"> {{ form_errors(form.plainPassword) }}</small>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.code) }}
@@ -31,6 +40,9 @@
                         <div class="input-group-addon"><i class="ti-lock"></i></div>
                         {{ form_widget(form.code, {'attr' : {'class': 'form-control'}}) }}
                     </div>
+                    {% if form_errors(form.code) %}
+                        <small class="form-control-feedback"> {{ form_errors(form.code) }}</small>
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.coins) }}
@@ -38,8 +50,12 @@
                         <div class="input-group-addon"><i class="ti-heart"></i></div>
                         {{ form_widget(form.coins, {'attr' : {'class': 'form-control'}}) }}
                     </div>
+                    {% if form_errors(form.coins) %}
+                        <small class="form-control-feedback"> {{ form_errors(form.coins) }}</small>
+                    {% endif %}
                 </div>
-                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">{% trans %}edit{% endtrans %}</button>
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">{% trans %}
+                    edit{% endtrans %}</button>
                 {{ form_end(form) }}
             </div>
         </div>

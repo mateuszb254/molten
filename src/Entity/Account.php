@@ -177,7 +177,7 @@ class Account implements UserInterface
         $this->coins = $coins;
     }
 
-    public function getPlainPassword(): string
+    public function getPlainPassword(): ?string
     {
         return $this->plainPassword;
     }

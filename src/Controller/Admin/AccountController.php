@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("/acp/accounts")
@@ -32,23 +33,21 @@ class AccountController extends AbstractController
     /**
      * @Route("/{login}/edit", name="admin_users_edit")
      */
-    public function edit(Request $request, Account $account): Response
+    public function edit(Request $request, Account $account, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(AccountType::class, $account);
         $form->handleRequest($request);
-
-        if($form->isSubmitted()) {
-//            dump($form->getData());
-//            die;
-        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($account);
             $entityManager->flush();
 
-            $this->addFlash('success', 'asdas');
-            return $this->redirectToRoute('admin_users_edit');
+            $this->addFlash('success', $translator->trans('user.edit.success'));
+
+            return $this->redirectToRoute('admin_users_edit', [
+                'login' => $account->getLogin()
+            ]);
         }
 
         return $this->render('admin/account/edit.html.twig', [
