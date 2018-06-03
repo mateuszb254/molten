@@ -99,7 +99,7 @@ class Account implements UserInterface
         return $this->id;
     }
 
-    public function getLogin(): string
+    public function getLogin(): ?string
     {
         return $this->login;
     }
@@ -111,7 +111,7 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -123,7 +123,7 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -135,7 +135,7 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->code;
     }
@@ -147,24 +147,28 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getQuestion(): string
+    public function getQuestion(): ?string
     {
         return $this->question;
     }
 
-    public function setQuestion($question)
+    public function setQuestion($question): self
     {
         $this->question = $question;
+
+        return $this;
     }
 
-    public function getAnswer(): string
+    public function getAnswer(): ?string
     {
         return $this->answer;
     }
 
-    public function setAnswer($answer)
+    public function setAnswer($answer): self
     {
         $this->answer = $answer;
+
+        return $this;
     }
 
     public function getCoins(): int
@@ -172,9 +176,11 @@ class Account implements UserInterface
         return $this->coins;
     }
 
-    public function setCoins($coins)
+    public function setCoins($coins): self
     {
         $this->coins = $coins;
+
+        return $this;
     }
 
     public function getPlainPassword(): ?string
@@ -182,9 +188,11 @@ class Account implements UserInterface
         return $this->plainPassword;
     }
 
-    public function setPlainPassword($plainPassword)
+    public function setPlainPassword($plainPassword): self
     {
         $this->plainPassword = $plainPassword;
+
+        return $this;
     }
 
     public function getUsername(): string
@@ -197,7 +205,7 @@ class Account implements UserInterface
         return null;
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         $this->plainPassword = null;
     }
@@ -207,7 +215,7 @@ class Account implements UserInterface
         $this->roles = $roles;
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
         // TODO::IMPLEMENT ROLES IN SYSTEM
         return [
@@ -215,7 +223,7 @@ class Account implements UserInterface
         ];
     }
 
-    public function hasRole(string $string)
+    public function hasRole(string $string): bool
     {
         return in_array($string, $this->getRoles());
     }
@@ -247,12 +255,12 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getLastActivity(): \DateTime
+    public function getLastActivity(): ?\DateTime
     {
         return $this->registeredAt;
     }
 
-    public function getRegisteredAt(): \DateTime
+    public function getRegisteredAt(): ?\DateTime
     {
         return $this->registeredAt;
     }
