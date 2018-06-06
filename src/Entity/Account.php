@@ -267,7 +267,7 @@ class Account implements UserInterface
 
     public function getLastActivity(): ?\DateTime
     {
-        return $this->registeredAt;
+        return $this->lastActivity;
     }
 
     public function getRegisteredAt(): ?\DateTime
