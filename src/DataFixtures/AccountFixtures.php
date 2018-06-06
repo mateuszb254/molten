@@ -36,6 +36,9 @@ class AccountFixtures extends Fixture
             $user->setRoles($userData['roles']);
             $user->setCoins($userData['coins']);
 
+            if(array_key_exists('banTime', $userData)) $user->setBanTime($userData['banTime']);
+            if(array_key_exists('banReason', $userData)) $user->setBanReason($userData['banReason']);
+
             $manager->persist($user);
 
             if($user->getLogin() === self::ADMIN_USER_REFERENCE) {
@@ -73,6 +76,20 @@ class AccountFixtures extends Fixture
                 ],
                 'coins' => 5000
             ],
+            [
+                'login' => 'user_banned',
+                'password' => 'user',
+                'email' => 'user_banned@nagadev.pl',
+                'code' => 33333,
+                'question' => 'Am i just an user?',
+                'answer' => 'Yes, but banned. :(',
+                'roles' => [
+                    'ROLE_USER'
+                ],
+                'coins' => 0,
+                'banTime' => (new \DateTime())->add(new \DateInterval('P1D')),
+                'banReason' => 'Illegal software'
+            ]
         ];
     }
 }

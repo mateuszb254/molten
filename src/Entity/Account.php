@@ -87,6 +87,16 @@ class Account implements UserInterface
      */
     private $registeredAt;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $banTime;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $banReason;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
@@ -263,5 +273,30 @@ class Account implements UserInterface
     public function getRegisteredAt(): ?\DateTime
     {
         return $this->registeredAt;
+    }
+
+    public function setBanTime(\DateTime $banTime)
+    {
+        $this->banTime = $banTime;
+    }
+
+    public function getBanTime(): ?\DateTime
+    {
+        return $this->banTime;
+    }
+
+    public function setBanReason(string $banReason)
+    {
+        $this->banReason = $banReason;
+    }
+
+    public function getBanReason(): ?string
+    {
+        return $this->banReason;
+    }
+
+    public function isBanned(): bool
+    {
+        return $this->getBanTime() > new \DateTime();
     }
 }
