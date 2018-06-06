@@ -16,6 +16,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Account implements UserInterface
 {
+    const DEFAULT_ROLE = 'ROLE_USER';
+    const ADMIN_ROLE = 'ROLE_ADMIN';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -97,11 +100,17 @@ class Account implements UserInterface
      */
     private $banReason;
 
+    /**
+     * @ORM\Column(type="array", nullable=false)
+     */
+    private $roles = [];
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
         $this->registeredAt = new \DateTime();
         $this->lastActivity = new \DateTime();
+        $this->setRole(self::DEFAULT_ROLE);
     }
 
     public function getId(): int
@@ -225,12 +234,16 @@ class Account implements UserInterface
         $this->roles = $roles;
     }
 
+    public function setRole(string $role)
+    {
+        if(!array_search($role, $this->getRoles())) {
+            $this->roles[] = $role;
+        }
+    }
+
     public function getRoles(): array
     {
-        // TODO::IMPLEMENT ROLES IN SYSTEM
-        return [
-            'ROLE_USER', 'ROLE_ADMIN'
-        ];
+        return $this->roles;
     }
 
     public function hasRole(string $string): bool
