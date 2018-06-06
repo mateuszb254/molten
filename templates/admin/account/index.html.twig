@@ -13,6 +13,7 @@
                         <th>{% trans %}users.lastActivity{% endtrans %}</th>
                         <th>{% trans %}users.registredAt{% endtrans %}</th>
                         <th>{% trans %}users.role{% endtrans %}</th>
+                        <th>{% trans %}users.accountStatus{% endtrans %}</th>
                         <th style="width: 12%">{% trans %}users.manage{% endtrans %}</th>
                     </tr>
                     </thead>
@@ -25,9 +26,15 @@
                             <td>{{ user.lastActivity|date('Y-m-d H:i:s') }}</td>
                             <td>{{ user.registeredAt|date('Y-m-d H:i:s') }}</td>
                             {% if user.hasRole('ROLE_ADMIN') %}
-                                <td><i class="fa fa-graduation-cap" style="color: #9c6363;">{% trans %}ROLE_ADMIN{% endtrans %}</i></td>
+                                <td><i class="fa fa-graduation-cap" style="color: #9c6363;">{% trans %}
+                                        ROLE_ADMIN{% endtrans %}</i></td>
                             {% else %}
                                 <td><i class="fa fa-user">{% trans %}ROLE_USER{% endtrans %}</i></td>
+                            {% endif %}
+                            {% if user.isBanned %}
+                                <td style="color: red;">{% trans with {'banTime': user.login} %}user.banned{% endtrans %}</td>
+                            {% else %}
+                                <td>{% trans %}user.notBanned{% endtrans %}</td>
                             {% endif %}
                             <td>
                                 <a href="{{ path('admin_users_edit', {'login': user.login}) }}"

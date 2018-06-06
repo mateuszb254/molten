@@ -274,6 +274,14 @@
                 <source>registration.success</source>
                 <target>Rejestracja przebiegła pomyślnie.</target>
             </trans-unit>
+            <trans-unit id="user.banned">
+                <source>user.banned</source>
+                <target>Konto zablokowane.</target>
+            </trans-unit>
+            <trans-unit id="user.notBanned">
+                <source>user.notBanned</source>
+                <target>OK</target>
+            </trans-unit>
             <trans-unit id="user.edit">
                 <source>user.edit</source>
                 <target>Edycja użytkownika {{user.login}}</target>
@@ -310,6 +318,10 @@
                 <source>users.role</source>
                 <target>Rola</target>
             </trans-unit>
+            <trans-unit id="users.accountStatus">
+                <source>users.accountStatus</source>
+                <target>Status konta</target>
+            </trans-unit>
             <trans-unit id="users.manage">
                 <source>users.manage</source>
                 <target>Zarządzaj</target>
@@ -345,6 +357,14 @@
             <trans-unit id="LOGGED_BY">
                 <source>LOGGED_BY</source>
                 <target>Zalogowany jako: {{test}}</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>Użytkownik</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ADMIN">
+                <source>ROLE_ADMIN</source>
+                <target>Administrator</target>
             </trans-unit>
         </body>
     </file>
