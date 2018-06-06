@@ -1073,8 +1073,7 @@ a:hover {
     top: -15px;
     left: 207px;
     display: block;
-    height: 5px;
-    margin-bottom: 5px;
+    margin-bottom: -15px;
 }
 
 .active {
