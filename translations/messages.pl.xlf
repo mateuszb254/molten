@@ -356,8 +356,7 @@
             </trans-unit>
             <trans-unit id="maintenance.contents">
                 <source>maintenance.contents</source>
-                <target>Przerwa techniczna. Wracamy tak szybko jak będzie to możliwe. Powód: %maintenance.reason%.
-                </target>
+                <target>Przerwa techniczna. Wracamy tak szybko jak będzie to możliwe.</target>
             </trans-unit>
             <trans-unit id="maintenance.turned.off">
                 <source>maintenance.turned.off</source>
