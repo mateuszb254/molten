@@ -20,7 +20,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("/user")
  * @Security("has_role('ROLE_USER')")
  */
-class UserController extends AbstractController
+class UserController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("/panel", name="user_panel")

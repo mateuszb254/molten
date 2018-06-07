@@ -16,7 +16,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("/acp/support")
  * @Security("has_role('ROLE_ADMIN')")
  */
-class SupportController extends AbstractController
+class SupportController extends AbstractController implements AdminControllerInterface
 {
     /**
      * @Route("", name="admin_support_index")

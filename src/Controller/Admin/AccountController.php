@@ -16,7 +16,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("/acp/accounts")
  * @Security("has_role('ROLE_ADMIN')")
  */
-class AccountController extends AbstractController
+class AccountController extends AbstractController implements AdminControllerInterface
 {
     /**
      * @Route("/", name="admin_users_index")

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("json")
  */
-class ServerController extends AbstractController
+class ServerController extends AbstractController implements APIControllerInterface
 {
     /**
      * @Route("/status", name="json_serverStatus")

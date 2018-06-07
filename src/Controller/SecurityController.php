@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class SecurityController extends AbstractController
+class SecurityController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("/register", name="register")

@@ -16,7 +16,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("/acp/articles")
  * @Security("has_role('ROLE_ADMIN')")
  */
-class ArticleController extends Controller
+class ArticleController extends Controller implements AdminControllerInterface
 {
     /**
      * @Route("/", name="admin_article_index", methods="GET")

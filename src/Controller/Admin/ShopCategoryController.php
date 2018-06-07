@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/acp/shop/categories")
  * @Security("has_role('ROLE_ADMIN')")
  */
-class ShopCategoryController extends Controller
+class ShopCategoryController extends Controller implements AdminControllerInterface
 {
     /**
      * @Route("/", name="shop_category_index", methods="GET")

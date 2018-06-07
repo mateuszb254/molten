@@ -20,7 +20,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("/shop")
  * @Security("has_role('ROLE_USER')")
  */
-class ShopController extends AbstractController
+class ShopController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("", name="shop_index", methods={"GET"})

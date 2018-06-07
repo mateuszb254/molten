@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/payments")
  */
-class PaymentsController extends AbstractController
+class PaymentsController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("", name="payments_index")

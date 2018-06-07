@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/ranking")
  */
-class RankingController extends AbstractController
+class RankingController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("/", name="ranking_index")

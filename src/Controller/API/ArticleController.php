@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("json")
  */
-class ArticleController extends AbstractController
+class ArticleController extends AbstractController implements APIControllerInterface
 {
     /**
      * @Route("/articles/{start}", requirements={"start" : "[\d]+"} ,name="json_articles", methods={"GET"})

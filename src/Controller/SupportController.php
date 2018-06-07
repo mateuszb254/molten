@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/support")
  * @Security("has_role('ROLE_USER')")
  */
-class SupportController extends AbstractController
+class SupportController extends AbstractController implements UserControllerInterface
 {
     /**
      * @Route("", name="support_index")

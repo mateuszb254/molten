@@ -16,7 +16,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @Route("acp/ticket/category")
  * @Security("has_role('ROLE_ADMIN')")
  */
-class TicketCategoryController extends Controller
+class TicketCategoryController extends Controller implements AdminControllerInterface
 {
     /**
      * @Route("/", name="ticket_category_index", methods="GET")

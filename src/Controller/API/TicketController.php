@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("json")
  */
-class TicketController extends AbstractController
+class TicketController extends AbstractController implements APIControllerInterface
 {
     /**
      * @Route("/tickets/open", requirements={"start" : "[\d]+"} ,name="json_tickets_count", methods={"GET"})
