@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="turn.on">
+                <source>turn.on</source>
+                <target>Włącz</target>
+            </trans-unit>
+            <trans-unit id="turn.off">
+                <source>turn.off</source>
+                <target>Wyłącz</target>
+            </trans-unit>
             <trans-unit id="edit">
                 <source>edit</source>
                 <target>Edycja</target>
@@ -24,7 +32,8 @@
             </trans-unit>
             <trans-unit id="articles.new.success">
                 <source>articles.new.success</source>
-                <target>Dodano nowy artykuł. Przejdz do całej <![CDATA[<a href="%admin_article_index%">listy.</a>]]></target>
+                <target>Dodano nowy artykuł. Przejdz do całej
+                    <![CDATA[<a href="%admin_article_index%">listy.</a>]]></target>
             </trans-unit>
             <trans-unit id="articles.edit.success">
                 <source>articles.edit.success</source>
@@ -146,6 +155,10 @@
                 <source>label.content</source>
                 <target>Treść</target>
             </trans-unit>
+            <trans-unit id="label.maintenance.status">
+                <source>label.maintenance.status</source>
+                <target>Status przerwy technicznej:</target>
+            </trans-unit>
             <trans-unit id="change.password">
                 <source>change.password</source>
                 <target>Zmień hasło</target>
@@ -248,7 +261,8 @@
             </trans-unit>
             <trans-unit id="support.category.new.success">
                 <source>support.category.new.success</source>
-                <target>Dodano nową kategorię. Przejdz do całej <![CDATA[<a href="%ticket_category_index%">listy.</a>]]></target>
+                <target>Dodano nową kategorię. Przejdz do całej
+                    <![CDATA[<a href="%ticket_category_index%">listy.</a>]]></target>
             </trans-unit>
             <trans-unit id="support.category.manage">
                 <source>support.category.manage</source>
@@ -264,7 +278,8 @@
             </trans-unit>
             <trans-unit id="support.answer.success">
                 <source>support.answer.success</source>
-                <target>Wysłano odpowiedz do użytkownika. Przejdz do całej <![CDATA[<a href="%admin_support_index%">listy zgłoszeń.</a>]]></target>
+                <target>Wysłano odpowiedz do użytkownika. Przejdz do całej
+                    <![CDATA[<a href="%admin_support_index%">listy zgłoszeń.</a>]]></target>
             </trans-unit>
             <trans-unit id="logs">
                 <source>logs</source>
@@ -288,7 +303,8 @@
             </trans-unit>
             <trans-unit id="user.edit.success">
                 <source>user.edit.success</source>
-                <target>Zmieniono dane użytkownika. Przejdz do całej <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
+                <target>Zmieniono dane użytkownika. Przejdz do całej
+                    <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
             </trans-unit>
             <trans-unit id="users">
                 <source>users</source>
@@ -333,6 +349,23 @@
             <trans-unit id="revoke.admin.permissions">
                 <source>revoke.admin.permissions</source>
                 <target>Zdejmij uprawnienia admina</target>
+            </trans-unit>
+            <trans-unit id="maintenance">
+                <source>maintenance</source>
+                <target>Przerwa techniczna</target>
+            </trans-unit>
+            <trans-unit id="maintenance.contents">
+                <source>maintenance.contents</source>
+                <target>Przerwa techniczna. Wracamy tak szybko jak będzie to możliwe. Powód: %maintenance.reason%.
+                </target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.off">
+                <source>maintenance.turned.off</source>
+                <target>Przerwa techniczna wyłączona.</target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.on">
+                <source>maintenance.turned.on</source>
+                <target>Przerwa techniczna włączona.</target>
             </trans-unit>
             <trans-unit id="CHANGE_PASSWORD">
                 <source>CHANGE_PASSWORD</source>
