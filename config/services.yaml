@@ -15,6 +15,9 @@ parameters:
         chunjo: 'chunjo'
         jinno: 'jinno'
         format: 'png'
+
+    maintenance_path: '%kernel.project_dir%/config/maintenance.yaml'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -41,5 +44,7 @@ services:
 
     App\Service\Recaptcha:
                 arguments: ['%recaptcha.secret_key%', '%repcatcha.public_key%', '%recaptcha.api_url%']
+    App\Service\MaintenanceManager:
+                    arguments: ['%maintenance_path%']
     App\Twig\KingdomExtension:
                 arguments: ['%kingdom_extension_settings%']
