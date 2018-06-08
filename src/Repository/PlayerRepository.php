@@ -25,7 +25,8 @@ class PlayerRepository extends ServiceEntityRepository
     public function findPlayersForSidebar(): array
     {
         $queryBuilder = $this->createQueryBuilder('p')
-            ->orderBy('p.level', 'DESC')
+            ->addOrderBy('p.level', 'DESC')
+            ->addOrderBy('p.name', 'ASC')
             ->setMaxResults(Player::PLAYERS_PER_PAGE_SIDEBAR)
             ->getQuery();
 
@@ -35,7 +36,8 @@ class PlayerRepository extends ServiceEntityRepository
     public function findPlayersForMainRanking(int $page): Pagerfanta
     {
         $query = $this->createQueryBuilder('p')
-            ->orderBy('p.level', 'DESC')
+            ->addOrderBy('p.level', 'DESC')
+            ->addOrderBy('p.name', 'ASC')
             ->setMaxResults(Player::PLAYERS_PER_PAGE_MAIN)
             ->getQuery();
 
