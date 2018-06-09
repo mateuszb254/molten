@@ -74,7 +74,7 @@ class MaintenanceSubscriber implements EventSubscriberInterface
                 'onKernelController'
             ],
             KernelEvents::EXCEPTION => [
-                'onKernelException'
+                'onKernelException', 1024
             ]
         ];
     }
