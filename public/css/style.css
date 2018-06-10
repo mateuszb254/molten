@@ -1269,3 +1269,56 @@ textarea:focus {
 .disabled {
     display: none;
 }
+
+.payments-content{
+    float: left;
+    width: 100%;
+    color: #d99b0f;
+}
+
+.paypal-av {
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+.paypal-title {
+    font-size: 12px;
+    border-bottom: 1px solid #c8a867;
+    bottom: 95%;
+    left: 25%;
+    position: relative;
+    width: 130px;
+}
+.paypal-description {
+    bottom: 90%;
+    left: 25%;
+    width: 250px;
+    position: relative;
+    font-size: 11px;
+}
+
+.paypal-packet {
+    font-weight: bold;
+    background-color: #140f16;
+    width: 420px;
+    height: 100px;
+    display: block;
+    margin: auto;
+    border: 1px solid #202628;
+    border-radius: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: default;
+}
+
+.paypal-button {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    font-weight: bold;
+    color: #ff7200;
+}
+.paypal-button:hover {
+    text-decoration: none;
+}

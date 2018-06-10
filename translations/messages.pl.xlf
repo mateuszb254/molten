@@ -366,6 +366,30 @@
                 <source>maintenance.turned.on</source>
                 <target>Przerwa techniczna włączona.</target>
             </trans-unit>
+            <trans-unit id="payment.paypal">
+                <source>payment.paypal</source>
+                <target>PayPal</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.buy_button">
+                <source>payment.paypal.buy_button</source>
+                <target>Kup</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.buy_title">
+                <source>payment.paypal.buy_title</source>
+                <target>Kup pakiet #%id%</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.success">
+                <source>payment.paypal.success</source>
+                <target>Płatność zakończona. Doładowano %coins% monet.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.completed">
+                <source>payment.paypal.completed</source>
+                <target>Płatność została zakończona wcześniej.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.packet">
+                <source>payment.paypal.packet</source>
+                <target>Kupując ten pakiet ten pakiet otrzymasz %coins% SM za %price% PLN.</target>
+            </trans-unit>
             <trans-unit id="CHANGE_PASSWORD">
                 <source>CHANGE_PASSWORD</source>
                 <target>Zmiana hasła.</target>

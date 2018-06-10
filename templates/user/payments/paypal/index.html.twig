@@ -1,0 +1,11 @@
+{% extends 'user/payments/index.html.twig' %}
+{% block panel_content %}
+    {% for paypal in paypal_packets %}
+        <div class="paypal-packet">
+            <img src="{{ asset('images/paypal_av.jpg') }}" class="paypal-av">
+            <div class="paypal-title">{% trans with {'%id%' : paypal.id}%}payment.paypal.buy_title{% endtrans %}</div>
+            <div class="paypal-description">{% trans with {'%coins%' : paypal.coins, '%price%' : paypal.price} %}payment.paypal.packet{% endtrans %}</div>
+            <a href="{{ path('payments_paypal_packet', {'id': paypal.id}) }}" class="button-small paypal-button">{% trans %}payment.paypal.buy_button{% endtrans %}</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,6 +1,27 @@
 {% extends 'user/base.html.twig' %}
 {% block head_title %}- Panel użytkownika{% endblock %}
 {% block content %}
-        {% block panel_content %}
-        {% endblock %}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+            <div class="box_menu">
+                <div class="box_menu_left">
+                </div>
+                <div class="box_menu_mid">
+                    <ul>
+                        <li>
+                            <a class="{% if app.request.get('_route') == 'payments_paypal_index' %}active{% endif %}"
+                               href="{{ path('payments_paypal_index') }}">{% trans %}payment.paypal{% endtrans %}</a></li>
+                    </ul>
+                </div>
+                <div class="box_menu_right">
+                </div>
+            </div>
+        </div>
+        <div class="payments-content">
+            {% include 'user/partials/flash_messages.html.twig' %}
+            {% block panel_content %}
+            {% endblock %}
+        </div>
+    </div>
 {% endblock %}
