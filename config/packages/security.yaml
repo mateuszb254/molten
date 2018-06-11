@@ -44,6 +44,7 @@ security:
     access_control:
          - { path: ^/user, roles: ROLE_USER }
          - { path: ^/shop, roles: ROLE_USER }
+         - { path: ^/payments, roles: ROLE_USER }
          - { path: ^/acp, roles: ROLE_ADMIN }
 
     role_hierarchy:
