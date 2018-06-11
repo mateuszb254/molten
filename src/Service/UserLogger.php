@@ -15,7 +15,7 @@ class UserLogger
         $this->entityManager = $entityManager;
     }
 
-    public function addLog(Account $account, string $type): void
+    public function addLog(Account $account, string $type, string $additional = null): void
     {
         $entityManager = $this->entityManager;
 
@@ -23,6 +23,10 @@ class UserLogger
 
         $userLog->setUser($account);
         $userLog->setType($type);
+
+        if ($additional !== null) {
+            $userLog->setAdditional($additional);
+        }
 
         $entityManager->persist($userLog);
         $entityManager->flush();
