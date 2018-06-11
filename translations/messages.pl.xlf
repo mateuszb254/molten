@@ -422,6 +422,10 @@
                 <source>ROLE_ADMIN</source>
                 <target>Administrator</target>
             </trans-unit>
+            <trans-unit id="COINS_BOUGHT_PAYPAL">
+                <source>COINS_BOUGHT_PAYPAL</source>
+                <target>Zakupiono %coins% monet.(PayPal)</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
