@@ -54,7 +54,7 @@ class PayPalController extends AbstractController implements UserControllerInter
             return $this->redirectToRoute('payments_paypal_index');
         }
 
-        if (!$transaction->getComplete() !== PayPalTransaction::PAYMENT_INCOMPLETE) {
+        if ($transaction->getComplete() !== PayPalTransaction::PAYMENT_INCOMPLETE) {
             $this->addFlash('alert', $translator->trans('payment.paypal.completed'));
             return $this->redirectToRoute('payments_paypal_index');
         }
