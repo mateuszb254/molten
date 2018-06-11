@@ -33,6 +33,11 @@ class UserLog
     private $product;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $additional;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -93,5 +98,15 @@ class UserLog
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    public function getAdditional(): ?string
+    {
+        return $this->additional;
+    }
+
+    public function setAdditional(string $additional)
+    {
+        $this->additional = $additional;
     }
 }
