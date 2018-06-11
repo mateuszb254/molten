@@ -13,7 +13,11 @@
             {% for log in logs %}
                 <tr>
                     <td class="support_content">
-                        {{ log.type|trans }}
+                        {% if log.type == 'COINS_BOUGHT_PAYPAL' %}
+                            {{ log.type|trans({'%coins%': log.additional}) }}
+                        {% else %}
+                            {{ log.type|trans }}
+                        {% endif %}
                     </td>
                     <td class="support_status">
                         {{ log.createdAt|date }}
