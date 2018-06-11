@@ -8,6 +8,7 @@ use App\Repository\PayPalRepository;
 use App\Repository\PayPalTransactionRepository;
 use App\Service\Payments\PayPal\PayPalInitiator;
 use App\Service\Payments\PayPal\PayPalReceiver;
+use App\Service\UserLogger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,7 +46,7 @@ class PayPalController extends AbstractController implements UserControllerInter
     /**
      * @Route("/receive", name="payments_paypal_receive", methods={"GET"})
      */
-    public function receive(Request $request, PayPalTransactionRepository $payPalTransactionRepository, PayPalReceiver $payPalReceiver, TranslatorInterface $translator): Response
+    public function receive(Request $request, PayPalTransactionRepository $payPalTransactionRepository, PayPalReceiver $payPalReceiver, TranslatorInterface $translator, UserLogger $userLogger): Response
     {
         $token = $request->get('token');
         $paymentId = $request->get('paymentId');
@@ -67,6 +68,7 @@ class PayPalController extends AbstractController implements UserControllerInter
          */
         $payPalReceiver->receive($transaction);
 
+        $userLogger->addLog($user, 'COINS_BOUGHT_PAYPAL', $transaction->getPayPal()->getCoins());
         $this->addFlash('success', $translator->trans('payment.paypal.success', [
             '%coins%' => $transaction->getPayPal()->getCoins()
         ]));
