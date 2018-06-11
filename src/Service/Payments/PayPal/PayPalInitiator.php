@@ -4,6 +4,7 @@ namespace App\Service\Payments\PayPal;
 
 use App\Entity\PayPal;
 use App\Entity\PayPalTransaction;
+use App\Service\Payments\PayPal\Exception\ConfigNotSetException;
 use Doctrine\Common\Persistence\ObjectManager;
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
@@ -96,9 +97,18 @@ class PayPalInitiator
      * Returns configured \PayPal\Auth\OAuthTokenCredential
      *
      * @return \PayPal\Auth\OAuthTokenCredential
+     *
+     * @throws \Exception
      */
     private function getOAuthTokenCredential(): OAuthTokenCredential
     {
+        if (empty($this->config['public_key']) || empty($this->config['secret_key'])) {
+            throw new ConfigNotSetException([
+                empty($this->config['public_key']) ? 'public_key' : null,
+                empty($this->config['secret_key']) ? 'secret_key' : null
+            ]);
+        }
+
         return new OAuthTokenCredential(
             $this->config['public_key'], $this->config['secret_key']
         );
