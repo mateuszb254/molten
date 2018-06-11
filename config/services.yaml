@@ -18,6 +18,16 @@ parameters:
 
     maintenance_path: '%kernel.project_dir%/config/maintenance.yaml'
 
+    paypal:
+        public_key: '%env(PAYPAL_PUBLIC_KEY)%'
+        secret_key: '%env(PAYPAL_SECRET_KEY)%'
+        payment_method: 'paypal'
+        mode: 'sandbox'
+        currency: 'PLN'
+
+        payment_success_route_name: 'payments_paypal_receive'
+        payment_cancel_route_name: 'payments_paypal_index'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -42,6 +52,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    App\Service\Payments\PayPal\PayPalInitiator:
+                arguments: ['%paypal%']
     App\Service\Recaptcha:
                 arguments: ['%recaptcha.secret_key%', '%repcatcha.public_key%', '%recaptcha.api_url%']
     App\Service\MaintenanceManager:
