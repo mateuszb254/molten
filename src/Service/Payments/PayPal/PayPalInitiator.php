@@ -98,7 +98,7 @@ class PayPalInitiator
      *
      * @return \PayPal\Auth\OAuthTokenCredential
      *
-     * @throws \Exception
+     * @throws \App\Service\Payments\PayPal\Exception\ConfigNotSetException
      */
     private function getOAuthTokenCredential(): OAuthTokenCredential
     {
