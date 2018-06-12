@@ -3,8 +3,8 @@
 parameters:
     locale: 'pl'
 
-    recaptcha.secret_key: '6LeU_FQUAAAAAC3AjgTIdGtInGKZhOwtayv56Cg_'
-    repcatcha.public_key: '6LeU_FQUAAAAAFjxGKPfe81TkY9VIxxZUI0Ul_z1'
+    repcatcha.public_key: '%env(RECAPTCHA_PUBLIC_KEY)%'
+    recaptcha.secret_key: '%env(RECAPTCHA_SECRET_KEY)%'
     recaptcha.api_url: 'https://www.google.com/recaptcha/api/siteverify'
 
     attachments_directory: '%kernel.project_dir%/public/upload/attachments'
