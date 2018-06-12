@@ -44,14 +44,4 @@ class HomeController extends AbstractController implements UserControllerInterfa
     {
         return $this->render('user/download.html.twig');
     }
-
-
-    /**
-     * @Route("/test")
-     */
-    public function test(): Response {
-
-
-
-    }
 }
