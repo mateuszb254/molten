@@ -254,6 +254,9 @@
     "symfony/property-access": {
         "version": "v4.0.6"
     },
+    "symfony/proxy-manager-bridge": {
+        "version": "v4.1.0"
+    },
     "symfony/routing": {
         "version": "4.0",
         "recipe": {
