@@ -64,11 +64,6 @@ class UserLog
         return $this;
     }
 
-    public function getUser(): ?Account
-    {
-        return $this->user;
-    }
-
     public function setUser(?Account $user): self
     {
         $this->user = $user;
