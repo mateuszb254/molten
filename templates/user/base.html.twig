@@ -48,25 +48,7 @@
                             </div>
                         </div>
                     {% elseif not app.user %}
-                        <div class="box_login not_logged">
-                            <form action="{{ path('login') }}" method="post">
-                                <dl>
-                                    <dt><label>Login</label></dt>
-                                    <dd><input type="text" id="username" name="_username" class="input_login"/></dd>
-                                    <dt><label>Hasło</label></dt>
-                                    <dd><input type="password" value="" name="_password" class="input_login"/></dd>
-                                </dl>
-                                <div class="links">
-                                    <a href="{{ path('forgotten') }}" title="Zapomniałem hasła" class="remind">Zapomniałem
-                                        hasła</a><br/>
-                                    <a href="{{ path('register') }}" title="Rejestracja"
-                                       class="register">Rejestracja</a>
-                                </div>
-                                <div class="button">
-                                    <input type="submit" value="" class="button_login"/>
-                                </div>
-                            </form>
-                        </div>
+                        {% include 'user/partials/box_login_not_logged.html.twig' %}
                     {% endif %}
                     <div class="box_slider">
                         <div id="slides">
