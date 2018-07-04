@@ -159,7 +159,8 @@
                                     class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li class="nav-label">Zarządzanie www</li>
-                    <li><a href="{{ path('admin_maintenance') }}" aria-expanded="false"><i class="fa fa-power-off"></i><span
+                    <li><a href="{{ path('admin_maintenance') }}" aria-expanded="false"><i
+                                    class="fa fa-power-off"></i><span
                                     class="hide-menu">{% trans %}maintenance{% endtrans %}</span></a></li>
                     <li class="nav-label">Zarządzanie www</li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-newspaper"></i><span
@@ -185,6 +186,17 @@
                     </li>
                     <li><a href="{{ path('admin_users_index') }}" aria-expanded="false"><i class="fa fa-user"></i><span
                                     class="hide-menu">{% trans %}users{% endtrans %}</span></a></li>
+
+
+                    <li class="nav-label">{% trans %}payments{% endtrans %}</li>
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-ticket"></i><span
+                                    class="hide-menu">{% trans %}payment.promotion_code{% endtrans %}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ path('admin_payments_codes_generate') }}">{% trans %}payment.promotion_code.generate{% endtrans %}</a></li>
+                            <li><a href="{{ path('admin_payments_codes_index') }}">{% trans %}payment.promotion_code.manage{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

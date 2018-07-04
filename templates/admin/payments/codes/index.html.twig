@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}payment.promotion_code{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive m-t-40">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}payment.promotion_code{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.value{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.usedBy{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.usedDate{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.generatedBy{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.expires{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.type{% endtrans %}</th>
+                        <th>{% trans %}payment.promotion_code.tag{% endtrans %}</th>
+                        <th style="width: 12%">{% trans %}payment.promotion_code.manage{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for promotionCode in promotionCodes %}
+                        <tr>
+                            <td>{{ promotionCode.code }}</td>
+                            <td>{{ promotionCode.value }}</td>
+                            <td>{{ promotionCode.usedBy == null ? '-' : promotionCode.usedBy }}</td>
+                            <td>{{ promotionCode.usedDate == null ? '-' : promotionCode.usedDate|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ promotionCode.generatedBy }}</td>
+                            <td>{{ promotionCode.expires < date('now') ? promotionCode.expires == null ? '-' : 'Wygasł' : promotionCode.expires|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ promotionCode.type == constant('SIMPLE_TYPE', promotionCode) ? 'Zwykły' : promotionCode.type == constant('ONE_PER_USER_TYPE', promotionCode) ? 'Jeden na uzytkownika' : 'Invalid' }}</td>
+                            <td>{{ promotionCode.tag }}</td>
+                            <td>-</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/lib/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/datatables/datatables-init.js') }}"></script>
+{% endblock %}
