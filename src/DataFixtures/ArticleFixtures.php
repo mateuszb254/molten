@@ -77,5 +77,4 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             AccountFixtures::class
         ];
     }
-
 }
