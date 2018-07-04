@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Service\Payments\PromotionCode;
 
 use App\Entity\Account;
 use App\Entity\PromotionCode;
@@ -9,7 +9,7 @@ use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class CodeGenerator
+class PromotionCodeGenerator
 {
     /**
      * Number of characters in generated code

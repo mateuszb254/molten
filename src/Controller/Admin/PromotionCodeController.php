@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Form\PromotionCodeGenerateType;
 use App\Repository\PromotionCodeRepository;
-use App\Service\CodeGenerator;
+use App\Service\Payments\PromotionCode\PromotionCodeGenerator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +33,7 @@ class PromotionCodeController extends AbstractController
     /**
      * @Route("/generate", name="admin_payments_codes_generate")
      */
-    public function generate(Request $request, CodeGenerator $codeGenerator, TranslatorInterface $translator): Response
+    public function generate(Request $request, PromotionCodeGenerator $codeGenerator, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(PromotionCodeGenerateType::class);
         $form->handleRequest($request);
