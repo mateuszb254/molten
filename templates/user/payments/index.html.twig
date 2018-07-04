@@ -10,8 +10,13 @@
                 <div class="box_menu_mid">
                     <ul>
                         <li>
+                            <a class="{% if app.request.get('_route') == 'payments_promotion_code' %}active{% endif %}"
+                               href="{{ path('payments_promotion_code') }}">{% trans %}payment.promotion_code{% endtrans %}</a>
+                        </li>
+                        <li>
                             <a class="{% if app.request.get('_route') == 'payments_paypal_index' %}active{% endif %}"
-                               href="{{ path('payments_paypal_index') }}">{% trans %}payment.paypal{% endtrans %}</a></li>
+                               href="{{ path('payments_paypal_index') }}">{% trans %}payment.paypal{% endtrans %}</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="box_menu_right">
