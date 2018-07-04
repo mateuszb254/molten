@@ -46,6 +46,14 @@
                 <source>ticket.category.select</source>
                 <target>Wybierz temat z którym do nas piszesz.</target>
             </trans-unit>
+            <trans-unit id="payment.promotion_code.tag.require">
+                <source>payment.promotion_code.tag.require</source>
+                <target>Jeżeli użytkownik może wykorzystać tylko jeden kod musisz wpisać tag.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expires.greaterThanToday">
+                <source>payment.promotion_code.expires.greaterThanToday</source>
+                <target>Ważność kodu musi mieć większą wartość niż dzisiejszy dzień.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

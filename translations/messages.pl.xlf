@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>Tak</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>Nie</target>
+            </trans-unit>
             <trans-unit id="turn.on">
                 <source>turn.on</source>
                 <target>Włącz</target>
@@ -158,6 +166,30 @@
             <trans-unit id="label.maintenance.status">
                 <source>label.maintenance.status</source>
                 <target>Status przerwy technicznej:</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code">
+                <source>label.promotion_code</source>
+                <target>Kod promocyjny</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.amount">
+                <source>label.promotion_code.amount</source>
+                <target>Ilość kodów</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.value">
+                <source>label.promotion_code.value</source>
+                <target>Wartość w monetach</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.onePerUser">
+                <source>label.promotion_code.onePerUser</source>
+                <target>Czy jeden użytkownik może wykorzystać tylko jeden kod z tej puli?</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.tag">
+                <source>label.promotion_code.tag</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.expires">
+                <source>label.promotion_code.expires</source>
+                <target>Wygasa? (jezeli nie, pozostaw puste)</target>
             </trans-unit>
             <trans-unit id="change.password">
                 <source>change.password</source>
@@ -366,6 +398,74 @@
                 <source>maintenance.turned.on</source>
                 <target>Przerwa techniczna włączona.</target>
             </trans-unit>
+            <trans-unit id="payments">
+                <source>payments</source>
+                <target>Płatności</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code">
+                <source>payment.promotion_code</source>
+                <target>Kody promocyjne</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.value">
+                <source>payment.promotion_code.value</source>
+                <target>Wartość kodu</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedBy">
+                <source>payment.promotion_code.usedBy</source>
+                <target>Wykorzystany przez</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedDate">
+                <source>payment.promotion_code.usedDate</source>
+                <target>Wykorzystany dnia</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generatedBy">
+                <source>payment.promotion_code.generatedBy</source>
+                <target>Wygenerowany przez</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expires">
+                <source>payment.promotion_code.expires</source>
+                <target>Wygasa</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.type">
+                <source>payment.promotion_code.type</source>
+                <target>Typ kodu</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.tag">
+                <source>payment.promotion_code.tag</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generate">
+                <source>payment.promotion_code.generate</source>
+                <target>Generuj</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.manage">
+                <source>payment.promotion_code.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.success">
+                <source>payment.promotion_code.success</source>
+                <target>Doładowaliśmy status Twoich smoczych monet o %coins%.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.notValid">
+                <source>payment.promotion_code.notValid</source>
+                <target>Podany kod jest niepoprawny.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.used">
+                <source>payment.promotion_code.used</source>
+                <target>Podany kod został już wykorzystany wcześniej.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expired">
+                <source>payment.promotion_code.expired</source>
+                <target>Ważnośc kodu wygasła.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.onePerUser">
+                <source>payment.promotion_code.onePerUser</source>
+                <target>Jeden kod z promocji "%tag%" został już użyty..</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generate.success">
+                <source>payment.promotion_code.generate.success</source>
+                <target>Kody zostały wygenerowane pomyślnie.</target>
+            </trans-unit>
             <trans-unit id="payment.paypal">
                 <source>payment.paypal</source>
                 <target>PayPal</target>
@@ -425,6 +525,10 @@
             <trans-unit id="COINS_BOUGHT_PAYPAL">
                 <source>COINS_BOUGHT_PAYPAL</source>
                 <target>Zakupiono %coins% monet.(PayPal)</target>
+            </trans-unit>
+            <trans-unit id="PROMOTION_CODE">
+                <source>PROMOTION_CODE</source>
+                <target>Użyto kodu promocyjnego %code%.</target>
             </trans-unit>
         </body>
     </file>
