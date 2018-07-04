@@ -6921,3 +6921,7 @@ tbody tr td:last-child {
     display: inline-block !important;
   }
 }
+
+.hide {
+  display: none;
+}
