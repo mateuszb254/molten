@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\PromotionCode;
 use App\Form\PromotionCodeType;
 use App\Repository\PromotionCodeRepository;
-use App\Service\UserLogger;
-use Doctrine\Common\Persistence\ObjectManager;
+use App\Service\Payments\PromotionCode\Exception\PromotionCodeStatusException;
+use App\Service\Payments\PromotionCode\PromotionCodeUsage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +31,7 @@ class PaymentsController extends AbstractController implements UserControllerInt
     /**
      * @Route("/codes", name="payments_promotion_code")
      */
-    public function promotionCode(Request $request, PromotionCodeRepository $promotionCodeRepository, TranslatorInterface $translator, UserLogger $userLogger, ObjectManager $objectManager): Response
+    public function promotionCode(Request $request, PromotionCodeRepository $promotionCodeRepository, PromotionCodeUsage $promotionCodeUsage, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(PromotionCodeType::class);
         $form->handleRequest($request);
@@ -42,44 +41,27 @@ class PaymentsController extends AbstractController implements UserControllerInt
 
             if (!$promotionCode) {
                 $this->addFlash('alert', $translator->trans('payment.promotion_code.notValid'));
+
+                return $this->redirectToRoute('payments_promotion_code');;
+            }
+
+            try {
+                $promotionCodeUsage->useCode($promotionCode);
+
+                $this->addFlash('success', $translator->trans('payment.promotion_code.success', [
+                    '%coins%' => $promotionCode->getValue()
+                ]));
+
                 return $this->redirectToRoute('payments_promotion_code');
+            } catch (PromotionCodeStatusException $exception) {
+                $exception->setPromotionCode($promotionCode);
+                $error = $exception;
             }
-
-            if($promotionCode->getExpires() < new \DateTime() && $promotionCode->getExpires() !== null) {
-                $this->addFlash('alert', $translator->trans('payment.promotion_code.expired'));
-                return $this->redirectToRoute('payments_promotion_code');
-            }
-
-            if ($promotionCode->getUsedBy()) {
-                $this->addFlash('alert', $translator->trans('payment.promotion_code.used'));
-                return $this->redirectToRoute('payments_promotion_code');
-            }
-
-            if($promotionCode->getType() === PromotionCode::ONE_PER_USER_TYPE && $promotionCode->getTag() !== null) {
-                if($promotionCodeRepository->findUsedCodesByTheUserAndTag($this->getUser(), $promotionCode->getTag())) {
-                    $this->addFlash('alert', $translator->trans('payment.promotion_code.onePerUser', [
-                        '%tag%' => $promotionCode->getTag()
-                    ]));
-                    return $this->redirectToRoute('payments_promotion_code');
-                };
-            }
-
-            $user = $this->getUser();
-            $user->setCoins($user->getCoins() + $promotionCode->getValue());
-            $promotionCode->setUsedBy($user);
-            $promotionCode->setUsedDate(new \DateTime());
-
-            $objectManager->flush();
-
-            $userLogger->addLog($user, 'PROMOTION_CODE', $promotionCode->getCode());
-
-            $this->addFlash('success', $translator->trans('payment.promotion_code.success', [
-                '%coins%' => $promotionCode->getValue()
-            ]));
-            return $this->redirectToRoute('payments_promotion_code');
         }
+
         return $this->render('user/payments/promotion_code/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'error' => $error ?? ''
         ]);
     }
 }
