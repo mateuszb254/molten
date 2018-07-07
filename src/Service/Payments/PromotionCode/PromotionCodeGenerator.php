@@ -9,6 +9,9 @@ use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ * This class provides creating new promotion codes
+ */
 class PromotionCodeGenerator
 {
     /**
