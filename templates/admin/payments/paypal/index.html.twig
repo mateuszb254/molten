@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}payment.paypal{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive m-t-40">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}payment.paypal.coins{% endtrans %}</th>
+                        <th>{% trans %}payment.paypal.price{% endtrans %}</th>
+                        <th style="width: 12%">{% trans %}payment.paypal.manage{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for paypal in paypal_packets %}
+                        <tr>
+                            <td>{{ paypal.coins }}</td>
+                            <td>{{ paypal.price }}</td>
+                            <td>
+                                <form method="post" style="float: left"
+                                      action="{{ path('admin_payments_paypal_delete', {'id': paypal.id}) }}"
+                                      onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ paypal.id) }}">
+                                    <button class="btn">{% trans %}delete{% endtrans %}</button>
+                                </form>
+                                <a href="{{ path('admin_payments_paypal_edit', {'id': paypal.id}) }}"
+                                   class="btn btn-info">{% trans %}edit{% endtrans %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}payment.paypal{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-validation">
+                        {% include 'admin/payments/paypal/_form.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/html5-editor/wysihtml5-0.3.0.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/html5-editor/bootstrap-wysihtml5.js') }}"></script>
+    <script src="{{ asset('admin/js/lib/html5-editor/wysihtml5-init.js') }}"></script>
+{% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('admin/css/lib/html5-editor/bootstrap-wysihtml5.css') }}"/>
+{% endblock %}
