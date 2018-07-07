@@ -197,6 +197,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-ticket"></i><span
+                                    class="hide-menu">{% trans %}payment.paypal{% endtrans %}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ path('admin_payments_paypal_index') }}">{% trans %}payment.paypal.manage{% endtrans %}</a></li>
+                            <li><a href="{{ path('admin_payments_paypal_new') }}">{% trans %}payment.paypal.new{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
