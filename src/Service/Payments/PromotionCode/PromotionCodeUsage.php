@@ -4,6 +4,7 @@ namespace App\Service\Payments\PromotionCode;
 
 use App\Entity\Account;
 use App\Entity\PromotionCode;
+use App\Service\UserLogger;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -28,16 +29,23 @@ class PromotionCodeUsage
     private $objectManager;
 
     /**
+     * @var $userLogger \App\Service\UserLogger
+     */
+    private $userLogger;
+
+    /**
      * PromotionCodeUsage constructor.
      * @param PromotionCodeChecker $promotionCodeChecker
      * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
      * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
+     * @param \App\Service\UserLogger $userLogger
      */
-    public function __construct(PromotionCodeChecker $promotionCodeChecker, TokenStorageInterface $tokenStorage, ObjectManager $objectManager)
+    public function __construct(PromotionCodeChecker $promotionCodeChecker, TokenStorageInterface $tokenStorage, ObjectManager $objectManager, UserLogger $userLogger)
     {
         $this->promotionCodeChecker = $promotionCodeChecker;
         $this->user = $tokenStorage->getToken()->getUser();
         $this->objectManager = $objectManager;
+        $this->userLogger = $userLogger;
     }
 
     /**
@@ -55,5 +63,7 @@ class PromotionCodeUsage
         $this->user->grantCoins($promotionCode->getValue());
 
         $this->objectManager->flush();
+
+        $this->userLogger->addLog($this->user, 'PROMOTION_CODE', sprintf('%s %s', $promotionCode->getCode(), $promotionCode->getTag() !== null ? '(' . $promotionCode->getTag() . ')' : ''));
     }
 }
