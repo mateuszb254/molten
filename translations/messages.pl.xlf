@@ -191,6 +191,14 @@
                 <source>label.promotion_code.expires</source>
                 <target>Wygasa? (jezeli nie, pozostaw puste)</target>
             </trans-unit>
+            <trans-unit id="label.paypal.coins">
+                <source>label.paypal.coins</source>
+                <target>Ilość monet</target>
+            </trans-unit>
+            <trans-unit id="label.paypal.price">
+                <source>label.paypal.price</source>
+                <target>Cena:</target>
+            </trans-unit>
             <trans-unit id="change.password">
                 <source>change.password</source>
                 <target>Zmień hasło</target>
@@ -470,6 +478,22 @@
                 <source>payment.paypal</source>
                 <target>PayPal</target>
             </trans-unit>
+            <trans-unit id="payment.paypal.coins">
+                <source>payment.paypal.coins</source>
+                <target>Wartość w monetach</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.price">
+                <source>payment.paypal.price</source>
+                <target>Cena</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.manage">
+                <source>payment.paypal.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.new">
+                <source>payment.paypal.new</source>
+                <target>Dodaj pakiet</target>
+            </trans-unit>
             <trans-unit id="payment.paypal.buy_button">
                 <source>payment.paypal.buy_button</source>
                 <target>Kup</target>
@@ -489,6 +513,18 @@
             <trans-unit id="payment.paypal.packet">
                 <source>payment.paypal.packet</source>
                 <target>Kupując ten pakiet ten pakiet otrzymasz %coins% SM za %price% PLN.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.edit.success">
+                <source>payment.paypal.edit.success</source>
+                <target>Pakiet został zeedytowany.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.delete.success">
+                <source>payment.paypal.delete.success</source>
+                <target>Pakiet został usunięty.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.new.success">
+                <source>payment.paypal.new.success</source>
+                <target>Pakiet został dodany.</target>
             </trans-unit>
             <trans-unit id="CHANGE_PASSWORD">
                 <source>CHANGE_PASSWORD</source>
