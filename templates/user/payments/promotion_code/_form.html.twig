@@ -6,6 +6,9 @@
         {% if form_errors(form.promotion_code) %}
             <span class="form-error">{{ form_errors(form.promotion_code) }}</span>
         {% endif %}
+        {% if error %}
+            <span class="form-error">{{ error.messageKey|trans(error.messageData)|nl2br }}</span>
+        {% endif %}
     </div>
     <p><input type="submit" value="" name="" class="button_send"/></p>
     {{ form_end(form) }}
