@@ -312,4 +312,10 @@ class Account implements UserInterface
     {
         return $this->getBanTime() > new \DateTime();
     }
+
+    public function grantCoins(int $amount): self {
+        $this->coins += $amount;
+
+        return $this;
+    }
 }
