@@ -1,0 +1,21 @@
+{% extends 'user/base.html.twig' %}
+{% block head_title %}- {% trans %}forgotten{% endtrans %}{% endblock %}
+{% block content %}
+    {{ parent() }}
+    <div class="left" id="panel">
+        <div class="upper">
+        </div>
+        <div class="form">
+            {{ form_start(form) }}
+            <div class="form-row">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email, {'attr' : {'class' : 'input_register'}}) }}
+                {% if form_errors(form.email) %}
+                    <span class="form-error">{{ form_errors(form.email) }}</span>
+                {% endif %}
+            </div>
+            <p><input type="submit" value="" name="" class="button_send"/></p>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
