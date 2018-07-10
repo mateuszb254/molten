@@ -49,7 +49,7 @@ class Account implements UserInterface
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="default.not_blank")
      * @Assert\Email(message="default.email")
-     * @AcmeAssert\NonExistentEmail(message="account.email.notFound", groups={"remind_password"})
+     * @AcmeAssert\ExistentEmail(message="account.email.notFound", groups={"remind_password"})
      */
     private $email;
 

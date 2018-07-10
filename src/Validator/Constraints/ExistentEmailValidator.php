@@ -6,7 +6,7 @@ use App\Repository\AccountRepository;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class NonExistentEmailValidator extends ConstraintValidator
+class ExistentEmailValidator extends ConstraintValidator
 {
     private $accountRepository;
 
