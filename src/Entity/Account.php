@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Validator\Constraints as AcmeAssert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -48,6 +49,7 @@ class Account implements UserInterface
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="default.not_blank")
      * @Assert\Email(message="default.email")
+     * @AcmeAssert\NonExistentEmail(message="account.email.notFound", groups={"remind_password"})
      */
     private $email;
 
@@ -236,7 +238,7 @@ class Account implements UserInterface
 
     public function setRole(string $role)
     {
-        if(!array_search($role, $this->getRoles())) {
+        if (!array_search($role, $this->getRoles())) {
             $this->roles[] = $role;
         }
     }
@@ -313,7 +315,8 @@ class Account implements UserInterface
         return $this->getBanTime() > new \DateTime();
     }
 
-    public function grantCoins(int $amount): self {
+    public function grantCoins(int $amount): self
+    {
         $this->coins += $amount;
 
         return $this;
