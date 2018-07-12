@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\ShopCategory;
+use App\Entity\ShopProduct;
 use App\Form\ShopCategoryType;
 use App\Repository\ShopCategoryRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -100,5 +101,25 @@ class ShopCategoryController extends AbstractController implements AdminControll
         }
 
         return $this->redirectToRoute('admin_shop_category_show');
+    }
+
+    /**
+     * @Route("/status/{id}", name="admin_shop_category_status", requirements={"status" : "[0-1]"})
+     */
+    public function status(Request $request, ShopCategory $shopCategory): Response
+    {
+        if (!$this->isCsrfTokenValid('change_status' . $shopCategory->getId(), $request->get('_token'))) {
+            return $this->redirectToRoute('admin_shop_category_show');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $shopCategory->setStatus($shopCategory->getStatus() === ShopCategory::STATUS_ACTIVE ? ShopCategory::STATUS_INACTIVE : ShopCategory::STATUS_ACTIVE);
+        $em->flush();
+
+        $this->addFlash('success', $this->translator->trans(sprintf('shop.category.status%d.success', $shopCategory->getStatus()), [
+            '%name%' => $shopCategory->getName()
+        ]));
+        return $this->redirectToRoute('admin_shop_category_show');
+
     }
 }
