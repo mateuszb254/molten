@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ShopCategoryRepository")
- * @UniqueEntity(fields="name", message="category.name.unique")
+ * @UniqueEntity(fields="name", message="shop.category.name.unique")
  */
 class ShopCategory
 {
