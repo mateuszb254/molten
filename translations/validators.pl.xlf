@@ -54,6 +54,10 @@
                 <source>payment.promotion_code.expires.greaterThanToday</source>
                 <target>Ważność kodu musi mieć większą wartość niż dzisiejszy dzień.</target>
             </trans-unit>
+            <trans-unit id="shop.category.name.unique">
+                <source>shop.category.name.unique</source>
+                <target>Kategoria z tą nazwą już istnieje.</target>
+        </trans-unit>
         </body>
     </file>
 </xliff>

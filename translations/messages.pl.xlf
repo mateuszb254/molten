@@ -10,6 +10,10 @@
                 <source>no</source>
                 <target>Nie</target>
             </trans-unit>
+            <trans-unit id="submit">
+                <source>submit</source>
+                <target>Zapisz</target>
+            </trans-unit>
             <trans-unit id="turn.on">
                 <source>turn.on</source>
                 <target>Włącz</target>
@@ -17,6 +21,14 @@
             <trans-unit id="turn.off">
                 <source>turn.off</source>
                 <target>Wyłącz</target>
+            </trans-unit>
+            <trans-unit id="turned.on">
+                <source>turned.on</source>
+                <target>Włączona</target>
+            </trans-unit>
+            <trans-unit id="turned.off">
+                <source>turned.off</source>
+                <target>Wyłączona</target>
             </trans-unit>
             <trans-unit id="edit">
                 <source>edit</source>
@@ -230,6 +242,38 @@
             <trans-unit id="shop">
                 <source>shop</source>
                 <target>Sklep</target>
+            </trans-unit>
+            <trans-unit id="shop.category.name">
+                <source>shop.category.name</source>
+                <target>Nazwa kategori</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status">
+                <source>shop.category.status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="shop.category.new.success">
+                <source>shop.category.new.success</source>
+                <target>Dodano kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.delete.success">
+                <source>shop.category.delete.success</source>
+                <target>Usunięto kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.edit.success">
+                <source>shop.category.edit.success</source>
+                <target>Zeedytowano kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.categories">
+                <source>shop.categories</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.new">
+                <source>shop.categories.new</source>
+                <target>Dodaj</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.manage">
+                <source>shop.categories.manage</source>
+                <target>Zarządzaj</target>
             </trans-unit>
             <trans-unit id="shop.product.inactive">
                 <source>shop.product.inactive</source>
