@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Service\Slugger;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ShopCategoryRepository")
  * @UniqueEntity(fields="name", message="shop.category.name.unique")
+ * @ORM\HasLifecycleCallbacks()
  */
 class ShopCategory
 {
@@ -71,9 +73,13 @@ class ShopCategory
         return $this->slug;
     }
 
-    public function setSlug(string $slug)
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function setSlug()
     {
-        $this->slug = $slug;
+        $this->slug = Slugger::slugify($this->getName());
     }
 
     public function getStatus(): ?int
