@@ -47,7 +47,7 @@ class Mailer
     public function sendResettingMessage(Account $account): void
     {
         $template = $this->twig->render('email/resetting_message.html.twig', [
-            'Account' => $account
+            'account' => $account
         ]);
 
         $this->sendEmailMessage($template, $account->getEmail());
@@ -69,7 +69,9 @@ class Mailer
 
         $message = (new \Swift_Message())
             ->setSubject($subject)
-            ->setFrom($this->options['fromEMail'])
+            ->setFrom([
+                $this->options['from_email'] => $this->options['from_name']
+            ])
             ->setTo($toEmail)
             ->setBody($body)
             ->setContentType('text/html')
