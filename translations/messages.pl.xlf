@@ -235,6 +235,10 @@
                 <source>change.code.success</source>
                 <target>Kod został zmieniony.</target>
             </trans-unit>
+            <trans-unit id="reset-password.message_send.success">
+                <source>reset-password.message_send.success</source>
+                <target>Wysłaliśmy wiadomość e-mail z instrukcjami.</target>
+            </trans-unit>
             <trans-unit id="buy_coins">
                 <source>buy_coins</source>
                 <target>Kup monety</target>
