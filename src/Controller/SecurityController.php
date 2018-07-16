@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Account;
 use App\Form\ForgottenPasswordType;
 use App\Form\RegisterType;
 use App\Form\ResetPasswordType;
@@ -89,9 +90,42 @@ class SecurityController extends AbstractController implements UserControllerInt
     /**
      * @Route("/reset-password", name="reset_password")
      */
-    public function resetPassword(): Response
+    public function resetPassword(Request $request, AccountRepository $accountRepository, UserPasswordEncoderInterface $passwordEncoder, TranslatorInterface $translator, UserLogger $logger): Response
     {
-        return new Response('reset_password');
+        $em = $this->getDoctrine()->getManager();
+
+        if (!$request->get('token') || !$user = $accountRepository->findAccountByResetPasswordToken($request->get('token'))) {
+            return $this->redirectToRoute('forgotten');
+        }
+
+        if (($user->getResetPasswordTokenCreatedAt())->add(new \DateInterval('PT' . Account::PASSWORD_TOKEN_EXPIRES_HOURS . 'H')) < new \DateTime()) {
+            $user->setResetPasswordToken(null);
+            $user->setResetPasswordTokenCreatedAt(null);
+
+            $em->flush();
+
+            $this->addFlash('alert', $translator->trans('reset-password.token.expired'));
+            return $this->redirectToRoute('forgotten');
+        }
+
+        $form = $this->createForm(ResetPasswordType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()));
+            $user->setResetPasswordToken(null);
+            $user->setResetPasswordTokenCreatedAt(null);
+
+            $logger->addLog($user, 'RESET_PASSWORD');
+            $em->flush();
+
+            $this->addFlash('success', $translator->trans('reset-password.success'));
+            return $this->redirectToRoute('login');
+        }
+
+        return $this->render('security/reset-password.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
