@@ -235,6 +235,14 @@
                 <source>change.code.success</source>
                 <target>Kod został zmieniony.</target>
             </trans-unit>
+            <trans-unit id="reset-password.success">
+                <source>reset-password.success</source>
+                <target>Hasło zostało zresetowane. Możesz się zalogować.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.token.expired">
+                <source>reset-password.token.expired</source>
+                <target>Token wygasł. Użyj opcji zresetowania hasła ponownie.</target>
+            </trans-unit>
             <trans-unit id="reset-password.message_send.success">
                 <source>reset-password.message_send.success</source>
                 <target>Wysłaliśmy wiadomość e-mail z instrukcjami.</target>
@@ -585,6 +593,10 @@
             <trans-unit id="CHANGE_PASSWORD">
                 <source>CHANGE_PASSWORD</source>
                 <target>Zmiana hasła.</target>
+            </trans-unit>
+            <trans-unit id="RESET_PASSWORD">
+                <source>RESET_PASSWORD</source>
+                <target>Zrestartowanie hasła.</target>
             </trans-unit>
             <trans-unit id="CHANGE_EMAIL">
                 <source>CHANGE_EMAIL</source>
