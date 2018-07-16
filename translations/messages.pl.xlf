@@ -263,6 +263,14 @@
                 <source>shop.category.edit.success</source>
                 <target>Zeedytowano kategorię.</target>
             </trans-unit>
+            <trans-unit id="shop.category.status0.success">
+                <source>shop.category.status0.success</source>
+                <target>Kategoria "%name%" została wyłączona</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status1.success">
+                <source>shop.category.status1.success</source>
+                <target>Kategoria "%name%" została włączona.</target>
+            </trans-unit>
             <trans-unit id="shop.categories">
                 <source>shop.categories</source>
                 <target>Kategorie</target>
