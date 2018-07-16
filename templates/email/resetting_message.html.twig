@@ -1,0 +1,5 @@
+{% extends 'email/base.html.twig' %}
+{% block title %}{% trans from 'mail' %}reset_password{% endtrans %}{% endblock %}
+{% block content %}
+    {% trans with {'%reset_password_url%': url('register')} from 'mail' %}reset_password_content{% endtrans %}
+{% endblock %}
