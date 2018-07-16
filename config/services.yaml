@@ -30,6 +30,12 @@ parameters:
         payment_success_route_name: 'payments_paypal_receive'
         payment_cancel_route_name: 'payments_paypal_index'
 
+    mailer:
+        from_email: '%env(MAILER_FROM_EMAIL)%'
+        from_name: '%env(MAILER_FROM_NAME)%'
+        content_type: 'text/html'
+        charset: 'utf-8'
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -62,3 +68,6 @@ services:
                     arguments: ['%maintenance_path%']
     App\Twig\KingdomExtension:
                 arguments: ['%kingdom_extension_settings%']
+    App\Service\Mailer:
+        arguments:
+            $options: '%mailer%'
