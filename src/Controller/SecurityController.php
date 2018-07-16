@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Form\ForgottenPasswordType;
 use App\Form\RegisterType;
+use App\Repository\AccountRepository;
+use App\Service\Mailer;
 use App\Service\Recaptcha;
+use App\Service\TokenGenerator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,10 +59,29 @@ class SecurityController extends AbstractController implements UserControllerInt
      * @Route("/forgotten", name="forgotten")
      * @Method({"GET", "POST"})
      */
-    public function forgotten()
+    public function forgotten(Request $request, AccountRepository $accountRepository, TokenGenerator $tokenGenerator, Mailer $mailer, TranslatorInterface $translator): Response
     {
-        //TODO
-        return $this->render('security/forgotten.html.twig');
+        $form = $this->createForm(ForgottenPasswordType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $user = $accountRepository->findAccountByEmail($form->get('email')->getData());
+            $user->setResetPasswordToken($tokenGenerator->generateToken());
+            $user->setResetPasswordTokenExpires((new \DateTime())->add(new \DateInterval('P1D')));
+
+            $em->flush();
+
+            $mailer->sendResettingMessage($user);
+
+            $this->addFlash('success', $translator->trans('reset-password.message_send.success'));
+            return $this->redirectToRoute('forgotten');
+        }
+
+        return $this->render('security/forgotten.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
