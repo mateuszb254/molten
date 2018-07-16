@@ -107,6 +107,16 @@ class Account implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $resetPasswordToken;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $resetPasswordTokenExpires;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
@@ -308,6 +318,30 @@ class Account implements UserInterface
     public function getBanReason(): ?string
     {
         return $this->banReason;
+    }
+
+    public function getResetPasswordToken(): ?string
+    {
+        return $this->resetPasswordToken;
+    }
+
+    public function setResetPasswordToken(?string $resetPasswordToken): self
+    {
+        $this->resetPasswordToken = $resetPasswordToken;
+
+        return $this;
+    }
+
+    public function getResetPasswordTokenExpires(): ?\DateTime
+    {
+        return $this->resetPasswordTokenExpires;
+    }
+
+    public function setResetPasswordTokenExpires(?\DateTime $resetPasswordTokenExpires): self
+    {
+        $this->resetPasswordTokenExpires = $resetPasswordTokenExpires;
+
+        return $this;
     }
 
     public function isBanned(): bool
