@@ -85,6 +85,14 @@ class SecurityController extends AbstractController implements UserControllerInt
     }
 
     /**
+     * @Route("/reset-password", name="reset_password")
+     */
+    public function resetPassword(): Response
+    {
+        return new Response('reset_password');
+    }
+
+    /**
      * @Route("/login", name="login")
      * @Method({"GET", "POST"})
      */
