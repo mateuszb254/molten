@@ -25,4 +25,11 @@ class AccountRepository extends ServiceEntityRepository
             'email' => $email
         ]);
     }
+
+    public function findAccountByResetPasswordToken(string $token)
+    {
+        return $this->findOneBy([
+            'resetPasswordToken' => $token
+        ]);
+    }
 }
