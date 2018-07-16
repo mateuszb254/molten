@@ -14,6 +14,10 @@
                 <source>terms</source>
                 <target>Musisz zaakceptować regulamin przed wysłaniem formularza.</target>
             </trans-unit>
+            <trans-unit id="email.nonexistent">
+                <source>email.nonexistent</source>
+                <target>Nie znalezliśmy konta z podanym e-mailem.</target>
+            </trans-unit>
             <trans-unit id="account.login.minLength">
                 <source>account.login.minLength</source>
                 <target>Login może zawierać od 6 do 24 znaków.</target>
@@ -57,7 +61,7 @@
             <trans-unit id="shop.category.name.unique">
                 <source>shop.category.name.unique</source>
                 <target>Kategoria z tą nazwą już istnieje.</target>
-        </trans-unit>
+            </trans-unit>
         </body>
     </file>
 </xliff>
