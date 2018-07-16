@@ -3,4 +3,5 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-            kingdom_extension_settings: '%kingdom_extension_settings%'
+        project_name: '%project_name%'
+        kingdom_extension_settings: '%kingdom_extension_settings%'
