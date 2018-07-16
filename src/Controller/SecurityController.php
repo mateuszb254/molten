@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Form\ForgottenPasswordType;
 use App\Form\RegisterType;
+use App\Form\ResetPasswordType;
 use App\Repository\AccountRepository;
 use App\Service\Mailer;
 use App\Service\Recaptcha;
 use App\Service\TokenGenerator;
+use App\Service\UserLogger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,7 +71,7 @@ class SecurityController extends AbstractController implements UserControllerInt
 
             $user = $accountRepository->findAccountByEmail($form->get('email')->getData());
             $user->setResetPasswordToken($tokenGenerator->generateToken());
-            $user->setResetPasswordTokenExpires((new \DateTime())->add(new \DateInterval('P1D')));
+            $user->setResetPasswordTokenCreatedAt(new \DateTime());
 
             $em->flush();
 

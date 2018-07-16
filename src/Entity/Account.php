@@ -120,7 +120,7 @@ class Account implements UserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $resetPasswordTokenExpires;
+    private $resetPasswordTokenCreatedAt;
 
     public function __construct()
     {
@@ -337,14 +337,14 @@ class Account implements UserInterface
         return $this;
     }
 
-    public function getResetPasswordTokenExpires(): ?\DateTime
+    public function getResetPasswordTokenCreatedAt(): ?\DateTime
     {
-        return $this->resetPasswordTokenExpires;
+        return $this->resetPasswordTokenCreatedAt;
     }
 
-    public function setResetPasswordTokenExpires(?\DateTime $resetPasswordTokenExpires): self
+    public function setResetPasswordTokenCreatedAt(?\DateTime $resetPasswordTokenCreatedAt): self
     {
-        $this->resetPasswordTokenExpires = $resetPasswordTokenExpires;
+        $this->resetPasswordTokenCreatedAt = $resetPasswordTokenCreatedAt;
 
         return $this;
     }
