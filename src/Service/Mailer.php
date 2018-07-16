@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use App\Entity\Account;
+
 /**
  * This class provides sending prepared emails.
  */
@@ -35,6 +37,20 @@ class Mailer
         $this->swiftMailer = $swiftMailer;
         $this->twig = $twig;
         $this->options = $options;
+    }
+
+    /**
+     * This method sends e-mail with information about reset password
+     *
+     * @param Account $account
+     */
+    public function sendResettingMessage(Account $account): void
+    {
+        $template = $this->twig->render('email/resetting_message.html.twig', [
+            'Account' => $account
+        ]);
+
+        $this->sendEmailMessage($template, $account->getEmail());
     }
 
     /**
