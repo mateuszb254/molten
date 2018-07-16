@@ -1,0 +1,5 @@
+{{ project_name }} - {% block title %}{% endblock %}
+
+<p>Witaj {{ account.login }}!</p>
+{% block content %}Default message. It shouldn't have shown.{% endblock %}
+<p>{% trans with {'%project_name%': project_name} from 'mail' %}regards{% endtrans %}</p>
