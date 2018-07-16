@@ -21,6 +21,11 @@ class Account implements UserInterface
     const ADMIN_ROLE = 'ROLE_ADMIN';
 
     /**
+     * Specify how long token will be able to change user's password
+     */
+    const PASSWORD_TOKEN_EXPIRES_HOURS = 12;
+
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
