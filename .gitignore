@@ -4,5 +4,6 @@
 /var/
 /vendor/
 /src/Migrations/*
-todo
 ###< symfony/framework-bundle ###
+.idea
+todo
