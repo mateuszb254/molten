@@ -98,7 +98,7 @@ class UserController extends AbstractController implements UserControllerInterfa
             $em->persist($user);
             $em->flush();
 
-            $userLogger->addLog($user, 'CHANGE_MAIL');
+            $userLogger->addLog($user, 'CHANGE_EMAIL');
 
             $this->addFlash('success', $translator->trans('change.email.success'));
             return $this->redirectToRoute('user_change_email');

@@ -4,6 +4,7 @@ namespace App\Form;
 use App\Form\Model\ChangeEmail;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,8 +13,8 @@ class ChangeEmailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('oldEmail', EmailType::class, [
-            'label' => 'label.email.old'
+        $builder->add('plainPassword', PasswordType::class, [
+            'label' => 'label.password'
         ])
             ->add('newEmail', RepeatedType::class, [
                 'type' => EmailType::class,

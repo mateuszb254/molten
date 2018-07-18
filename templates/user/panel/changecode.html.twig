@@ -3,10 +3,10 @@
     <div class="form">
         {{ form_start(change_code_form) }}
         <div class="form-row">
-            {{ form_label(change_code_form.oldCode) }}
-            {{ form_widget(change_code_form.oldCode, { 'attr' : { 'class' : 'input_register' } }) }}
-            {% if form_errors(change_code_form.oldCode) %}
-                <span class="form-error">{{ form_errors(change_code_form.oldCode) }}</span>
+            {{ form_label(change_code_form.plainPassword) }}
+            {{ form_widget(change_code_form.plainPassword, { 'attr' : { 'class' : 'input_register' } }) }}
+            {% if form_errors(change_code_form.plainPassword) %}
+                <span class="form-error">{{ form_errors(change_code_form.plainPassword) }}</span>
             {% endif %}
         </div>
         <div class="form-row">

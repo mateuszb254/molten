@@ -2,25 +2,27 @@
 
 namespace App\Form\Model;
 
-use App\Validator\Constraints as AcmeAssert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 class ChangeCode
 {
     /**
-     * @AcmeAssert\ChangeCode(message="account.code.change")
+     * @SecurityAssert\UserPassword(
+     *     message = "account.password.incorrect"
+     * )
      */
-    protected $oldCode;
+    protected $plainPassword;
 
     protected $newCode;
 
-    public function getOldCode()
+    public function getPlainPassword(): ?string
     {
-        return $this->oldCode;
+        return $this->plainPassword;
     }
 
-    public function setOldCode(string $oldCode)
+    public function setPlainPassword(?string $oldEmail)
     {
-        $this->oldCode = $oldCode;
+        $this->plainPassword = $oldEmail;
 
         return $this;
     }

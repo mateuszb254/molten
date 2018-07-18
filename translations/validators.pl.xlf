@@ -34,8 +34,8 @@
                 <source>account.email.unique</source>
                 <target>Podany adres e-mail został już przypisany do innego konta.</target>
             </trans-unit>
-            <trans-unit id="account.password.change">
-                <source>account.password.change</source>
+            <trans-unit id="account.password.incorrect">
+                <source>account.password.incorrect</source>
                 <target>Podane hasło nie zgadza się z aktualnym.</target>
             </trans-unit>
             <trans-unit id="account.email.change">

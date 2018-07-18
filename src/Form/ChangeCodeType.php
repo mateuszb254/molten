@@ -3,6 +3,7 @@ namespace App\Form;
 
 use App\Form\Model\ChangeCode;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,8 +13,8 @@ class ChangeCodeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('oldCode', TextType::class, [
-            'label' => 'label.code.old'
+        $builder->add('plainPassword', PasswordType::class, [
+            'label' => 'label.password'
         ])
             ->add('newCode', RepeatedType::class, [
                 'type' => TextType::class,

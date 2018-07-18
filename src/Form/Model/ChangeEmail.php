@@ -2,34 +2,40 @@
 
 namespace App\Form\Model;
 
-use App\Validator\Constraints as AcmeAssert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 class ChangeEmail
 {
     /**
-     * @AcmeAssert\ChangeEmail(message="account.email.change")
+     * @SecurityAssert\UserPassword(
+     *     message = "account.password.incorrect"
+     * )
      */
-    protected $oldEmail;
+    protected $plainPassword;
 
     protected $newEmail;
 
-    public function getOldEmail()
+    public function getPlainPassword(): ?string
     {
-        return $this->oldEmail;
+        return $this->plainPassword;
     }
 
-    public function setOldEmail($oldEmail)
+    public function setPlainPassword(?string $oldEmail)
     {
-        $this->oldEmail = $oldEmail;
+        $this->plainPassword = $oldEmail;
+
+        return $this;
     }
 
-    public function getNewEmail()
+    public function getNewEmail(): ?string
     {
         return $this->newEmail;
     }
 
-    public function setNewEmail($newEmail)
+    public function setNewEmail(?string $newEmail): self
     {
         $this->newEmail = $newEmail;
+
+        return $this;
     }
 }
