@@ -9,9 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AccountRepository")
+ * @ORM\Table(
+ *      uniqueConstraints={@UniqueConstraint(columns={"login", "email"})}
+ * )
  * @UniqueEntity(fields="login", message="account.login.unique")
  * @UniqueEntity(fields="email", message="account.email.unique")
  */
@@ -33,9 +37,9 @@ class Account implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=24, nullable=false)
      * @Assert\NotBlank(message="default.not_blank")
-     * @Assert\Length(min=6, max=24, minMessage="account.login.minLength", maxMessage="account.login.maxLength")
+     * @Assert\Length(min=5, max=24, minMessage="account.login.minLength", maxMessage="account.login.maxLength")
      */
     private $login;
 
@@ -46,13 +50,14 @@ class Account implements UserInterface
     private $plainPassword;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=60, nullable=false)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=64, nullable=false)
      * @Assert\NotBlank(message="default.not_blank")
+     * @Assert\Length(max=64, maxMessage="account.email.maxLength")
      * @Assert\Email(message="default.email")
      * @AcmeAssert\ExistentEmail(message="account.email.notFound", groups={"remind_password"})
      */

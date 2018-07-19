@@ -20,11 +20,15 @@
             </trans-unit>
             <trans-unit id="account.login.minLength">
                 <source>account.login.minLength</source>
-                <target>Login może zawierać od 6 do 24 znaków.</target>
+                <target>Login może zawierać od 5 do 24 znaków.</target>
             </trans-unit>
             <trans-unit id="account.login.maxLength">
-                <source>default.maxLength</source>
-                <target>Login może zawierać od 6 do 24 znaków.</target>
+                <source>account.login.maxLength</source>
+                <target>Login może zawierać od 5 do 24 znaków.</target>
+            </trans-unit>
+            <trans-unit id="account.email.maxLength">
+                <source>account.email.maxLength</source>
+                <target>E-mail moze miec maksymalnie 50 znaków.</target>
             </trans-unit>
             <trans-unit id="account.login.unique">
                 <source>account.login.unique</source>
