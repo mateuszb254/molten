@@ -10,6 +10,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AccountFixtures extends Fixture
 {
     public const ADMIN_USER_REFERENCE = 'admin';
+    public const USER_REFERENCE = 'user';
 
     private $encoder;
 
@@ -43,6 +44,10 @@ class AccountFixtures extends Fixture
 
             if($user->getLogin() === self::ADMIN_USER_REFERENCE) {
                 $this->addReference(self::ADMIN_USER_REFERENCE, $user);
+            }
+
+            if($user->getLogin() === self::USER_REFERENCE) {
+                $this->addReference(self::USER_REFERENCE, $user);
             }
         }
 
@@ -87,7 +92,7 @@ class AccountFixtures extends Fixture
                     'ROLE_USER'
                 ],
                 'coins' => 0,
-                'banTime' => (new \DateTime())->add(new \DateInterval('P1D')),
+                'banTime' => (new \DateTime())->add(new \DateInterval('P3653D')),
                 'banReason' => 'Illegal software'
             ]
         ];
