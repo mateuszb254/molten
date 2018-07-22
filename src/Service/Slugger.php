@@ -7,7 +7,7 @@ class Slugger
     public static function slugify(string $string)
     {
         $string = trim(mb_strtolower($string));
-        $string = str_replace(' ', '-', $string);
+        $string = preg_replace(['/\s+/', '/[-]{2,}+/'], '-', $string);
 
         return $string;
     }
