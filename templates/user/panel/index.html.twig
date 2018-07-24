@@ -31,11 +31,11 @@
                                href="{{ path('user_logs') }}" title="Sklep">{% trans %}logs{% endtrans %}</a></li>
                     </ul>
                 </div>
-                {% include 'user/partials/flash_messages.html.twig' %}
                 <div class="box_menu_right">
                 </div>
             </div>
         </div>
+        {% include 'user/partials/flash_messages.html.twig' %}
         {% block panel_content %}
         {% endblock %}
     </div>

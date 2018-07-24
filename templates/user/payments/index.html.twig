@@ -11,7 +11,8 @@
                     <ul>
                         <li>
                             <a class="{% if app.request.get('_route') == 'payments_promotion_code' %}active{% endif %}"
-                               href="{{ path('payments_promotion_code') }}">{% trans %}payment.promotion_code{% endtrans %}</a>
+                               href="{{ path('payments_promotion_code') }}">{% trans %}
+                                payment.promotion_code{% endtrans %}</a>
                         </li>
                         <li>
                             <a class="{% if app.request.get('_route') == 'payments_paypal_index' %}active{% endif %}"
@@ -23,8 +24,8 @@
                 </div>
             </div>
         </div>
+        {% include 'user/partials/flash_messages.html.twig' %}
         <div class="payments-content">
-            {% include 'user/partials/flash_messages.html.twig' %}
             {% block panel_content %}
             {% endblock %}
         </div>

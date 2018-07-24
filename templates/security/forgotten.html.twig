@@ -4,7 +4,9 @@
     {{ parent() }}
     <div class="left" id="panel">
         <div class="upper">
+            <h1></h1>
         </div>
+        {% include 'user/partials/flash_messages.html.twig' %}
         <div class="form">
             {{ form_start(form) }}
             <div class="form-row">

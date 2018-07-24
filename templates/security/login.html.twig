@@ -4,6 +4,7 @@
     <div class="left" id="panel">
         <div class="upper">
         </div>
+        {% include 'user/partials/flash_messages.html.twig' %}
         <div class="form">
             <form action="{{ path('login') }}" method="post">
                 <div class="form-row">

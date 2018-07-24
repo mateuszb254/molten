@@ -10,7 +10,7 @@
             <h1></h1>
         </div>
         <div class="lower">
-            {{ parent() }}
+            {% include 'user/partials/flash_messages.html.twig' %}
             <div class="form">
                 {{ form_start(register_form) }}
                 <div class="form-row">
