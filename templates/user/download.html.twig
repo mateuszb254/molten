@@ -1,5 +1,25 @@
 {% extends 'user/base.html.twig' %}
 {% block head_title %} - Pobierz grę{% endblock %}
 {% block content %}
-    {{ parent() }}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+        </div>
+        <div class="mirrors-content">
+            <a href="#" class="mirror">
+                <img src="{{ asset('images/download.jpg') }}" alt>
+                <h2>Nasz hosting</h2>
+            </a>
+            <a href="#" class="mirror">
+                <img src="{{ asset('images/download.jpg') }}" alt>
+                <h2>GoogleDrive</h2>
+            </a> <a href="#" class="mirror">
+                <img src="{{ asset('images/download.jpg') }}" alt>
+                <h2>Mega.NZ</h2>
+            </a> <a href="#" class="mirror">
+                <img src="{{ asset('images/download.jpg') }}" alt>
+                <h2>SpeedShare</h2>
+            </a>
+        </div>
+    </div>
 {% endblock %}
