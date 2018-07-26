@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+{% block header %}{% trans %}download.links{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive m-t-40">
+                        <table id="links-table" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>{% trans %}download.links.name{% endtrans %}</th>
+                                <th>{% trans %}download.links.url{% endtrans %}</th>
+                                <th style="width: 145px">{% trans %}download.links.manage{% endtrans %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for link in links %}
+                                <tr>
+                                    <td>{{ link.name }}</td>
+                                    <td>{{ link.url }}</td>
+                                    <td>
+                                        {% include 'admin/download/form/_delete.html.twig' with {'id' : link.id } %}
+                                        <a href="{{ path('admin_download_edit', {'id': link.id}) }}"
+                                           class="float-left btn btn-info">{% trans %}edit{% endtrans %}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

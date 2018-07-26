@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\DownloadLinkRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,8 +40,10 @@ class HomeController extends AbstractController implements UserControllerInterfa
      * @Route("/download", name="download")
      * @Method("GET")
      */
-    public function download(): Response
+    public function download(DownloadLinkRepository $downloadLinkRepository): Response
     {
-        return $this->render('user/download.html.twig');
+        return $this->render('user/download.html.twig', [
+            'links' => $downloadLinkRepository->findAll()
+        ]);
     }
 }

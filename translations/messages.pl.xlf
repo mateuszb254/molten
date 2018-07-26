@@ -38,6 +38,34 @@
                 <source>delete</source>
                 <target>Usuń</target>
             </trans-unit>
+            <trans-unit id="download">
+                <source>download</source>
+                <target>Pobierz grę</target>
+            </trans-unit>
+            <trans-unit id="download.links">
+                <source>download.links</source>
+                <target>Linki do pobrania gry</target>
+            </trans-unit>
+            <trans-unit id="download.links.name">
+                <source>download.links.name</source>
+                <target>Wyświetlana nazwa</target>
+            </trans-unit>
+            <trans-unit id="download.links.url">
+                <source>download.links.url</source>
+                <target>Adres url</target>
+            </trans-unit>
+            <trans-unit id="download.links.add">
+                <source>download.links.add</source>
+                <target>Dodaj link</target>
+            </trans-unit>
+            <trans-unit id="download.links.add.success">
+                <source>download.links.add.success</source>
+                <target>Dodano nowy odnośnik do pobrania gry.</target>
+            </trans-unit>
+            <trans-unit id="download.links.manage">
+                <source>download.links.manage</source>
+                <target>Zarządzaj linkami</target>
+            </trans-unit>
             <trans-unit id="view">
                 <source>view</source>
                 <target>Przeglądaj</target>
@@ -210,6 +238,14 @@
             <trans-unit id="label.paypal.price">
                 <source>label.paypal.price</source>
                 <target>Cena:</target>
+            </trans-unit>
+            <trans-unit id="label.link.name">
+                <source>label.link.name</source>
+                <target>Nazwa wyświetlana</target>
+            </trans-unit>
+            <trans-unit id="label.link.url">
+                <source>label.link.url</source>
+                <target>Adres url</target>
             </trans-unit>
             <trans-unit id="change.password">
                 <source>change.password</source>

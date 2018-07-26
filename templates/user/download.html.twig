@@ -6,20 +6,13 @@
             <h1></h1>
         </div>
         <div class="mirrors-content">
-            <a href="#" class="mirror">
-                <img src="{{ asset('images/download.jpg') }}" alt>
-                <h2>Nasz hosting</h2>
-            </a>
-            <a href="#" class="mirror">
-                <img src="{{ asset('images/download.jpg') }}" alt>
-                <h2>GoogleDrive</h2>
-            </a> <a href="#" class="mirror">
-                <img src="{{ asset('images/download.jpg') }}" alt>
-                <h2>Mega.NZ</h2>
-            </a> <a href="#" class="mirror">
-                <img src="{{ asset('images/download.jpg') }}" alt>
-                <h2>SpeedShare</h2>
-            </a>
+            {% for link in links %}
+                <a href="{{ link.url }}" class="mirror">
+                    <img src="{{ asset('images/download.jpg') }}" alt>
+                    <h2>{{ link.name }}</h2>
+                </a>
+                {% else %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

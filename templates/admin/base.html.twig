@@ -186,6 +186,14 @@
                     </li>
                     <li><a href="{{ path('admin_users_index') }}" aria-expanded="false"><i class="fa fa-user"></i><span
                                     class="hide-menu">{% trans %}users{% endtrans %}</span></a></li>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-download"></i><span
+                                    class="hide-menu">{% trans %}download.links{% endtrans %}</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{ path('admin_download_add') }}">{% trans %}download.links.add{% endtrans %}</a></li>
+                            <li><a href="{{ path('admin_download_manage') }}">{% trans %}download.links.manage{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="nav-label">{% trans %}shop{% endtrans %}</li>
                     <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fas fa-ticket"></i><span
