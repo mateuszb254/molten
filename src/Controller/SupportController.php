@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\Account;
 use App\Entity\Ticket;
 use App\Form\TicketAnswerType;
 use App\Form\TicketType;
@@ -43,20 +42,10 @@ class SupportController extends AbstractController implements UserControllerInte
 
     /**
      * @Route("/ticket/{id}", name="support_ticket_details", requirements={"id"="\d+"})
+     * @Security("ticket.getAuthor() == user")
      */
     public function showTicket(Request $request, Ticket $ticket): Response
     {
-        /** @var $user Account */
-        $user = $this->getUser();
-        $ticketAuthor = $ticket->getAuthor();
-
-        /**
-         * consider move this logic to entity
-         */
-        if ($user->getId() !== $ticketAuthor->getId()) {
-            throw $this->createNotFoundException(get_class($ticket) . 'id:' . $ticket->getId() . ' doesn\'t belong to ' . get_class($user) . ' id:' . $user->getId());
-        }
-
         $form = $this->createForm(TicketAnswerType::class);
         $form->handleRequest($request);
 
