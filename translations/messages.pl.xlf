@@ -38,6 +38,10 @@
                 <source>delete</source>
                 <target>Usuń</target>
             </trans-unit>
+            <trans-unit id="terms">
+                <source>terms</source>
+                <target>Regulamin serwisu</target>
+            </trans-unit>
             <trans-unit id="download">
                 <source>download</source>
                 <target>Pobierz grę</target>
@@ -189,7 +193,7 @@
             </trans-unit>
             <trans-unit id="label.terms.statement">
                 <source>label.terms.statement</source>
-                <target>Oświadczam, że przeczytałem/przeczytałam i akceptuję regulamin.</target>
+                <target>Oświadczam, że przeczytałem/przeczytałam i akceptuję %start_link%regulamin%end_link%.</target>
             </trans-unit>
             <trans-unit id="label.category">
                 <source>label.category</source>
