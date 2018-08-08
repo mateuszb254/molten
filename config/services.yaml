@@ -19,6 +19,7 @@ parameters:
         format: 'png'
 
     maintenance_path: '%kernel.project_dir%/config/maintenance.yaml'
+    terms_path: '%kernel.project_dir%/var/terms.html'
 
     paypal:
         public_key: '%env(PAYPAL_PUBLIC_KEY)%'
@@ -71,3 +72,6 @@ services:
     App\Service\Mailer:
         arguments:
             $options: '%mailer%'
+    App\Service\TermsManager:
+        arguments:
+            $termsPath: '%terms_path%'
