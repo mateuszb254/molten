@@ -62,7 +62,9 @@
                     {% endif %}
                 </div>
                 <div class="form-row">
-                    {{ form_label(register_form.rules) }}
+                    <label for="{{ register_form.rules.vars.id }}">
+                        {{ register_form.rules.vars.label|trans({'%start_link%': '<a href="'~path('terms')~'" target="_blank">', '%end_link%': '</a>'})|raw }}
+                    </label>
                     {{ form_widget(register_form.rules) }}
                     {% if form_errors(register_form.rules) %}
                     <span class="form-error" style="left: 43px;">{{ form_errors(register_form.rules) }}</span>

@@ -1,5 +1,12 @@
 {% extends 'user/base.html.twig' %}
-{% block head_title %} - Regulamin gry{% endblock %}
+{% block head_title %} - {% trans %}terms{% endtrans %}{% endblock %}
 {% block content %}
-    {{ parent() }}
+    <div class="left" id="panel">
+        <div class="upper">
+            <h1></h1>
+        </div>
+        <div class="terms-content">
+            {{ terms|striptags('<a> <b> <u> <i> <ol> <ul> <br> <li>')|raw }}
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use App\Repository\DownloadLinkRepository;
+use App\Service\TermsManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,9 +32,11 @@ class HomeController extends AbstractController implements UserControllerInterfa
      * @Route("/terms", name="terms")
      * @Method("GET")
      */
-    public function rules(): Response
+    public function terms(TermsManager $termsManager): Response
     {
-        return $this->render('user/terms.html.twig');
+        return $this->render('user/terms.html.twig', [
+            'terms' => $termsManager->getTerms()
+        ]);
     }
 
     /**
