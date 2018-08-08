@@ -1340,7 +1340,7 @@ textarea:focus {
     text-decoration: none;
 }
 
-.mirror:not(:last-child) {
+.mirror:not(:nth-child(4)) {
     margin-right: 5px;
 }
 
