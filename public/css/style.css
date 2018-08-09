@@ -456,11 +456,11 @@ a:hover {
     background: url(../images/box_main_upper_index.png) top left no-repeat;
 }
 
-#news ul {
+#news > ul {
     float: left;
 }
 
-#news ul li {
+#news > ul > li {
     width: 629px;
     float: left;
     border-bottom: solid #1b1619 1px;
@@ -530,12 +530,25 @@ a:hover {
     padding: 0 0 16px 0;
 }
 
-#news ul li .desc p {
+#news ul li .desc {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     color: #734a3a;
     line-height: 14px;
     text-align: justify;
+}
+
+#news ul li .desc ul, #news ul li .desc ol {
+    margin-left: 35px;
+    margin-bottom: 15px;
+}
+
+#news ul li .desc ul li {
+    list-style-type: disc;
+}
+
+#news ul li .desc ol li {
+    list-style-type: decimal;
 }
 
 #news ul li .desc .button_more {
@@ -554,7 +567,7 @@ a:hover {
     margin: 0 0 0 271px;
 }
 
-#news p {
+#news .image_container p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     font-style: italic;
