@@ -58,12 +58,10 @@ class AccountType extends AbstractType
 
     public function onPostSubmit(FormEvent $event)
     {
-        /**
-         * @var $user Account
-         */
+        /** @var $user Account */
         $user = $event->getForm()->getData();
 
-        if ($user->getPassword() === self::DEFAULT_VALUE_PASS) {
+        if ($user->getPlainPassword() === self::DEFAULT_VALUE_PASS) {
             return;
         }
 
