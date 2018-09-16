@@ -5,22 +5,18 @@ parameters:
 
     locale: 'pl'
 
+    #Recaptcha config
     repcatcha.public_key: '%env(RECAPTCHA_PUBLIC_KEY)%'
     recaptcha.secret_key: '%env(RECAPTCHA_SECRET_KEY)%'
     recaptcha.api_url: 'https://www.google.com/recaptcha/api/siteverify'
 
-    attachments_directory: '%kernel.project_dir%/public/upload/attachments'
-
-    kingdom_extension_settings:
-        path: '/images/kingdom'
-        shinsoo: 'shinsoo'
-        chunjo: 'chunjo'
-        jinno: 'jinno'
-        format: 'png'
-
+    #MaintenanceManager config
     maintenance_path: '%kernel.project_dir%/config/maintenance.yaml'
+
+    #TermsManager config
     terms_path: '%kernel.project_dir%/var/terms.html'
 
+    #PayPal config
     paypal:
         public_key: '%env(PAYPAL_PUBLIC_KEY)%'
         secret_key: '%env(PAYPAL_SECRET_KEY)%'
@@ -31,11 +27,20 @@ parameters:
         payment_success_route_name: 'payments_paypal_receive'
         payment_cancel_route_name: 'payments_paypal_index'
 
+    #MailerService config
     mailer:
         from_email: '%env(MAILER_FROM_EMAIL)%'
         from_name: '%env(MAILER_FROM_NAME)%'
         content_type: 'text/html'
         charset: 'utf-8'
+
+    #KingdomTwigExtension config
+    kingdom_extension_settings:
+        path: '/images/kingdom'
+        shinsoo: 'shinsoo'
+        chunjo: 'chunjo'
+        jinno: 'jinno'
+        format: 'png'
 
 services:
     # default configuration for services in *this* file
@@ -76,7 +81,7 @@ services:
     App\Service\Mailer:
         arguments:
             $options: '%mailer%'
-            
+
     App\Service\TermsManager:
         arguments:
             $termsPath: '%terms_path%'
