@@ -58,20 +58,30 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-
+    # App\Service
     App\Service\Payments\PayPal\PayPalInitiator:
-                arguments: ['%paypal%']
+          arguments:
+              $config: '%paypal%'
+
     App\Service\Recaptcha:
-                arguments: ['%recaptcha.secret_key%', '%repcatcha.public_key%', '%recaptcha.api_url%']
+        arguments:
+            $secretKey: '%recaptcha.secret_key%'
+            $publicKey: '%repcatcha.public_key%'
+            $apiUrl: '%recaptcha.api_url%'
+
     App\Service\MaintenanceManager:
-                    arguments: ['%maintenance_path%']
-    App\Twig\KingdomExtension:
-                arguments: ['%kingdom_extension_settings%']
+        arguments:
+            $configPath: '%maintenance_path%'
+
     App\Service\Mailer:
         arguments:
             $options: '%mailer%'
+            
     App\Service\TermsManager:
         arguments:
             $termsPath: '%terms_path%'
+
+    # App\Twig
+    App\Twig\KingdomExtension:
+        arguments:
+            $config: '%kingdom_extension_settings%'
