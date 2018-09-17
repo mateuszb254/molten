@@ -8,7 +8,7 @@
         <div class="form">
             <form action="{{ path('login') }}" method="post">
                 <div class="form-row">
-                    <label for="username">Login:</label>
+                    <label for="username">{% trans %}label.login{% endtrans %}</label>
                     <input type="text" class="input_register" id="username" name="_username"
                            value="{{ last_username }}"/>
                     {% if error %}
@@ -16,7 +16,7 @@
                     {% endif %}
                 </div>
                 <div class="form-row">
-                    <label for="password">Hasło:</label>
+                    <label for="password">{% trans %}label.password{% endtrans %}</label>
                     <input type="password" class="input_register" id="password" name="_password"/>
                 </div>
                 <p><input type="submit" value="" name="" class="button_send"/></p>
