@@ -1,0 +1,711 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="hello_message">
+                <source>hello_message</source>
+                <target>Witaj, %login%!</target>
+            </trans-unit>
+            <trans-unit id="copyrights">
+                <source>copyrights</source>
+                <target>Wszelkie prawa zastrzeżone</target>
+            </trans-unit>
+            <trans-unit id="user_panel">
+                <source>user_panel</source>
+                <target>Panel gracza</target>
+            </trans-unit>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>Tak</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>Nie</target>
+            </trans-unit>
+            <trans-unit id="you_own">
+                <source>you_own</source>
+                <target>Posiadasz</target>
+            </trans-unit>
+            <trans-unit id="players_count">
+                <source>players_count</source>
+                <target>%count% graczy</target>
+            </trans-unit>
+            <trans-unit id="coins">
+                <source>coins</source>
+                <target>Monetę|Monety|Monet</target>
+            </trans-unit>
+            <trans-unit id="submit">
+                <source>submit</source>
+                <target>Zapisz</target>
+            </trans-unit>
+            <trans-unit id="turn.on">
+                <source>turn.on</source>
+                <target>Włącz</target>
+            </trans-unit>
+            <trans-unit id="turn.off">
+                <source>turn.off</source>
+                <target>Wyłącz</target>
+            </trans-unit>
+            <trans-unit id="turned.on">
+                <source>turned.on</source>
+                <target>Włączona</target>
+            </trans-unit>
+            <trans-unit id="turned.off">
+                <source>turned.off</source>
+                <target>Wyłączona</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edycja</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="terms">
+                <source>terms</source>
+                <target>Regulamin serwisu</target>
+            </trans-unit>
+            <trans-unit id="registration">
+                <source>registration</source>
+                <target>Rejestracja</target>
+            </trans-unit>
+            <trans-unit id="forgotten">
+                <source>forgotten</source>
+                <target>Zapomniałem hasła</target>
+            </trans-unit>
+            <trans-unit id="download">
+                <source>download</source>
+                <target>Pobierz grę</target>
+            </trans-unit>
+            <trans-unit id="download.links">
+                <source>download.links</source>
+                <target>Linki do pobrania gry</target>
+            </trans-unit>
+            <trans-unit id="download.links.name">
+                <source>download.links.name</source>
+                <target>Wyświetlana nazwa</target>
+            </trans-unit>
+            <trans-unit id="download.links.url">
+                <source>download.links.url</source>
+                <target>Adres url</target>
+            </trans-unit>
+            <trans-unit id="download.links.add">
+                <source>download.links.add</source>
+                <target>Dodaj link</target>
+            </trans-unit>
+            <trans-unit id="download.links.add.success">
+                <source>download.links.add.success</source>
+                <target>Dodano nowy odnośnik do pobrania gry.</target>
+            </trans-unit>
+            <trans-unit id="download.links.manage">
+                <source>download.links.manage</source>
+                <target>Zarządzaj linkami</target>
+            </trans-unit>
+            <trans-unit id="view">
+                <source>view</source>
+                <target>Przeglądaj</target>
+            </trans-unit>
+            <trans-unit id="articles">
+                <source>articles</source>
+                <target>Artykuły</target>
+            </trans-unit>
+            <trans-unit id="articles.new">
+                <source>articles.new</source>
+                <target>Nowy</target>
+            </trans-unit>
+            <trans-unit id="articles.new.success">
+                <source>articles.new.success</source>
+                <target>Dodano nowy artykuł. Przejdz do całej
+                    <![CDATA[<a href="%admin_article_index%">listy.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="articles.edit.success">
+                <source>articles.edit.success</source>
+                <target>Zeedytowano artykuł.</target>
+            </trans-unit>
+            <trans-unit id="articles.title">
+                <source>articles.title</source>
+                <target>Tytuł artykułu</target>
+            </trans-unit>
+            <trans-unit id="articles.content">
+                <source>articles.content</source>
+                <target>Treść artykułu</target>
+            </trans-unit>
+            <trans-unit id="articles.more">
+                <source>articles.more</source>
+                <target>Adres url:</target>
+            </trans-unit>
+            <trans-unit id="articles.author">
+                <source>articles.author</source>
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="articles.createdAt">
+                <source>articles.createdAt</source>
+                <target>Data publikacji</target>
+            </trans-unit>
+            <trans-unit id="articles.manage">
+                <source>articles.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="article.delete.success">
+                <source>article.delete.success</source>
+                <target>Usunięto artykuł.</target>
+            </trans-unit>
+            <trans-unit id="recaptcha">
+                <source>recaptcha</source>
+                <target>Musisz potwierdzić captchę przed wysłaniem formularza.</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.old">
+                <source>label.password.old</source>
+                <target>Aktualne hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.new">
+                <source>label.password.new</source>
+                <target>Nowe hasło</target>
+            </trans-unit>
+            <trans-unit id="label.password.repeat">
+                <source>label.password.repeat</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.old">
+                <source>label.email.old</source>
+                <target>Aktualny e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.new">
+                <source>label.email.new</source>
+                <target>Nowy e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.repeat">
+                <source>label.email.repeat</source>
+                <target>Powtórz e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.code">
+                <source>label.code</source>
+                <target>Kod usunięcia</target>
+            </trans-unit>
+            <trans-unit id="label.code.old">
+                <source>label.code.old</source>
+                <target>Aktualny kod</target>
+            </trans-unit>
+            <trans-unit id="label.code.new">
+                <source>label.code.new</source>
+                <target>Nowy kod</target>
+            </trans-unit>
+            <trans-unit id="label.code.repeat">
+                <source>label.code.repeat</source>
+                <target>Powtórz kod</target>
+            </trans-unit>
+            <trans-unit id="label.question">
+                <source>label.question</source>
+                <target>Pytanie pomocnicze</target>
+            </trans-unit>
+            <trans-unit id="label.answer">
+                <source>label.answer</source>
+                <target>Odpowiedz</target>
+            </trans-unit>
+            <trans-unit id="label.support_answer">
+                <source>label.support_answer</source>
+                <target>Odpowiedz</target>
+            </trans-unit>
+            <trans-unit id="label.support.block_answers">
+                <source>label.support.block_answers</source>
+                <target>Zablokuj możliwość odpowiedzi</target>
+            </trans-unit>
+            <trans-unit id="label.terms.statement">
+                <source>label.terms.statement</source>
+                <target>Oświadczam, że przeczytałem/przeczytałam i akceptuję %start_link%regulamin%end_link%.</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Temat</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Treść</target>
+            </trans-unit>
+            <trans-unit id="label.maintenance.status">
+                <source>label.maintenance.status</source>
+                <target>Status przerwy technicznej:</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code">
+                <source>label.promotion_code</source>
+                <target>Kod promocyjny</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.amount">
+                <source>label.promotion_code.amount</source>
+                <target>Ilość kodów</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.value">
+                <source>label.promotion_code.value</source>
+                <target>Wartość w monetach</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.onePerUser">
+                <source>label.promotion_code.onePerUser</source>
+                <target>Czy jeden użytkownik może wykorzystać tylko jeden kod z tej puli?</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.tag">
+                <source>label.promotion_code.tag</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.expires">
+                <source>label.promotion_code.expires</source>
+                <target>Wygasa? (jezeli nie, pozostaw puste)</target>
+            </trans-unit>
+            <trans-unit id="label.paypal.coins">
+                <source>label.paypal.coins</source>
+                <target>Ilość monet</target>
+            </trans-unit>
+            <trans-unit id="label.paypal.price">
+                <source>label.paypal.price</source>
+                <target>Cena:</target>
+            </trans-unit>
+            <trans-unit id="label.link.name">
+                <source>label.link.name</source>
+                <target>Nazwa wyświetlana</target>
+            </trans-unit>
+            <trans-unit id="label.link.url">
+                <source>label.link.url</source>
+                <target>Adres url</target>
+            </trans-unit>
+            <trans-unit id="change.password">
+                <source>change.password</source>
+                <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="change.password.success">
+                <source>change.password.success</source>
+                <target>Hasło zostało zmienione.</target>
+            </trans-unit>
+            <trans-unit id="change.email">
+                <source>change.email</source>
+                <target>Zmień e-mail</target>
+            </trans-unit>
+            <trans-unit id="change.email.success">
+                <source>change.email.success</source>
+                <target>E-mail został zmieniony.</target>
+            </trans-unit>
+            <trans-unit id="change.code">
+                <source>change.code</source>
+                <target>Zmień kod</target>
+            </trans-unit>
+            <trans-unit id="change.code.success">
+                <source>change.code.success</source>
+                <target>Kod został zmieniony.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.success">
+                <source>reset-password.success</source>
+                <target>Hasło zostało zresetowane. Możesz się zalogować.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.token.expired">
+                <source>reset-password.token.expired</source>
+                <target>Token wygasł. Użyj opcji zresetowania hasła ponownie.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.message_send.success">
+                <source>reset-password.message_send.success</source>
+                <target>Wysłaliśmy wiadomość e-mail z instrukcjami.</target>
+            </trans-unit>
+            <trans-unit id="buy_coins">
+                <source>buy_coins</source>
+                <target>Kup monety</target>
+            </trans-unit>
+            <trans-unit id="shop">
+                <source>shop</source>
+                <target>Sklep</target>
+            </trans-unit>
+            <trans-unit id="shop.category.name">
+                <source>shop.category.name</source>
+                <target>Nazwa kategori</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status">
+                <source>shop.category.status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="shop.category.new.success">
+                <source>shop.category.new.success</source>
+                <target>Dodano kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.delete.success">
+                <source>shop.category.delete.success</source>
+                <target>Usunięto kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.edit.success">
+                <source>shop.category.edit.success</source>
+                <target>Zeedytowano kategorię.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status0.success">
+                <source>shop.category.status0.success</source>
+                <target>Kategoria "%name%" została wyłączona</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status1.success">
+                <source>shop.category.status1.success</source>
+                <target>Kategoria "%name%" została włączona.</target>
+            </trans-unit>
+            <trans-unit id="shop.categories">
+                <source>shop.categories</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.new">
+                <source>shop.categories.new</source>
+                <target>Dodaj</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.manage">
+                <source>shop.categories.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="shop.product.inactive">
+                <source>shop.product.inactive</source>
+                <target>Produkt jest aktualnie niedostepny.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.not.found">
+                <source>shop.product.not.found</source>
+                <target>Nie znalezlismy produktu w naszej ofercie.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.bought">
+                <source>shop.product.bought</source>
+                <target>Zakupiono produkt..</target>
+            </trans-unit>
+            <trans-unit id="shop.not.enough.coins">
+                <source>shop.not.enough.coins</source>
+                <target>Niewystarczająca ilość monet.</target>
+            </trans-unit>
+            <trans-unit id="tickets.title">
+                <source>tickets.title</source>
+                <target>Tytuł zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="tickets.content">
+                <source>tickets.content</source>
+                <target>Treść zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="tickets.author">
+                <source>tickets.author</source>
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="tickets.createdAt">
+                <source>tickets.createdAt</source>
+                <target>Data wysłania</target>
+            </trans-unit>
+            <trans-unit id="tickets.category">
+                <source>tickets.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="tickets.manage">
+                <source>tickets.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="support">
+                <source>support</source>
+                <target>Zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="support.new">
+                <source>support.new</source>
+                <target>Nowe zgłoszenie</target>
+            </trans-unit>
+            <trans-unit id="support.show">
+                <source>support.show</source>
+                <target>Moje zgłoszenia</target>
+            </trans-unit>
+            <trans-unit id="support.view">
+                <source>support.view</source>
+                <target>Przeglądaj</target>
+            </trans-unit>
+            <trans-unit id="support.category.name">
+                <source>support.category.name</source>
+                <target>Nazwa kategorii</target>
+            </trans-unit>
+            <trans-unit id="support.category.single_manage">
+                <source>support.category.single_manage</source>
+                <target>Zarządzaj kategorią</target>
+            </trans-unit>
+            <trans-unit id="support.category.new">
+                <source>support.category.new</source>
+                <target>Dodaj kategorię</target>
+            </trans-unit>
+            <trans-unit id="support.category.new.success">
+                <source>support.category.new.success</source>
+                <target>Dodano nową kategorię. Przejdz do całej
+                    <![CDATA[<a href="%ticket_category_index%">listy.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="support.category.manage">
+                <source>support.category.manage</source>
+                <target>Zarządzaj kategoriami</target>
+            </trans-unit>
+            <trans-unit id="support.category.edit.success">
+                <source>support.category.edit.success</source>
+                <target>Zeedytowano nazwę kategori.</target>
+            </trans-unit>
+            <trans-unit id="support.category.delete.success">
+                <source>support.category.delete.success</source>
+                <target>Usunięto kategorię.</target>
+            </trans-unit>
+            <trans-unit id="support.answer.success">
+                <source>support.answer.success</source>
+                <target>Wysłano odpowiedz do użytkownika. Przejdz do całej
+                    <![CDATA[<a href="%admin_support_index%">listy zgłoszeń.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="logs">
+                <source>logs</source>
+                <target>Historia akcji</target>
+            </trans-unit>
+            <trans-unit id="registration.success">
+                <source>registration.success</source>
+                <target>Rejestracja przebiegła pomyślnie.</target>
+            </trans-unit>
+            <trans-unit id="user.banned">
+                <source>user.banned</source>
+                <target>Konto zablokowane.</target>
+            </trans-unit>
+            <trans-unit id="user.notBanned">
+                <source>user.notBanned</source>
+                <target>OK</target>
+            </trans-unit>
+            <trans-unit id="user.edit">
+                <source>user.edit</source>
+                <target>Edycja użytkownika {{user.login}}</target>
+            </trans-unit>
+            <trans-unit id="user.edit.success">
+                <source>user.edit.success</source>
+                <target>Zmieniono dane użytkownika. Przejdz do całej
+                    <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="users.login">
+                <source>users.login</source>
+                <target>Loginy</target>
+            </trans-unit>
+            <trans-unit id="users.email">
+                <source>users.email</source>
+                <target>Adresy e-mail</target>
+            </trans-unit>
+            <trans-unit id="users.code">
+                <source>users.code</source>
+                <target>Kody usunięcia postaci</target>
+            </trans-unit>
+            <trans-unit id="users.lastActivity">
+                <source>users.lastActivity</source>
+                <target>Ostatnia aktywność</target>
+            </trans-unit>
+            <trans-unit id="users.registredAt">
+                <source>users.registredAt</source>
+                <target>Data rejestracji</target>
+            </trans-unit>
+            <trans-unit id="users.role">
+                <source>users.role</source>
+                <target>Rola</target>
+            </trans-unit>
+            <trans-unit id="users.accountStatus">
+                <source>users.accountStatus</source>
+                <target>Status konta</target>
+            </trans-unit>
+            <trans-unit id="users.manage">
+                <source>users.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="ban.user">
+                <source>ban.user</source>
+                <target>Zablokuj użytkownika</target>
+            </trans-unit>
+            <trans-unit id="revoke.admin.permissions">
+                <source>revoke.admin.permissions</source>
+                <target>Zdejmij uprawnienia admina</target>
+            </trans-unit>
+            <trans-unit id="maintenance">
+                <source>maintenance</source>
+                <target>Przerwa techniczna</target>
+            </trans-unit>
+            <trans-unit id="maintenance.contents">
+                <source>maintenance.contents</source>
+                <target>Przerwa techniczna. Wracamy tak szybko jak będzie to możliwe.</target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.off">
+                <source>maintenance.turned.off</source>
+                <target>Przerwa techniczna wyłączona.</target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.on">
+                <source>maintenance.turned.on</source>
+                <target>Przerwa techniczna włączona.</target>
+            </trans-unit>
+            <trans-unit id="payments">
+                <source>payments</source>
+                <target>Płatności</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code">
+                <source>payment.promotion_code</source>
+                <target>Kody promocyjne</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.value">
+                <source>payment.promotion_code.value</source>
+                <target>Wartość kodu</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedBy">
+                <source>payment.promotion_code.usedBy</source>
+                <target>Wykorzystany przez</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedDate">
+                <source>payment.promotion_code.usedDate</source>
+                <target>Wykorzystany dnia</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generatedBy">
+                <source>payment.promotion_code.generatedBy</source>
+                <target>Wygenerowany przez</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expires">
+                <source>payment.promotion_code.expires</source>
+                <target>Wygasa</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.type">
+                <source>payment.promotion_code.type</source>
+                <target>Typ kodu</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.tag">
+                <source>payment.promotion_code.tag</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generate">
+                <source>payment.promotion_code.generate</source>
+                <target>Generuj</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.manage">
+                <source>payment.promotion_code.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.success">
+                <source>payment.promotion_code.success</source>
+                <target>Doładowaliśmy status Twoich smoczych monet o %coins%.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.notValid">
+                <source>payment.promotion_code.notValid</source>
+                <target>Podany kod jest niepoprawny.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.used">
+                <source>payment.promotion_code.used</source>
+                <target>Podany kod został już wykorzystany wcześniej.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expired">
+                <source>payment.promotion_code.expired</source>
+                <target>Ważnośc kodu wygasła.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.onePerUser">
+                <source>payment.promotion_code.onePerUser</source>
+                <target>Jeden kod z promocji "%tag%" został już użyty..</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.generate.success">
+                <source>payment.promotion_code.generate.success</source>
+                <target>Kody zostały wygenerowane pomyślnie.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal">
+                <source>payment.paypal</source>
+                <target>PayPal</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.coins">
+                <source>payment.paypal.coins</source>
+                <target>Wartość w monetach</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.price">
+                <source>payment.paypal.price</source>
+                <target>Cena</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.manage">
+                <source>payment.paypal.manage</source>
+                <target>Zarządzaj</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.new">
+                <source>payment.paypal.new</source>
+                <target>Dodaj pakiet</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.buy_button">
+                <source>payment.paypal.buy_button</source>
+                <target>Kup</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.buy_title">
+                <source>payment.paypal.buy_title</source>
+                <target>Kup pakiet #%id%</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.success">
+                <source>payment.paypal.success</source>
+                <target>Płatność zakończona. Doładowano %coins% monet.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.completed">
+                <source>payment.paypal.completed</source>
+                <target>Płatność została zakończona wcześniej.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.packet">
+                <source>payment.paypal.packet</source>
+                <target>Kupując ten pakiet ten pakiet otrzymasz %coins% SM za %price% PLN.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.edit.success">
+                <source>payment.paypal.edit.success</source>
+                <target>Pakiet został zeedytowany.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.delete.success">
+                <source>payment.paypal.delete.success</source>
+                <target>Pakiet został usunięty.</target>
+            </trans-unit>
+            <trans-unit id="payment.paypal.new.success">
+                <source>payment.paypal.new.success</source>
+                <target>Pakiet został dodany.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_PASSWORD">
+                <source>CHANGE_PASSWORD</source>
+                <target>Zmiana hasła.</target>
+            </trans-unit>
+            <trans-unit id="RESET_PASSWORD">
+                <source>RESET_PASSWORD</source>
+                <target>Zrestartowanie hasła.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_EMAIL">
+                <source>CHANGE_EMAIL</source>
+                <target>Zmiana email.</target>
+            </trans-unit>
+            <trans-unit id="CHANGE_CODE">
+                <source>CHANGE_CODE</source>
+                <target>Zmiana kodu.</target>
+            </trans-unit>
+            <trans-unit id="BUY_ITEM">
+                <source>BUY_ITEM</source>
+                <target>Zakupiono przedmiot.</target>
+            </trans-unit>
+            <trans-unit id="CONTROL_PANEL">
+                <source>CONTROL_PANEL</source>
+                <target>Panel administracyjny</target>
+            </trans-unit>
+            <trans-unit id="LOGGED_BY">
+                <source>LOGGED_BY</source>
+                <target>Zalogowany jako: {{test}}</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>Użytkownik</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ADMIN">
+                <source>ROLE_ADMIN</source>
+                <target>Administrator</target>
+            </trans-unit>
+            <trans-unit id="COINS_BOUGHT_PAYPAL">
+                <source>COINS_BOUGHT_PAYPAL</source>
+                <target>Zakupiono %coins% monet.(PayPal)</target>
+            </trans-unit>
+            <trans-unit id="PROMOTION_CODE">
+                <source>PROMOTION_CODE</source>
+                <target>Użyto kodu promocyjnego %code%.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
