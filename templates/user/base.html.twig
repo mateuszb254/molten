@@ -34,7 +34,6 @@
             </div>
             <div class="row" id="slider">
                 <div class="slider">
-                    class="slider">
                     {% if app.user %}
                         {% include 'user/partials/box_panel_logged.html.twig' %}
                     {% elseif not app.user %}
@@ -63,9 +62,9 @@
                     </div>
                     <div class="box_status">
                         <p>
-                            <span style="color: red;">OFFLINE
-                            <br/><br/><br/><br/>0 graczy
-                                </span>
+                            <span style="color: red;">OFFLINE<br/><br/><br/><br/>
+                                {% trans with {'%count%' : 0} %}players_count{% endtrans %}
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -105,7 +104,7 @@
                 </div>
             </div>
             <div class="row" id="footer">
-                <p>&#169; 2017-{{ "now"|date("Y") }} by nagadev.pl. <br/>All rights reserved.</p>
+                <p>&#169; 2017-{{ "now"|date("Y") }} nagadev.pl. <br/>{% trans %}copyrights{% endtrans %}</p>
             </div>
         </div>
     </div>
