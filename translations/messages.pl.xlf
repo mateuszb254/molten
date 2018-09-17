@@ -2,6 +2,18 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="hello_message">
+                <source>hello_message</source>
+                <target>Witaj, %login%!</target>
+            </trans-unit>
+            <trans-unit id="copyrights">
+                <source>copyrights</source>
+                <target>Wszelkie prawa zastrzeżone</target>
+            </trans-unit>
+            <trans-unit id="user_panel">
+                <source>user_panel</source>
+                <target>Panel gracza</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>Tak</target>
@@ -9,6 +21,18 @@
             <trans-unit id="no">
                 <source>no</source>
                 <target>Nie</target>
+            </trans-unit>
+            <trans-unit id="you_own">
+                <source>you_own</source>
+                <target>Posiadasz</target>
+            </trans-unit>
+            <trans-unit id="players_count">
+                <source>players_count</source>
+                <target>%count% graczy</target>
+            </trans-unit>
+            <trans-unit id="coins">
+                <source>coins</source>
+                <target>Monetę|Monety|Monet</target>
             </trans-unit>
             <trans-unit id="submit">
                 <source>submit</source>
@@ -41,6 +65,14 @@
             <trans-unit id="terms">
                 <source>terms</source>
                 <target>Regulamin serwisu</target>
+            </trans-unit>
+            <trans-unit id="registration">
+                <source>registration</source>
+                <target>Rejestracja</target>
+            </trans-unit>
+            <trans-unit id="forgotten">
+                <source>forgotten</source>
+                <target>Zapomniałem hasła</target>
             </trans-unit>
             <trans-unit id="download">
                 <source>download</source>
