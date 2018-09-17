@@ -3,8 +3,6 @@
 parameters:
     project_name: '%env(PROJECT_NAME)%'
 
-    locale: 'pl'
-
     #Recaptcha config
     repcatcha.public_key: '%env(RECAPTCHA_PUBLIC_KEY)%'
     recaptcha.secret_key: '%env(RECAPTCHA_SECRET_KEY)%'
@@ -90,3 +88,8 @@ services:
     App\Twig\KingdomExtension:
         arguments:
             $config: '%kingdom_extension_settings%'
+
+    # App\EventSubscriber
+    App\EventSubscriber\LocaleSubscriber:
+        arguments:
+            $defaultLocale: '%kernel.default_locale%'
