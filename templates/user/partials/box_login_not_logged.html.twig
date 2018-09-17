@@ -1,16 +1,14 @@
 <div class="box_login not_logged">
     <form action="{{ path('login') }}" method="post">
         <dl>
-            <dt><label>Login</label></dt>
+            <dt><label id="username">{% trans %}label.login{% endtrans %}</label></dt>
             <dd><input type="text" id="username" name="_username" class="input_login"/></dd>
-            <dt><label>Hasło</label></dt>
-            <dd><input type="password" value="" name="_password" class="input_login"/></dd>
+            <dt><label>{% trans %}label.password{% endtrans %}</label></dt>
+            <dd><input id="password" type="password" value="" name="_password" class="input_login"/></dd>
         </dl>
         <div class="links">
-            <a href="{{ path('forgotten') }}" title="Zapomniałem hasła" class="remind">Zapomniałem
-                hasła</a><br/>
-            <a href="{{ path('register') }}" title="Rejestracja"
-               class="register">Rejestracja</a>
+            <a href="{{ path('forgotten') }}" title="Zapomniałem hasła" class="remind">{% trans %}forgotten{% endtrans %}</a><br/>
+            <a href="{{ path('register') }}" class="register">{% trans %}registration{% endtrans %}</a>
         </div>
         <div class="button">
             <input type="submit" value="" class="button_login"/>
