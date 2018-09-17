@@ -3,6 +3,9 @@
 parameters:
     project_name: '%env(PROJECT_NAME)%'
 
+    #Possible keys that user can use
+    possible_locales: ['pl', 'en']
+
     #Recaptcha config
     repcatcha.public_key: '%env(RECAPTCHA_PUBLIC_KEY)%'
     recaptcha.secret_key: '%env(RECAPTCHA_SECRET_KEY)%'
@@ -93,3 +96,4 @@ services:
     App\EventSubscriber\LocaleSubscriber:
         arguments:
             $defaultLocale: '%kernel.default_locale%'
+            $possibleLocales: '%possible_locales%'
