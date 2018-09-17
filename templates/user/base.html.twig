@@ -34,19 +34,9 @@
             </div>
             <div class="row" id="slider">
                 <div class="slider">
+                    class="slider">
                     {% if app.user %}
-                        <div class="box_login">
-                            <div class="upper">
-                                <p>
-                                    Witaj, {{ app.user.login }}<br/>Posiadasz : <span>{{ app.user.coins }}
-                                        Monet</span><br/>
-                                    <a href="{{ path('user_panel') }}" title="">Panel gracza</a> {% if is_granted('ROLE_ADMIN') %} / <a style="color: red" href="{{ path('admin_index') }}">ACP</a> {% endif %}
-                                </p>
-                            </div>
-                            <div class="lower">
-                                <a href="{{ path('logout') }}" title="" class="button_logout"></a>
-                            </div>
-                        </div>
+                        {% include 'user/partials/box_panel_logged.html.twig' %}
                     {% elseif not app.user %}
                         {% include 'user/partials/box_login_not_logged.html.twig' %}
                     {% endif %}
