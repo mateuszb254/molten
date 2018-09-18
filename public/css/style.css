@@ -42,7 +42,7 @@ a:hover {
     background: url(../images/top.png) top left no-repeat;
     width: 1005px;
     height: 185px;
-    margin: 57px 0 0 0;
+    margin: 30px 0 0 0;
     position: relative;
 }
 
@@ -1405,4 +1405,22 @@ textarea:focus {
 
 .terms-content ul {
     list-style-type: circle;
+}
+
+.languages-content {
+    text-align: center;
+}
+
+.flag {
+    width: 35px;
+    height: 30px;
+    opacity: 0.5;
+}
+
+.flag:hover:not(.active) {
+    opacity: 0.7;
+}
+
+.flag.active {
+    opacity: 1;
 }

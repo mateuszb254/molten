@@ -19,6 +19,13 @@
 <div class="wrapper" id="bg_bottom">
     <div class="wrapper" id="bg_top">
         <div class="content">
+            <div id="languages" class="row languages-content">
+                {% for locale in possible_locales %}
+                    <a href="?_locale={{ locale }}">
+                        <img src="{{ asset('images/flags/' ~ locale ~ '.png') }}" class="flag{{ locale == app.request.getLocale ? ' active' : '' }}">
+                    </a>
+                {% endfor %}
+            </div>
             <div class="row" id="top">
                 <a href="" title="" id="logo"></a>
                 <ul>
