@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="hello_message">
+                <source>hello_message</source>
+                <target>Hello, %login%!</target>
+            </trans-unit>
+            <trans-unit id="copyrights">
+                <source>copyrights</source>
+                <target>All rights reserved</target>
+            </trans-unit>
+            <trans-unit id="user_panel">
+                <source>user_panel</source>
+                <target>User Panel</target>
+            </trans-unit>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>yes</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>no</target>
+            </trans-unit>
+            <trans-unit id="you_own">
+                <source>you_own</source>
+                <target>You have</target>
+            </trans-unit>
+            <trans-unit id="players_count">
+                <source>players_count</source>
+                <target>%count% players</target>
+            </trans-unit>
+            <trans-unit id="coins">
+                <source>coins</source>
+                <target>coin|coins</target>
+            </trans-unit>
+            <trans-unit id="submit">
+                <source>submit</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="turn.on">
+                <source>turn.on</source>
+                <target>Turn on</target>
+            </trans-unit>
+            <trans-unit id="turn.off">
+                <source>turn.off</source>
+                <target>turn off</target>
+            </trans-unit>
+            <trans-unit id="turned.on">
+                <source>turned.on</source>
+                <target>Turned on</target>
+            </trans-unit>
+            <trans-unit id="turned.off">
+                <source>turned.off</source>
+                <target>Turned off</target>
+            </trans-unit>
+            <trans-unit id="edit">
+                <source>edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="delete">
+                <source>delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="terms">
+                <source>terms</source>
+                <target>Terms</target>
+            </trans-unit>
+            <trans-unit id="registration">
+                <source>registration</source>
+                <target>Registration</target>
+            </trans-unit>
+            <trans-unit id="forgotten">
+                <source>forgotten</source>
+                <target>I lost account access</target>
+            </trans-unit>
+            <trans-unit id="download">
+                <source>download</source>
+                <target>Download</target>
+            </trans-unit>
+            <trans-unit id="download.links">
+                <source>download.links</source>
+                <target>Mirrors</target>
+            </trans-unit>
+            <trans-unit id="download.links.name">
+                <source>download.links.name</source>
+                <target>Name to display</target>
+            </trans-unit>
+            <trans-unit id="download.links.url">
+                <source>download.links.url</source>
+                <target>Mirror url</target>
+            </trans-unit>
+            <trans-unit id="download.links.add">
+                <source>download.links.add</source>
+                <target>Add new mirror</target>
+            </trans-unit>
+            <trans-unit id="download.links.add.success">
+                <source>download.links.add.success</source>
+                <target>We've successfully added new mirror..</target>
+            </trans-unit>
+            <trans-unit id="download.links.manage">
+                <source>download.links.manage</source>
+                <target>Links manager</target>
+            </trans-unit>
+            <trans-unit id="view">
+                <source>view</source>
+                <target>View</target>
+            </trans-unit>
+            <trans-unit id="articles">
+                <source>articles</source>
+                <target>Articles</target>
+            </trans-unit>
+            <trans-unit id="articles.new">
+                <source>articles.new</source>
+                <target>New article</target>
+            </trans-unit>
+            <trans-unit id="articles.new.success">
+                <source>articles.new.success</source>
+                <target>We've successfully added new article. Go to
+                    <![CDATA[<a href="%admin_article_index%">full list of articles.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="articles.edit.success">
+                <source>articles.edit.success</source>
+                <target>Article has been edited.</target>
+            </trans-unit>
+            <trans-unit id="articles.title">
+                <source>articles.title</source>
+                <target>Article's title</target>
+            </trans-unit>
+            <trans-unit id="articles.content">
+                <source>articles.content</source>
+                <target>Article's contents</target>
+            </trans-unit>
+            <trans-unit id="articles.more">
+                <source>articles.more</source>
+                <target>URL:</target>
+            </trans-unit>
+            <trans-unit id="articles.author">
+                <source>articles.author</source>
+                <target>Author</target>
+            </trans-unit>
+            <trans-unit id="articles.createdAt">
+                <source>articles.createdAt</source>
+                <target>Date of creation</target>
+            </trans-unit>
+            <trans-unit id="articles.manage">
+                <source>articles.manage</source>
+                <target>Manage</target>
+            </trans-unit>
+            <trans-unit id="article.delete.success">
+                <source>article.delete.success</source>
+                <target>Article has been deleted.</target>
+            </trans-unit>
+            <trans-unit id="recaptcha">
+                <source>recaptcha</source>
+                <target>You must confirm re-captcha.</target>
+            </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Pass</target>
+            </trans-unit>
+            <trans-unit id="label.password.old">
+                <source>label.password.old</source>
+                <target>Current password</target>
+            </trans-unit>
+            <trans-unit id="label.password.new">
+                <source>label.password.new</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="label.password.repeat">
+                <source>label.password.repeat</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.old">
+                <source>label.email.old</source>
+                <target>Current e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.new">
+                <source>label.email.new</source>
+                <target>New e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.email.repeat">
+                <source>label.email.repeat</source>
+                <target>Repeat e-mail</target>
+            </trans-unit>
+            <trans-unit id="label.code">
+                <source>label.code</source>
+                <target>Deletion code</target>
+            </trans-unit>
+            <trans-unit id="label.code.old">
+                <source>label.code.old</source>
+                <target>Current code</target>
+            </trans-unit>
+            <trans-unit id="label.code.new">
+                <source>label.code.new</source>
+                <target>New code</target>
+            </trans-unit>
+            <trans-unit id="label.code.repeat">
+                <source>label.code.repeat</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="label.question">
+                <source>label.question</source>
+                <target>Leading question</target>
+            </trans-unit>
+            <trans-unit id="label.answer">
+                <source>label.answer</source>
+                <target>Answer</target>
+            </trans-unit>
+            <trans-unit id="label.support_answer">
+                <source>label.support_answer</source>
+                <target>Answer</target>
+            </trans-unit>
+            <trans-unit id="label.support.block_answers">
+                <source>label.support.block_answers</source>
+                <target>Block answers</target>
+            </trans-unit>
+            <trans-unit id="label.terms.statement">
+                <source>label.terms.statement</source>
+                <target>I declare, i have read and accept %start_link%terms%end_link%.</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Subject</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Contents</target>
+            </trans-unit>
+            <trans-unit id="label.maintenance.status">
+                <source>label.maintenance.status</source>
+                <target>Status of maintenance mode:</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code">
+                <source>label.promotion_code</source>
+                <target>Promotion Code</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.amount">
+                <source>label.promotion_code.amount</source>
+                <target>Amount of codes</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.value">
+                <source>label.promotion_code.value</source>
+                <target>Value in coins</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.onePerUser">
+                <source>label.promotion_code.onePerUser</source>
+                <target>Does user can use one code of promotion?</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.tag">
+                <source>label.promotion_code.tag</source>
+                <target>Tag</target>
+            </trans-unit>
+            <trans-unit id="label.promotion_code.expires">
+                <source>label.promotion_code.expires</source>
+                <target>Expires? (if don't let it blank)</target>
+            </trans-unit>
+            <trans-unit id="label.paypal.coins">
+                <source>label.paypal.coins</source>
+                <target>Amount of coins</target>
+            </trans-unit>
+            <trans-unit id="label.paypal.price">
+                <source>label.paypal.price</source>
+                <target>Price:</target>
+            </trans-unit>
+            <trans-unit id="label.link.name">
+                <source>label.link.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="label.link.url">
+                <source>label.link.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="change.password">
+                <source>change.password</source>
+                <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="change.password.success">
+                <source>change.password.success</source>
+                <target>Password has been changed.</target>
+            </trans-unit>
+            <trans-unit id="change.email">
+                <source>change.email</source>
+                <target>Change e-mail</target>
+            </trans-unit>
+            <trans-unit id="change.email.success">
+                <source>change.email.success</source>
+                <target>E-mail has been changed.</target>
+            </trans-unit>
+            <trans-unit id="change.code">
+                <source>change.code</source>
+                <target>Change code</target>
+            </trans-unit>
+            <trans-unit id="change.code.success">
+                <source>change.code.success</source>
+                <target>Code has been changed.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.success">
+                <source>reset-password.success</source>
+                <target>Password has been reset. You can log-in.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.token.expired">
+                <source>reset-password.token.expired</source>
+                <target>Token expired. You need to start resetting password process again.</target>
+            </trans-unit>
+            <trans-unit id="reset-password.message_send.success">
+                <source>reset-password.message_send.success</source>
+                <target>We sent you an e-mail message with instructions.</target>
+            </trans-unit>
+            <trans-unit id="buy_coins">
+                <source>buy_coins</source>
+                <target>Buy coins</target>
+            </trans-unit>
+            <trans-unit id="shop">
+                <source>shop</source>
+                <target>Shop</target>
+            </trans-unit>
+
+            <!--    -->
+            <trans-unit id="support">
+                <source>support</source>
+                <target>Support</target>
+            </trans-unit>
+            <trans-unit id="support.new">
+                <source>support.new</source>
+                <target>Add a new ticket</target>
+            </trans-unit>
+            <trans-unit id="support.show">
+                <source>support.show</source>
+                <target>My tickets</target>
+            </trans-unit>
+            <trans-unit id="support.view">
+                <source>support.view</source>
+                <target>View</target>
+            </trans-unit>
+            <trans-unit id="support.category.name">
+                <source>support.category.name</source>
+                <target>Category name</target>
+            </trans-unit>
+            <trans-unit id="support.category.single_manage">
+                <source>support.category.single_manage</source>
+                <target>Category manager</target>
+            </trans-unit>
+            <trans-unit id="support.category.new">
+                <source>support.category.new</source>
+                <target>Add a new category</target>
+            </trans-unit>
+            <trans-unit id="support.category.new.success">
+                <source>support.category.new.success</source>
+                <target>New category has been aadded. Go to
+                    <![CDATA[<a href="%ticket_category_index%">categories section.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="support.category.manage">
+                <source>support.category.manage</source>
+                <target>Categories manager</target>
+            </trans-unit>
+            <trans-unit id="support.category.edit.success">
+                <source>support.category.edit.success</source>
+                <target>Category name has been edited.</target>
+            </trans-unit>
+            <trans-unit id="support.category.delete.success">
+                <source>support.category.delete.success</source>
+                <target>Category has been deleted.</target>
+            </trans-unit>
+            <trans-unit id="support.answer.success">
+                <source>support.answer.success</source>
+                <target>Answer has been sent. Go to
+                    <![CDATA[<a href="%admin_support_index%">tickets section.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="logs">
+                <source>logs</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="registration.success">
+                <source>registration.success</source>
+                <target>Registration has been successfully ended. You can log-in.</target>
+            </trans-unit>
+            <trans-unit id="user.banned">
+                <source>user.banned</source>
+                <target>Account banned.</target>
+            </trans-unit>
+            <trans-unit id="user.notBanned">
+                <source>user.notBanned</source>
+                <target>OK</target>
+            </trans-unit>
+            <trans-unit id="user.edit">
+                <source>user.edit</source>
+                <target>Edit user {{user.login}}</target>
+            </trans-unit>
+            <trans-unit id="user.edit.success">
+                <source>user.edit.success</source>
+                <target>User has been modified. Go to manage
+                    <![CDATA[<a href="%admin_users_index%">user section.</a>]]></target>
+            </trans-unit>
+
+            <!--  -->
+
+        </body>
+    </file>
+</xliff>

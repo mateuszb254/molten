@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pl" target-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="reset_password">
+                <source>reset_password</source>
+                <target>Password reset</target>
+            </trans-unit>
+            <trans-unit id="reset_password_content">
+                <source>reset_password_content</source>
+                <target>According to your request, we send you a link where you can reset your password. Just click <![CDATA[<a href="%reset_password_url%">resetting password link</a>]]></target>
+            </trans-unit>
+            <trans-unit id="regards">
+                <source>regards</source>
+                <target>Best regards, %project_name% team.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

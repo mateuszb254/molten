@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="default.not_blank">
+                <source>default.not_blank</source>
+                <target>This field cannot be blank.</target>
+            </trans-unit>
+            <trans-unit id="default.email">
+                <source>default.email</source>
+                <target>This field contains invalid mail address.</target>
+            </trans-unit>
+            <trans-unit id="terms">
+                <source>terms</source>
+                <target>You must confirm our terms.</target>
+            </trans-unit>
+            <trans-unit id="email.nonexistent">
+                <source>email.nonexistent</source>
+                <target>The given mail address doesnt exist in our database.</target>
+            </trans-unit>
+            <trans-unit id="account.login.minLength">
+                <source>account.login.minLength</source>
+                <target>Login can contain just from 5 do 24 charaters.</target>
+            </trans-unit>
+            <trans-unit id="account.login.maxLength">
+                <source>account.login.maxLength</source>
+                <target>Login can contain just from 5 do 24 charaters.</target>
+            </trans-unit>
+            <trans-unit id="account.email.maxLength">
+                <source>account.email.maxLength</source>
+                <target>Mail can contain max 50 characters.</target>
+            </trans-unit>
+            <trans-unit id="account.login.unique">
+                <source>account.login.unique</source>
+                <target>This login exists in our database. Choose another one.</target>
+            </trans-unit>
+            <trans-unit id="account.email.unique">
+                <source>account.email.unique</source>
+                <target>This email exists in our database. Choose another one.</target>
+            </trans-unit>
+            <trans-unit id="account.password.incorrect">
+                <source>account.password.incorrect</source>
+                <target>This password doesn't match to current one.</target>
+            </trans-unit>
+            <trans-unit id="account.email.change">
+                <source>account.email.change</source>
+                <target>This emaill doesn't match to current one.</target>
+            </trans-unit>
+            <trans-unit id="account.code.change">
+                <source>account.code.change</source>
+                <target>This code doesn't match to current one.</target>
+            </trans-unit>
+            <trans-unit id="ticket.category.select">
+                <source>ticket.category.select</source>
+                <target>Select subject of ticket.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.tag.require">
+                <source>payment.promotion_code.tag.require</source>
+                <target>If user can use just only one code from promotion you need to specify tag.</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.expires.greaterThanToday">
+                <source>payment.promotion_code.expires.greaterThanToday</source>
+                <target>Expiration date of code must has higher value than current date.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.name.unique">
+                <source>shop.category.name.unique</source>
+                <target>Category using this name exists. Choose another one.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
