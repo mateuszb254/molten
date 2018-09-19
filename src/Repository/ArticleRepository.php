@@ -43,6 +43,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function findArticlesByOffset($start)
     {
         $queryBuilder = $this->createQueryBuilder('a')
+            ->select('a.id, a.title, a.content, a.createdAt, a.more, a.image, u.login as author')
+            ->innerJoin('a.author', 'u')
             ->orderBy('a.createdAt', 'DESC')
             ->setFirstResult($start)
             ->setMaxResults(Article::ARTICLES_PER_PAGE)

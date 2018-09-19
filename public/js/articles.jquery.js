@@ -28,7 +28,7 @@ $(function () {
 
                     html += '<li id="' + article.id + '">';
                     html += '<div class="date"> <p><big>' + date.getDate() + '</big><br/>' + months[date.getMonth()] + '</p></div>';
-                    html += '<div class="image"> <div class="image_container"> <img src="content/thumb.png" alt=""/> <div href="" title="" class="frame"></div><p>Autor:' + article.author.login + '</p></div></div>';
+                    html += '<div class="image"> <div class="image_container"> <img src="content/thumb.png" alt=""/> <div href="" title="" class="frame"></div><p>Autor:' + article.author + '</p></div></div>';
                     html += '<div class="desc"> <h2>' + article.title + '.</h2> <p>' + article.content + '</p> <a href="" title="" class="button_more"></a> </div>';
                     html += '</li>';
                 }
