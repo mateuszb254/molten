@@ -3,6 +3,7 @@
 namespace App\Controller\API;
 
 use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,14 +16,13 @@ class ArticleController extends AbstractController implements APIControllerInter
     /**
      * @Route("/articles/{start}", requirements={"start" : "[\d]+"} ,name="api_articles", methods={"GET"})
      *
-     * @param $start integer referes start limit to fetching articles
+     * @param $start integer refers start limit to fetching articles
      *
      * @return Response
      */
-    public function articles(int $start): Response
+    public function articles(int $start, ArticleRepository $articleRepository): Response
     {
-        $articlesRepository = $this->getDoctrine()->getRepository(Article::class);
-        $articles = $articlesRepository->findArticlesByOffset($start);
+        $articles = $articleRepository->findArticlesByOffset($start);
 
         return $this->json($articles);
     }
