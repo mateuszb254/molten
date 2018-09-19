@@ -30,16 +30,6 @@ class ArticleRepository extends ServiceEntityRepository
         return $result;
     }
 
-    public function findFirstArticles()
-    {
-        $queryBuilder = $this->createQueryBuilder('a')
-            ->orderBy('a.createdAt', 'DESC')
-            ->setMaxResults(Article::ARTICLES_PER_PAGE)
-            ->getQuery();
-
-        return $queryBuilder->execute();
-    }
-
     public function findArticlesByOffset($start)
     {
         $queryBuilder = $this->createQueryBuilder('a')

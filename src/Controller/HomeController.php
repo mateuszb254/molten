@@ -18,7 +18,7 @@ class HomeController extends AbstractController implements UserControllerInterfa
      */
     public function index(ArticleRepository $articles): Response
     {
-        $threeLastArticles = $articles->findFirstArticles();
+        $threeLastArticles = $articles->findArticlesByOffset(0);
 
         $countOfArticles = $articles->getCountOfArticles();
 
