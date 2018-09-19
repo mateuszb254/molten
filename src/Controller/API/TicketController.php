@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("json")
+ * @Route("api")
  */
 class TicketController extends AbstractController implements APIControllerInterface
 {
     /**
-     * @Route("/tickets/open", requirements={"start" : "[\d]+"} ,name="json_tickets_count", methods={"GET"})
+     * @Route("/tickets/open", requirements={"start" : "[\d]+"} ,name="api_ticketsCount", methods={"GET"})
      */
     public function count(TicketRepository $ticketRepository): Response
     {

@@ -8,12 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("json")
+ * @Route("api")
  */
 class ServerController extends AbstractController implements APIControllerInterface
 {
     /**
-     * @Route("/status", name="json_serverStatus")
+     * @Route("/status", name="api_serverStatus")
      * @Method("GET")
      *
      * @return Response

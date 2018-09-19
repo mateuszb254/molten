@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route("json")
+ * @Route("api")
  */
 class ArticleController extends AbstractController implements APIControllerInterface
 {
     /**
-     * @Route("/articles/{start}", requirements={"start" : "[\d]+"} ,name="json_articles", methods={"GET"})
+     * @Route("/articles/{start}", requirements={"start" : "[\d]+"} ,name="api_articles", methods={"GET"})
      *
      * @param $start integer referes start limit to fetching articles
      *

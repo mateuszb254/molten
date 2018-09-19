@@ -42,7 +42,7 @@
             $('.button_see_more').click(function (e) {
                 e.preventDefault();
 
-                var basePath = '{{ path('json_articles', {'start' : 3 }) }}';
+                var basePath = '{{ path('api_articles', {'start' : 3 }) }}';
 
                 var splitedPath = basePath.split('/');
 
