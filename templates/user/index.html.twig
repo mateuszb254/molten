@@ -2,7 +2,9 @@
 {% block content %}
     {{ parent() }}
     <div class="left" id="news">
-        <ul>
+        <ul data-url="{{ path('api_articles', {'start': constant('App\\Entity\\Article::ARTICLES_PER_PAGE')}) }}"
+            data-articles-Per-Page="{{ constant('App\\Entity\\Article::ARTICLES_PER_PAGE') }}"
+            data-count-articles="{{ countOfArticles }}">
             {% for article in articles %}
                 <li id="{{ article.id }}">
                     <div class="date">
@@ -25,7 +27,7 @@
                 </li>
             {% endfor %}
         </ul>
-        {% if countOfArticles > 3 %}
+        {% if countOfArticles > constant('App\\Entity\\Article::ARTICLES_PER_PAGE') %}
             <p class="see_more">
                 <a href="" title="" class="button_see_more"></a>
             </p>
@@ -34,55 +36,5 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    <script>
-        $(function () {
-            var countDisplayedArticles = $('ul').length;
-            var countAllArticles = {{ countOfArticles }};
-
-            $('.button_see_more').click(function (e) {
-                e.preventDefault();
-
-                var basePath = '{{ path('api_articles', {'start' : 3 }) }}';
-
-                var splitedPath = basePath.split('/');
-
-                splitedPath[3] = countDisplayedArticles;
-
-                var requestPath = splitedPath.join('/');
-
-                $.ajax({
-                    dataType: "json",
-                    url: requestPath,
-                    success: function (data) {
-                        var html = '';
-
-                        for (var i = 0; i < data.length; i++) {
-                            var article = data[i];
-
-                            var createdAt = article.createdAt;
-                            var date = new Date(createdAt);
-
-                            var months = [
-                                'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-                            ];
-
-                            html += '<li id="' + article.id + '">';
-                            html += '<div class="date"> <p><big>' + date.getDate() + '</big><br/>' + months[date.getMonth()] + '</p></div>';
-                            html += '<div class="image"> <div class="image_container"> <img src="content/thumb.png" alt=""/> <div href="" title="" class="frame"></div><p>Autor:' + article.author.login + '</p></div></div>';
-                            html += '<div class="desc"> <h2>' + article.title + '.</h2> <p>' + article.content + '</p> <a href="" title="" class="button_more"></a> </div>';
-                            html += '</li>';
-                        }
-
-                        $('#news > ul').append(html);
-                    }
-                });
-
-                countDisplayedArticles += 3;
-
-                if (countDisplayedArticles >= countAllArticles) {
-                    $('.see_more').remove();
-                }
-            });
-        });
-    </script>
+    <script src="{{ asset('js/articles.jquery.js') }}"></script>
 {% endblock %}
