@@ -96,9 +96,7 @@ class LocaleSubscriber implements EventSubscriberInterface
     private function findSupportedLocaleFromPreferred(array $preferredLanguages): ?string
     {
         foreach ($preferredLanguages as $preferredLanguage) {
-            foreach ($this->possibleLocales as $possibleLocale) {
-                if ($preferredLanguage === $possibleLocale) return $preferredLanguage;
-            }
+            if($this->isLocaleSupported($preferredLanguage)) return $preferredLanguage;
         }
 
         return null;
