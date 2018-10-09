@@ -151,6 +151,42 @@
                 <source>article.delete.success</source>
                 <target>Usunięto artykuł.</target>
             </trans-unit>
+            <trans-unit id="ranking">
+                <source>ranking</source>
+                <target>Lp.</target>
+            </trans-unit>
+            <trans-unit id="ranking.player.name">
+                <source>ranking.player.name</source>
+                <target>Nazwa gracza</target>
+            </trans-unit>
+            <trans-unit id="ranking.player.kingdom">
+                <source>ranking.player.kingdom</source>
+                <target>Królestwo gracza</target>
+            </trans-unit>
+            <trans-unit id="ranking.player.level">
+                <source>ranking.player.level</source>
+                <target>Poziom</target>
+            </trans-unit>
+            <trans-unit id="ranking.guild.name">
+                <source>ranking.guild.name</source>
+                <target>Nazwa gildii</target>
+            </trans-unit>
+            <trans-unit id="ranking.guild.kingdom">
+                <source>ranking.guild.kingdom</source>
+                <target>Królestwo gildii</target>
+            </trans-unit>
+            <trans-unit id="ranking.guild.wins">
+                <source>ranking.guild.wins</source>
+                <target>Wygrane</target>
+            </trans-unit>
+            <trans-unit id="ranking.guild.loses">
+                <source>ranking.guild.loses</source>
+                <target>Porażki</target>
+            </trans-unit>
+            <trans-unit id="ranking.guild.points">
+                <source>ranking.guild.points</source>
+                <target>Punkty</target>
+            </trans-unit>
             <trans-unit id="recaptcha">
                 <source>recaptcha</source>
                 <target>Musisz potwierdzić captchę przed wysłaniem formularza.</target>
