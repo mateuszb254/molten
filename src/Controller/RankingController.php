@@ -29,19 +29,6 @@ class RankingController extends AbstractController implements UserControllerInte
     }
 
     /**
-     * @Route("/player/search", methods={"GET"}, name="ranking_player_search")
-     * @Route("/player/search/{name}", methods={"GET"})
-     */
-    public function searchPlayer(Request $request, Player $player)
-    {
-        if(!$request->isXmlHttpRequest()) {
-            return $this->redirectToRoute('ranking_players');
-        }
-
-        return $this->json($player);
-    }
-
-    /**
      * @Route("/guilds/{page}", requirements={"page": "\d+"}, defaults={"page": 1}, name="ranking_guilds")
      */
     public function guilds(Request $request, GuildRepository $guildRepository, int $page = 1): Response
@@ -51,19 +38,6 @@ class RankingController extends AbstractController implements UserControllerInte
         return $this->render('user/ranking/guilds.html.twig', [
             'guilds' => $guilds
         ]);
-    }
-
-    /**
-     * @Route("/guild/search", methods={"GET"}, name="ranking_guild_search")
-     * @Route("/guild/search/{name}", methods={"GET"})
-     */
-    public function searchGuild(Request $request, Guild $guild)
-    {
-        if(!$request->isXmlHttpRequest()) {
-            return $this->redirectToRoute('ranking_guilds');
-        }
-
-        return $this->json($guild);
     }
 
     public function rankingSidebar(PlayerRepository $playerRepository, GuildRepository $guildRepository)
