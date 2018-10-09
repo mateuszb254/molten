@@ -5,14 +5,6 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('css/reset.css') }}"/>
     <link type="text/css" rel="stylesheet" href="{{ asset('css/global.css?v2') }}"/>
     <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css?v2') }}"/>
-    {% block javascript %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
-        <script src="{{ asset('js/slides.min.jquery.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('js/cufon-yui.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('js/Mongolian_Baiti_400.font.js') }}" type="text/javascript"></script>
-        <script type="text/javascript" src="{{ asset('js/js.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/ranking-widget.js') }}"></script>
-    {% endblock %}
     <title>Molten {% block head_title %}{% endblock %}</title>
 </head>
 <body>
@@ -116,5 +108,14 @@
         </div>
     </div>
 </div>
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{{ asset('js/slides.min.jquery.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/cufon-yui.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/Mongolian_Baiti_400.font.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('js/js.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/ranking-widget.js') }}"></script>
+    <script src="{{ asset('js/functions.js') }}"></script>
+{% endblock %}
 </body>
 </html>
