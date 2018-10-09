@@ -1,25 +1,29 @@
 {% extends 'user/ranking/index.html.twig' %}
-{% block content_ranking %}
+{% block ranking_header %}
+    {{ parent() }}
+    {% include 'user/ranking/form/_search.html.twig' with {'action_path' : path('ranking_player_search')} %}
+{% endblock %}
+{% block ranking_content %}
     <div class="lower">
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th class="rank">
-                    Ranking
+                    {% trans %}ranking{% endtrans %}
                 </th>
                 <th class="player">
-                    Nazwa gildii
+                    {% trans %}ranking.guild.name{% endtrans %}
                 </th>
                 <th class="rank">
-                    Wygrane
+                    {% trans %}ranking.guild.wins{% endtrans %}
                 </th>
                 <th class="rank">
-                    Przegrane
+                    {% trans %}ranking.guild.loses{% endtrans %}
                 </th>
                 <th class="kingdom">
-                    Królestwo
+                    {% trans %}ranking.guild.kingdom{% endtrans %}
                 </th>
                 <th class="lvl">
-                    Punkty
+                    {% trans %}ranking.guild.points{% endtrans %}
                 </th>
             </tr>
 
@@ -70,7 +74,7 @@
                         $('.rank-pagination').remove();
                     },
                     success: function (data) {
-                        var tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="rank">'+data.wins+'</td><td class="rank">'+data.loses+'</td> <td class="kingdom"> <img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.points + ' </td> </tr>';
+                        var tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="rank">' + data.wins + '</td><td class="rank">' + data.loses + '</td> <td class="kingdom"> <img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.points + ' </td> </tr>';
 
                         $('.lower table').append(tableRow);
                     },

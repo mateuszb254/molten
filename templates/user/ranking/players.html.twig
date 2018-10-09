@@ -1,19 +1,23 @@
 {% extends 'user/ranking/index.html.twig' %}
-{% block content_ranking %}
+{% block ranking_header %}
+    {{ parent() }}
+    {% include 'user/ranking/form/_search.html.twig' with {'action_path' : path('ranking_player_search')} %}
+{% endblock %}
+{% block ranking_content %}
     <div class="lower">
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th class="rank">
-                    Ranking
+                    {% trans %}ranking{% endtrans %}
                 </th>
                 <th class="player">
-                    Nazwa Postaci
+                    {% trans %}ranking.player.name{% endtrans %}
                 </th>
                 <th class="kingdom">
-                    Królestwo
+                    {% trans %}ranking.player.kingdom{% endtrans %}
                 </th>
                 <th class="lvl">
-                    Level
+                    {% trans %}ranking.player.level{% endtrans %}
                 </th>
             </tr>
 
