@@ -4,6 +4,7 @@ namespace App\Controller\API;
 
 use App\Entity\Guild;
 use App\Entity\Player;
+use App\Repository\PlayerRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,24 +17,24 @@ class RankingController extends AbstractController implements APIControllerInter
 {
     /**
      * @Route("/players", methods={"GET"}, name="ranking_player_search")
-     * @Route("/players/{name}", methods={"GET"})
+     * @Route("/players/{name}", requirements={"name" : "[a-zA-Z0-9]+"}, methods={"GET"})
      */
-    public function player(Request $request, Player $player): Response
+    public function player(Request $request, PlayerRepository $playerRepository, string $name): Response
     {
-        if(!$request->isXmlHttpRequest()) {
+        if (!$request->isXmlHttpRequest()) {
             return $this->redirectToRoute('ranking_players');
         }
 
-        return $this->json($player);
+        return $this->json($playerRepository->findPlayerWithPosition($name));
     }
 
     /**
      * @Route("/guilds", methods={"GET"}, name="ranking_guild_search")
-     * @Route("/guilds/{name}", methods={"GET"})
+     * @Route("/guilds/{name}", requirements={"name" : "[a-zA-Z0-9_]+"}, methods={"GET"})
      */
     public function guild(Request $request, Guild $guild)
     {
-        if(!$request->isXmlHttpRequest()) {
+        if (!$request->isXmlHttpRequest()) {
             return $this->redirectToRoute('ranking_guilds');
         }
 
