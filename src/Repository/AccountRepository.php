@@ -19,6 +19,14 @@ class AccountRepository extends ServiceEntityRepository
         parent::__construct($registry, Account::class);
     }
 
+    public function findCountOfAccounts()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
     public function findAccountByEmail(string $email)
     {
         return $this->findOneBy([

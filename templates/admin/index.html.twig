@@ -8,7 +8,9 @@
                         <span><i class="ti-bag f-s-40"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2 class="color-white">0</h2>
+                        <h2 class="color-white">
+                            {{ render(controller('App\\Controller\\API\\AccountController:count'))|trim('"') }}
+                        </h2>
                         <p class="m-b-0">Liczba kont</p>
                     </div>
                 </div>
