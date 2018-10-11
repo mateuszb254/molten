@@ -2,8 +2,8 @@
 	Slideshow
 */
 
-#slides{
-position:relative;
+#slides {
+    position: relative;
 }
 
 /*
@@ -14,10 +14,10 @@ position:relative;
 */
 
 .slides_container {
-	width:469px;
-	overflow:hidden;
-	position:relative;
-	display:none;
+    width: 469px;
+    overflow: hidden;
+    position: relative;
+    display: none;
 }
 
 /*
@@ -29,125 +29,131 @@ position:relative;
 */
 
 .slides_container div.slide {
-	width:469px;
-	height:252px;
-	display:block;
+    width: 469px;
+    height: 252px;
+    display: block;
 }
-
 
 /*
 	Next/prev buttons
 */
 
 #slides .prev {
-background:url(../images/button_slider_prev.png) top left no-repeat;
-width:38px;
-height:38px;
-position:absolute;
-top:107px;
-left:-24px;
-display:block;
-z-index:101;
+    background: url(../images/button_slider_prev.png) top left no-repeat;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 107px;
+    left: -24px;
+    display: block;
+    z-index: 101;
 }
 
 #slides .next {
-background:url(../images/button_slider_next.png) top left no-repeat;
-width:38px;
-height:38px;
-position:absolute;
-top:107px;
-right:-24px;
-display:block;
-z-index:101;
+    background: url(../images/button_slider_next.png) top left no-repeat;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 107px;
+    right: -24px;
+    display: block;
+    z-index: 101;
 }
-#slides .prev:hover, #slides .next:hover{
-background-position:bottom;
+
+#slides .prev:hover, #slides .next:hover {
+    background-position: bottom;
 }
 
 /*
 	Pagination
 */
-.pag_container{
-clear:both; 
-float:left; 
-width:469px; 
-overflow:hidden;
-position:absolute;
-top:-37px;
-z-index:1000;
+.pag_container {
+    clear: both;
+    float: left;
+    width: 469px;
+    overflow: hidden;
+    position: absolute;
+    top: -37px;
+    z-index: 1000;
 
 }
+
 .pagination {
 
-  margin:0 auto; 
-  list-style-type:none;
-  float:left;
-  position:relative; 
-  left:50%;
-  margin-top:14px;
+    margin: 0 auto;
+    list-style-type: none;
+    float: left;
+    position: relative;
+    left: 50%;
+    margin-top: 14px;
 
 }
 
 .pagination li {
 
-	margin:0 1px;
-	list-style:none;
-	display:inline;
-	float:left;
-	position:relative; 
-	right:50%
+    margin: 0 1px;
+    list-style: none;
+    display: inline;
+    float: left;
+    position: relative;
+    right: 50%
 }
 
-.pagination li a {
-	display:block;
-	width:37px;
-	height:37px;
-	line-height:37px;
-	text-align:center;
-	background:url(../images/pag.png) top right;
-	color:#000000;
-	font-family:"Times New Roman", Times, serif;
-	font-weight:bold;
-	font-size:12px;
-	text-shadow:#fcf219 1px 1px 1px;
+.pagination li a,
+.content-pagination > nav > span,
+.content-pagination > nav > a {
+    display: block;
+    width: 37px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    background: url(../images/pag.png) top right;
+    color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: #fcf219 1px 1px 1px;
 }
-.pagination li a:hover{
-text-decoration:none;
+
+.pagination li a:hover {
+    text-decoration: none;
 }
+
 .pagination li.current a, .pagination li a:hover {
-	background-position:bottom;
-	color:#000000;
-	
+    background-position: bottom;
+    color: #000000;
+
 }
 
 /*
 	Caption
 */
-
 .caption {
-	background:url(../images/caption.jpg) top left no-repeat;
-	width:237px;
-	height:226px;
-	z-index:500;
-	position:absolute;
-	bottom:-240px;
-	right:14px;
-	font-size:1.3em;
-	line-height:1.33;
-	color:#fff;
-	text-shadow:none;
+    background: url(../images/caption.jpg) top left no-repeat;
+    width: 237px;
+    height: 226px;
+    z-index: 500;
+    position: absolute;
+    bottom: -240px;
+    right: 14px;
+    font-size: 1.3em;
+    line-height: 1.33;
+    color: #fff;
+    text-shadow: none;
 }
-.caption h3{
-padding:23px 27px 0 27px;
-font-family:Arial, Helvetica, sans-serif;
-font-size:14px;
-color:#ea9f1a;
-height:47px;
+
+.caption h3 {
+    padding: 23px 27px 0 27px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ea9f1a;
+    height: 47px;
 }
-.caption p{
-padding:20px 24px 0 24px;
-font-family:Arial, Helvetica, sans-serif;
-font-size:11px;
-color:#b9a47e;
-text-align:justify;
+
+.caption p {
+    padding: 20px 24px 0 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #b9a47e;
+    text-align: justify;
 }

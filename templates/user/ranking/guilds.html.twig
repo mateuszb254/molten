@@ -53,8 +53,8 @@
             {% endfor %}
         </table>
         {% if guilds.haveToPaginate %}
-            <div class="rank-pagination">
-                {{ pagerfanta(guilds, 'twitter_bootstrap3_translated', {routeName: 'ranking_guilds'}) }}
+            <div class="content-pagination">
+                {{ pagerfanta(guilds, 'default', {routeName: 'ranking_guilds', next_message: '&#187', prev_message: '&#171'}) }}
             </div>
         {% endif %}
     </div>

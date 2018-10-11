@@ -1172,7 +1172,7 @@ a:hover {
 }
 
 .support-ticket-title span.category {
-    border-left: 1px solid #1a1617 ;
+    border-left: 1px solid #1a1617;
     margin-right: 20px;
     float: right;
 }
@@ -1191,7 +1191,7 @@ a:hover {
     display: block;
     border: 1px solid #1a1617;
     padding: 10px 20px;
-    background-color: rgba(255,0,0,0.1);
+    background-color: rgba(255, 0, 0, 0.1);
 }
 
 .support-ticket-answer {
@@ -1229,7 +1229,6 @@ textarea:focus {
     width: 174px;
 }
 
-
 .support_title a {
     color: #6e3a0c;
 }
@@ -1251,6 +1250,7 @@ textarea:focus {
     display: inline-block;
     overflow: hidden;
 }
+
 .right_inner table.guilds {
     display: none;
     height: 0px;
@@ -1268,7 +1268,7 @@ textarea:focus {
     display: none;
 }
 
-.payments-content{
+.payments-content {
     float: left;
     width: 100%;
     color: #d99b0f;
@@ -1279,6 +1279,7 @@ textarea:focus {
     height: 100px;
     display: block;
 }
+
 .paypal-title {
     font-size: 12px;
     border-bottom: 1px solid #c8a867;
@@ -1287,6 +1288,7 @@ textarea:focus {
     position: relative;
     width: 130px;
 }
+
 .paypal-description {
     bottom: 90%;
     left: 25%;
@@ -1317,6 +1319,7 @@ textarea:focus {
     font-weight: bold;
     color: #ff7200;
 }
+
 .paypal-button:hover {
     text-decoration: none;
 }
@@ -1423,4 +1426,18 @@ textarea:focus {
 
 .flag.active {
     opacity: 1;
+}
+
+.content-pagination {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.content-pagination > nav > * {
+    margin-left: 10px;
+    display: inline-block !important;
+}
+
+.content-pagination > nav > *.current {
+    background-position: center bottom;
 }

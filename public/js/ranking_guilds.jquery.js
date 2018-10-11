@@ -22,7 +22,7 @@ $(function () {
             url: request_path,
             beforeSend: function () {
                 $('.lower table tr:not(:first-child)').remove();
-                $('.rank-pagination').remove();
+                $('.content-pagination').remove();
             },
             success: function (data) {
                 let tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="rank">' + data.wins + '</td><td class="rank">' + data.loses + '</td> <td class="kingdom"> <img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.points + ' </td> </tr>';

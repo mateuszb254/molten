@@ -41,8 +41,8 @@
             {% endfor %}
         </table>
         {% if players.haveToPaginate %}
-            <div class="rank-pagination">
-                {{ pagerfanta(players, 'twitter_bootstrap3_translated', {routeName: 'ranking_players'}) }}
+            <div class="content-pagination">
+                {{ pagerfanta(players, 'default', {routeName: 'ranking_players', next_message: '&#187', prev_message: '&#171'}) }}
             </div>
         {% endif %}
     </div>
