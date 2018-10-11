@@ -10,18 +10,20 @@
             lvl
         </th>
     </tr>
+    {% set lp = 1 %}
     {% for player in players %}
         <tr>
             <td class="num">
-                1.
+                {{ lp }}
             </td>
             <td class="nick">
-               {{ player.name }}
+                {{ player.name }}
             </td>
             <td class="lvl">
                 {{ player.level }}
             </td>
         </tr>
+        {% set lp = lp+1 %}
     {% endfor %}
 </table>
 <table class="guilds" cellpadding="0" cellspacing="0">
@@ -36,10 +38,11 @@
             Punkty
         </th>
     </tr>
+    {% set lp = 1 %}
     {% for guild in guilds %}
         <tr>
             <td class="num">
-                1
+                {{ lp }}
             </td>
             <td class="nick">
                 {{ guild.name }}
@@ -48,5 +51,6 @@
                 {{ guild.points }}
             </td>
         </tr>
+        {% set lp = lp+1 %}
     {% endfor %}
 </table>
