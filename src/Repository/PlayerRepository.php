@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Player;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\Query;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
@@ -17,8 +18,19 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class PlayerRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    /**
+     * @var Connection
+     */
+    private $connection;
+
+    /**
+     * PlayerRepository constructor.
+     * @param RegistryInterface $registry
+     * @param Connection $connection
+     */
+    public function __construct(RegistryInterface $registry, Connection $connection)
     {
+        $this->connection = $connection;
         parent::__construct($registry, Player::class);
     }
 
@@ -51,5 +63,29 @@ class PlayerRepository extends ServiceEntityRepository
         $paginator->setCurrentPage($page);
 
         return $paginator;
+    }
+
+    public function findPlayerWithPositionByName(string $playerName)
+    {
+        $stmt = $this->connection->prepare('
+            SELECT `name`, `level`, `kingdom`, `position` FROM ( 
+                SELECT 
+                  `name`, `level`, `kingdom`, @position := @position +1 as position
+                FROM 
+                  `player` 
+                JOIN 
+                  (SELECT @position := 0) as row 
+                ORDER BY 
+                  `level` DESC, 
+                  `name` ASC 
+                ) as player 
+                WHERE `name` = :playerName
+                LIMIT 1
+            ');
+
+        $stmt->bindValue(':playerName', $playerName);
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
 }
