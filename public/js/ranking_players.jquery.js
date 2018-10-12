@@ -5,11 +5,11 @@ $(function () {
 
         let name = $('input[name=search]').val();
 
-        if($(this).hasClass('stopped')) {
+        if ($(this).hasClass('stopped')) {
             return;
         }
 
-        if(name == '') return;
+        if (name == '') return;
 
         $(this).addClass('stopped');
 
@@ -25,14 +25,18 @@ $(function () {
                 $('.content-pagination').remove();
             },
             success: function (data) {
-                let tableRow = '<tr> <td class="rank">- </td> <td class="player">' + data.name + '</td> <td class="kingdom"><img src="' + kingdom(data.kingdom) + '" alt=""> </td> <td class="lvl">' + data.level + ' </td> </tr>';
+                if (data) {
+                    tableRow = '<tr> <td class="rank">' + data.position + '</td> <td class="player">' + data.name + '</td> <td class="kingdom"><img src="' + kingdom(parseInt(data.kingdom)) + '" alt=""> </td> <td class="lvl">' + data.level + ' </td> </tr>';
+                } else {
+                    tableRow = '<tr> <td class="rank"></td> <td class="player">Nie znaleziono postaci.</td> <td class="kingdom"> <img src="content/kingdom.png" alt=""> </td> <td class="lvl"></td></tr>';
+                }
 
                 $('.lower table').append(tableRow);
                 $(form).removeClass('stopped');
             },
             statusCode: {
                 404: function () {
-                    let tableRow = '<tr> <td class="rank"></td> <td class="player">Nie znaleziono postaci.</td> <td class="kingdom"> <img src="content/kingdom.png" alt=""> </td> <td class="lvl"></td></tr>';
+                    tableRow = '<tr> <td class="rank"></td> <td class="player">Nie znaleziono postaci.</td> <td class="kingdom"> <img src="content/kingdom.png" alt=""> </td> <td class="lvl"></td></tr>';
 
                     $('.lower table').append(tableRow);
                     $(form).removeClass('stopped');

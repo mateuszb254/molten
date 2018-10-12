@@ -2,8 +2,7 @@
 
 namespace App\Controller\API;
 
-use App\Entity\Guild;
-use App\Entity\Player;
+use App\Repository\GuildRepository;
 use App\Repository\PlayerRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,19 +24,19 @@ class RankingController extends AbstractController implements APIControllerInter
             return $this->redirectToRoute('ranking_players');
         }
 
-        return $this->json($playerRepository->findPlayerWithPosition($name));
+        return $this->json($playerRepository->findPlayerWithPositionByName($name));
     }
 
     /**
      * @Route("/guilds", methods={"GET"}, name="ranking_guild_search")
      * @Route("/guilds/{name}", requirements={"name" : "[a-zA-Z0-9_]+"}, methods={"GET"})
      */
-    public function guild(Request $request, Guild $guild)
+    public function guild(Request $request, GuildRepository $guildRepository, string $name)
     {
         if (!$request->isXmlHttpRequest()) {
             return $this->redirectToRoute('ranking_guilds');
         }
 
-        return $this->json($guild);
+        return $this->json($guildRepository->findGuildWithPositionByName($name));
     }
 }
