@@ -48,4 +48,7 @@ security:
          - { path: ^/acp, roles: ROLE_ADMIN }
 
     role_hierarchy:
-            ROLE_ADMIN: ROLE_USER
+        ROLE_GLOBAL_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN: ROLE_MODERATOR
+        ROLE_MODERATOR: ROLE_USER
+        ROLE_USER: ~

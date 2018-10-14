@@ -21,8 +21,10 @@ use Doctrine\ORM\Mapping\UniqueConstraint;
  */
 class Account implements UserInterface
 {
-    const DEFAULT_ROLE = 'ROLE_USER';
+    const GLOBAL_ADMIN_ROLE = 'ROLE_GLOBAL_ADMIN';
     const ADMIN_ROLE = 'ROLE_ADMIN';
+    const MODERATOR_ROLE = 'ROLE_MODERATOR';
+    const DEFAULT_ROLE = 'ROLE_USER';
 
     /**
      * Specify how long token will be able to change user's password
