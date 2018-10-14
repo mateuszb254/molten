@@ -30,7 +30,7 @@ security:
                 path: logout
                 target: homepage
             user_checker:
-                App\Security\UserChecker
+                App\Security\Checker\UserChecker
             # activate different ways to authenticate
 
             # http_basic: true
