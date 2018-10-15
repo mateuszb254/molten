@@ -4,10 +4,11 @@ namespace App\DataFixtures;
 
 use App\Entity\Account;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class AccountFixtures extends Fixture
+class AccountFixtures extends Fixture implements DependentFixtureInterface
 {
     public const ADMIN_USER_REFERENCE = 'admin';
     public const USER_REFERENCE = 'user';
@@ -34,19 +35,19 @@ class AccountFixtures extends Fixture
             $user->setCode($userData['code']);
             $user->setQuestion($userData['question']);
             $user->setAnswer($userData['answer']);
-            $user->setRoles($userData['roles']);
+            $user->setRole($userData['role']);
             $user->setCoins($userData['coins']);
 
-            if(array_key_exists('banTime', $userData)) $user->setBanTime($userData['banTime']);
-            if(array_key_exists('banReason', $userData)) $user->setBanReason($userData['banReason']);
+            if (array_key_exists('banTime', $userData)) $user->setBanTime($userData['banTime']);
+            if (array_key_exists('banReason', $userData)) $user->setBanReason($userData['banReason']);
 
             $manager->persist($user);
 
-            if($user->getLogin() === self::ADMIN_USER_REFERENCE) {
+            if ($user->getLogin() === self::ADMIN_USER_REFERENCE) {
                 $this->addReference(self::ADMIN_USER_REFERENCE, $user);
             }
 
-            if($user->getLogin() === self::USER_REFERENCE) {
+            if ($user->getLogin() === self::USER_REFERENCE) {
                 $this->addReference(self::USER_REFERENCE, $user);
             }
         }
@@ -58,15 +59,33 @@ class AccountFixtures extends Fixture
     {
         return [
             [
+                'login' => 'global_admin',
+                'password' => 'global_admin',
+                'email' => 'global_admin@nagadev.pl',
+                'code' => 11111,
+                'question' => 'Is it you Mr. Admin?',
+                'answer' => 'It\'s me',
+                'role' => $this->getReference(RoleFixtures::ROLE_GLOBAL_ADMIN_REFERENCE),
+                'coins' => 5000
+            ],
+            [
                 'login' => 'admin',
                 'password' => 'admin',
                 'email' => 'admin@nagadev.pl',
                 'code' => 11111,
-                'question' => 'Is it you Mr. Admin?',
-                'answer' => 'It\'s me',
-                'roles' => [
-                    'ROLE_USER', 'ROLE_ADMIN'
-                ],
+                'question' => 'admin',
+                'answer' => 'admin',
+                'role' => $this->getReference(RoleFixtures::ROLE_ADMIN_REFERENCE),
+                'coins' => 5000
+            ],
+            [
+                'login' => 'moderator',
+                'password' => 'moderator',
+                'email' => 'moderator@nagadev.pl',
+                'code' => 22222,
+                'question' => 'Moderator',
+                'answer' => 'Moderator!',
+                'role' => $this->getReference(RoleFixtures::ROLE_MODERATOR_REFERENCE),
                 'coins' => 5000
             ],
             [
@@ -76,9 +95,7 @@ class AccountFixtures extends Fixture
                 'code' => 22222,
                 'question' => 'Am i just an user?',
                 'answer' => 'Yes, but unique!',
-                'roles' => [
-                    'ROLE_USER'
-                ],
+                'role' => $this->getReference(RoleFixtures::ROLE_DEFAULT_REFERENCE),
                 'coins' => 5000
             ],
             [
@@ -88,13 +105,18 @@ class AccountFixtures extends Fixture
                 'code' => 33333,
                 'question' => 'Am i just an user?',
                 'answer' => 'Yes, but banned. :(',
-                'roles' => [
-                    'ROLE_USER'
-                ],
+                'role' => $this->getReference(RoleFixtures::ROLE_DEFAULT_REFERENCE),
                 'coins' => 0,
                 'banTime' => (new \DateTime())->add(new \DateInterval('P3653D')),
                 'banReason' => 'Illegal software'
             ]
+        ];
+    }
+
+    public function getDependencies()
+    {
+        return [
+            RoleFixtures::class
         ];
     }
 }

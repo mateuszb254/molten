@@ -115,8 +115,11 @@ class Account implements UserInterface
     private $banReason;
 
     /**
-     * @ORM\Column(type="array", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role")
+     * @ORM\JoinColumn(name="role", nullable=false)
      */
+    private $role;
+
     private $roles = [];
 
     /**
@@ -134,7 +137,6 @@ class Account implements UserInterface
         $this->logs = new ArrayCollection();
         $this->registeredAt = new \DateTime();
         $this->lastActivity = new \DateTime();
-        $this->setRole(self::DEFAULT_ROLE);
     }
 
     public function getId(): int
@@ -253,28 +255,23 @@ class Account implements UserInterface
         $this->plainPassword = null;
     }
 
-    public function setRoles(array $roles)
+    public function getRole(): Role
     {
-        $this->roles = $roles;
+        return $this->role;
     }
 
-    public function setRole(string $role)
+    public function setRole(Role $role): self
     {
-        if (!array_search($role, $this->getRoles())) {
-            $this->roles[] = $role;
-        }
+        $this->role = $role;
+
+        return $this;
     }
 
     public function getRoles(): array
     {
-        return $this->roles;
+        return [$this->role];
     }
-
-    public function hasRole(string $string): bool
-    {
-        return in_array($string, $this->getRoles());
-    }
-
+    
     public function getLogs(): ?Collection
     {
         return $this->logs;
