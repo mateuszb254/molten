@@ -45,10 +45,10 @@ security:
          - { path: ^/user, roles: ROLE_USER }
          - { path: ^/shop, roles: ROLE_USER }
          - { path: ^/payments, roles: ROLE_USER }
-         - { path: ^/acp, roles: ROLE_ADMIN }
+         - { path: ^/acp, roles: ROLE_ACP_ACCESS }
 
     role_hierarchy:
         ROLE_GLOBAL_ADMIN: ROLE_ADMIN
         ROLE_ADMIN: ROLE_MODERATOR
-        ROLE_MODERATOR: ROLE_USER
+        ROLE_MODERATOR: [ROLE_USER, ROLE_ACP_ACCESS]
         ROLE_USER: ~

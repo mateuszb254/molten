@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/acp")
- * @Security("has_role('ROLE_ADMIN')")
+ * @Security("has_role('ROLE_ACP_ACCESS')")
  */
 class HomeController extends AbstractController implements AdminControllerInterface
 {
