@@ -14,7 +14,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("/acp/accounts")
- * @Security("has_role('ROLE_ADMIN')")
+ * @Security("has_role('ROLE_ACP_ACCESS')")
  */
 class AccountController extends AbstractController implements AdminControllerInterface
 {
@@ -32,6 +32,7 @@ class AccountController extends AbstractController implements AdminControllerInt
 
     /**
      * @Route("/{login}/edit", name="admin_users_edit")
+     * @Security("is_granted('EDIT', account)")
      */
     public function edit(Request $request, Account $account, TranslatorInterface $translator): Response
     {
