@@ -14,7 +14,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Route("/acp/articles")
- * @Security("has_role('ROLE_ADMIN')")
+ * @Security("has_role('ROLE_MODERATOR')")
  */
 class ArticleController extends Controller implements AdminControllerInterface
 {
@@ -23,7 +23,9 @@ class ArticleController extends Controller implements AdminControllerInterface
      */
     public function index(ArticleRepository $articleRepository): Response
     {
-        return $this->render('admin/article/index.html.twig', ['articles' => $articleRepository->findAll()]);
+        return $this->render('admin/article/index.html.twig', ['articles' => $articleRepository->findBy([], [
+            'createdAt' => 'DESC'
+        ])]);
     }
 
     /**
@@ -65,6 +67,7 @@ class ArticleController extends Controller implements AdminControllerInterface
 
     /**
      * @Route("/{id}/edit", name="admin_article_edit", methods="GET|POST")
+     * @Security("is_granted('EDIT', article)")
      */
     public function edit(Request $request, Article $article, TranslatorInterface $translator): Response
     {
@@ -86,6 +89,7 @@ class ArticleController extends Controller implements AdminControllerInterface
 
     /**
      * @Route("/{id}", name="admin_article_delete", methods="DELETE")
+     * @Security("is_granted('DELETE', article)")
      */
     public function delete(Request $request, Article $article, TranslatorInterface $translator): Response
     {
