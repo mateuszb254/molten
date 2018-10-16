@@ -2,7 +2,8 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">{% trans with {'{{user.login}}': form.vars.value.login} %}user.edit{% endtrans %}</h4>
+                <h4 class="card-title">{% trans with {'{{user.login}}': form.vars.value.login} %}
+                    user.edit{% endtrans %}</h4>
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.login) }}
@@ -54,6 +55,18 @@
                         <small class="form-control-feedback"> {{ form_errors(form.coins) }}</small>
                     {% endif %}
                 </div>
+                {% if form.role is defined %}
+                    <div class="form-group">
+                        {{ form_label(form.role) }}
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-crown"></i></div>
+                            {{ form_widget(form.role, {'attr' : {'class': 'form-control'}}) }}
+                        </div>
+                        {% if form_errors(form.role) %}
+                            <small class="form-control-feedback"> {{ form_errors(form.role) }}</small>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">{% trans %}
                     edit{% endtrans %}</button>
                 {{ form_end(form) }}
@@ -63,15 +76,9 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn btn-default btn-block m-b-10">{% trans %}
-                    ban.user{% endtrans %}</button>
-                {% if app.user.hasRole('ROLE_ADMIN') %}
-                    <button type="button" class="btn btn-primary btn-block m-b-10">{% trans %}
-                        revoke.admin.permissions{% endtrans %}</button>
-                {% else %}
-                    <button type="button" class="btn btn-primary btn-block m-b-10">{% trans %}
-                        grant.admin.permissions{% endtrans %}</button>
-                {% endif %}
+                <button type="button" class="btn btn-default btn-block m-b-10">
+                    {% trans %}ban.user{% endtrans %}
+                </button>
             </div>
         </div>
     </div>

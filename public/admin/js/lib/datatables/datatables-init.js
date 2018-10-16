@@ -1,5 +1,7 @@
 $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#myTable').DataTable({
+            'order' : []
+        });
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "columnDefs": [{

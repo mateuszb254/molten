@@ -4,7 +4,7 @@
             {% trans with {'%login%': app.user.login} %}hello_message{% endtrans %}<br/>
             {% trans %}you_own{% endtrans %}: <span>{{ app.user.coins }} {% transchoice  app.user.coins %}coins{% endtranschoice %}</span><br/>
             <a href="{{ path('user_panel') }}" title="">{% trans %}user_panel{% endtrans %}</a>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_ACP_ACCESS') %}
                 / <a style="color: red" href="{{ path('admin_index') }}">ACP</a>
             {% endif %}
         </p>

@@ -25,20 +25,26 @@
                             <td>{{ user.code }}</td>
                             <td>{{ user.lastActivity|date('Y-m-d H:i:s') }}</td>
                             <td>{{ user.registeredAt|date('Y-m-d H:i:s') }}</td>
-                            {% if user.hasRole('ROLE_ADMIN') %}
-                                <td><i class="fa fa-graduation-cap" style="color: #9c6363;">{% trans %}
-                                        ROLE_ADMIN{% endtrans %}</i></td>
-                            {% else %}
-                                <td><i class="fa fa-user">{% trans %}ROLE_USER{% endtrans %}</i></td>
-                            {% endif %}
+                            {% set color = {
+                            'ROLE_GLOBAL_ADMIN' : '#9c6363',
+                            'ROLE_ADMIN' : '#ff0d0d',
+                            'ROLE_MODERATOR': '#0e8423'
+                            } %}
+                            <td>
+                                <i class="fa"
+                                   style="color: {{ color[user.getRole.role] ?? 'xD' }};">{{ user.getRole|trans }}</i>
+                            </td>
                             {% if user.isBanned %}
-                                <td style="color: red;">{% trans with {'banTime': user.login} %}user.banned{% endtrans %}</td>
+                                <td style="color: red;">{% trans with {'banTime': user.login} %}
+                                    user.banned{% endtrans %}</td>
                             {% else %}
                                 <td>{% trans %}user.notBanned{% endtrans %}</td>
                             {% endif %}
                             <td>
-                                <a href="{{ path('admin_users_edit', {'login': user.login}) }}"
-                                   class="btn btn-info">{% trans %}view{% endtrans %}</a>
+                                {% if is_granted('EDIT', user) %}
+                                    <a href="{{ path('admin_users_edit', {'login': user.login}) }}"
+                                       class="btn btn-info">{% trans %}view{% endtrans %}</a>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
