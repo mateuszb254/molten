@@ -442,7 +442,22 @@
             </trans-unit>
 
             <!--  -->
-
+            <trans-unit id="ROLE_GLOBAL_ADMIN">
+                <source>ROLE_GLOBAL_ADMIN</source>
+                <target>Owner</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ADMIN">
+                <source>ROLE_ADMIN</source>
+                <target>Administrator</target>
+            </trans-unit>
+            <trans-unit id="ROLE_MODERATOR">
+                <source>ROLE_MODERATOR</source>
+                <target>Moderator</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>User</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

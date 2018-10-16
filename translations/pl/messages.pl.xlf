@@ -726,13 +726,21 @@
                 <source>LOGGED_BY</source>
                 <target>Zalogowany jako: {{test}}</target>
             </trans-unit>
-            <trans-unit id="ROLE_USER">
-                <source>ROLE_USER</source>
-                <target>Użytkownik</target>
+            <trans-unit id="ROLE_GLOBAL_ADMIN">
+                <source>ROLE_GLOBAL_ADMIN</source>
+                <target>Główny administrator</target>
             </trans-unit>
             <trans-unit id="ROLE_ADMIN">
                 <source>ROLE_ADMIN</source>
                 <target>Administrator</target>
+            </trans-unit>
+            <trans-unit id="ROLE_MODERATOR">
+                <source>ROLE_MODERATOR</source>
+                <target>Moderator</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USER">
+                <source>ROLE_USER</source>
+                <target>Użytkownik</target>
             </trans-unit>
             <trans-unit id="COINS_BOUGHT_PAYPAL">
                 <source>COINS_BOUGHT_PAYPAL</source>
