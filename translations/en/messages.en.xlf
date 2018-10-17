@@ -423,6 +423,18 @@
                 <source>registration.success</source>
                 <target>Registration has been successfully ended. You can log-in.</target>
             </trans-unit>
+            <trans-unit id="characters">
+                <source>characters</source>
+                <target>Characters</target>
+            </trans-unit>
+            <trans-unit id="character.level">
+                <source>character.level</source>
+                <target>Level</target>
+            </trans-unit>
+            <trans-unit id="user.info">
+                <source>user.info</source>
+                <target>Account information</target>
+            </trans-unit>
             <trans-unit id="user.banned">
                 <source>user.banned</source>
                 <target>Account banned.</target>
@@ -439,6 +451,86 @@
                 <source>user.edit.success</source>
                 <target>User has been modified. Go to manage
                     <![CDATA[<a href="%admin_users_index%">user section.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="users.login">
+                <source>users.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="users.email">
+                <source>users.email</source>
+                <target>E-mail address</target>
+            </trans-unit>
+            <trans-unit id="users.code">
+                <source>users.code</source>
+                <target>Deletion code</target>
+            </trans-unit>
+            <trans-unit id="users.coins">
+                <source>users.coins</source>
+                <target>Coins amount</target>
+            </trans-unit>
+            <trans-unit id="users.lastActivity">
+                <source>users.lastActivity</source>
+                <target>Last activity</target>
+            </trans-unit>
+            <trans-unit id="users.registredAt">
+                <source>users.registredAt</source>
+                <target>Registration date</target>
+            </trans-unit>
+            <trans-unit id="users.role">
+                <source>users.role</source>
+                <target>Role</target>
+            </trans-unit>
+            <trans-unit id="users.accountStatus">
+                <source>users.accountStatus</source>
+                <target>Account status</target>
+            </trans-unit>
+            <trans-unit id="users.manage">
+                <source>users.manage</source>
+                <target>Manage</target>
+            </trans-unit>
+            <trans-unit id="ban.user">
+                <source>ban.user</source>
+                <target>Ban user</target>
+            </trans-unit>
+            <trans-unit id="revoke.admin.permissions">
+                <source>revoke.admin.permissions</source>
+                <target>Revoke permissions</target>
+            </trans-unit>
+            <trans-unit id="maintenance">
+                <source>maintenance</source>
+                <target>Maintenance</target>
+            </trans-unit>
+            <trans-unit id="maintenance.contents">
+                <source>maintenance.contents</source>
+                <target>Maintenance. We'll back as soon as possible.</target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.off">
+                <source>maintenance.turned.off</source>
+                <target>Maintenance turned off.</target>
+            </trans-unit>
+            <trans-unit id="maintenance.turned.on">
+                <source>maintenance.turned.on</source>
+                <target>Maintenance turned on.</target>
+            </trans-unit>
+            <trans-unit id="payments">
+                <source>payments</source>
+                <target>Payments</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code">
+                <source>payment.promotion_code</source>
+                <target>Promotion code</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.value">
+                <source>payment.promotion_code.value</source>
+                <target>Code value</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedBy">
+                <source>payment.promotion_code.usedBy</source>
+                <target>Used by</target>
+            </trans-unit>
+            <trans-unit id="payment.promotion_code.usedDate">
+                <source>payment.promotion_code.usedDate</source>
+                <target>Used at</target>
             </trans-unit>
 
             <!--  -->

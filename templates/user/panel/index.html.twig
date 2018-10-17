@@ -37,6 +37,62 @@
         </div>
         {% include 'user/partials/flash_messages.html.twig' %}
         {% block panel_content %}
+            <div class="account-info">
+                <h2>{% trans %}user.info{% endtrans %}</h2>
+                <div class="account-info-char-container">
+                    <div class="account-info-row">
+                        <p>{% trans %}label.email{% endtrans %}</p>
+                        <p>{{ app.user.email|mask('MASK_EMAIL') }}</p>
+                    </div>
+                    <div class="account-info-row">
+                        <p>{% trans %}users.coins{% endtrans %}</p>
+                        <p>{{ app.user.coins }}</p>
+                    </div>
+                    <div class="account-info-row">
+                        <p>{% trans %}label.code{% endtrans %}</p>
+                        <p>{{ app.user.code|mask('MASK_STRING') }}</p>
+                    </div>
+                    <div class="account-info-row">
+                        <p>{% trans %}users.lastActivity{% endtrans %}</p>
+                        <p>{{ app.user.lastActivity|date('Y-m-d H:i:s') }}</p>
+                    </div>
+                </div>
+                <div class="account-info-chars">
+                    <h2>{% trans %}characters{% endtrans %}</h2>
+                    <div class="account-info-char">
+                        <div class="account-info-char-frame">
+                            <img src="content/thumb.png" alt="">
+                        </div>
+                        <div class="character-info">
+                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                        </div>
+                    </div>
+                    <div class="account-info-char">
+                        <div class="account-info-char-frame">
+                            <img src="content/thumb.png" alt="">
+                        </div>
+                        <div class="character-info">
+                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                        </div>
+                    </div>
+                    <div class="account-info-char">
+                        <div class="account-info-char-frame">
+                            <img src="content/thumb.png" alt="">
+                        </div>
+                        <div class="character-info">
+                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                        </div>
+                    </div>
+                    <div class="account-info-char">
+                        <div class="account-info-char-frame">
+                            <img src="content/thumb.png" alt="">
+                        </div>
+                        <div class="character-info">
+                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endblock %}
     </div>
 {% endblock %}

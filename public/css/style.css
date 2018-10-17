@@ -1441,3 +1441,61 @@ textarea:focus {
 .content-pagination > nav > *.current {
     background-position: center bottom;
 }
+
+.account-info {
+    color: #734a3a;
+    width: 505px;
+    margin: auto;
+    margin-top: 15px;
+    clear: both;
+    font-size: 13px;
+}
+
+.account-info h2 {
+    font-size: 13px;
+    padding: 10px 10px;
+    color: darkorange;
+}
+.account-info-char-container {
+    margin-top: 15px;
+}
+
+.account-info-row {
+    width: 250px;
+    margin: auto;
+}
+
+.account-info-row > p {
+    display: inline-block;
+}
+
+.account-info-row > p:nth-child(2) {
+    color: #ff7200;
+    float: right;
+}
+
+.account-info-chars {
+    margin-top: 50px;
+}
+
+.account-info-char {
+    display: inline-block;
+}
+
+.account-info-char-frame {
+    background: url(../images/frame_small.png) top left no-repeat;
+    width: 123px;
+    height: 116px;
+}
+
+.character-info p {
+    text-align: center;
+    margin: auto;
+    width: 80px;
+    display: block;
+    font-size: 12px;
+}
+
+.character-info span {
+    color: red;
+}

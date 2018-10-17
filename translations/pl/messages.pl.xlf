@@ -501,6 +501,18 @@
                 <source>registration.success</source>
                 <target>Rejestracja przebiegła pomyślnie.</target>
             </trans-unit>
+            <trans-unit id="characters">
+                <source>characters</source>
+                <target>Postaci</target>
+            </trans-unit>
+            <trans-unit id="character.level">
+                <source>character.level</source>
+                <target>Poziom</target>
+            </trans-unit>
+            <trans-unit id="user.info">
+                <source>user.info</source>
+                <target>Informacje o koncie</target>
+            </trans-unit>
             <trans-unit id="user.banned">
                 <source>user.banned</source>
                 <target>Konto zablokowane.</target>
@@ -518,10 +530,6 @@
                 <target>Zmieniono dane użytkownika. Przejdz do całej
                     <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
             </trans-unit>
-            <trans-unit id="users">
-                <source>users</source>
-                <target>Użytkownicy</target>
-            </trans-unit>
             <trans-unit id="users.login">
                 <source>users.login</source>
                 <target>Loginy</target>
@@ -533,6 +541,10 @@
             <trans-unit id="users.code">
                 <source>users.code</source>
                 <target>Kody usunięcia postaci</target>
+            </trans-unit>
+            <trans-unit id="users.coins">
+                <source>users.coins</source>
+                <target>Ilość monet</target>
             </trans-unit>
             <trans-unit id="users.lastActivity">
                 <source>users.lastActivity</source>
