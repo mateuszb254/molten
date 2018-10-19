@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\DownloadLink;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,9 +18,9 @@ class DownloadLinkType extends AbstractType
             'label' => 'label.link.name'
         ])->add('url', UrlType::class, [
             'label' => 'label.link.url'
-        ]);
+        ])->add('position', HiddenType::class);
     }
-
+    
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

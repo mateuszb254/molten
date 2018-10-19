@@ -29,6 +29,11 @@ class DownloadLink
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    private $position;
+
     public function getId()
     {
         return $this->id;
@@ -39,7 +44,7 @@ class DownloadLink
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -51,10 +56,21 @@ class DownloadLink
         return $this->url;
     }
 
-    public function setUrl(string $url): self
+    public function setUrl(?string $url): self
     {
         $this->url = $url;
 
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
         return $this;
     }
 }

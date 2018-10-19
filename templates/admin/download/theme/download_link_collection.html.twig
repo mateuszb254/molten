@@ -1,0 +1,27 @@
+{% block download_link_label %}{% endblock %}
+{% block download_link_widget %}
+    <div class="row">
+        {{ form_widget(form.name, {'attr' : {'class' : 'form-control', 'placeholder': form.name.vars.label}}) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.url, {'attr' : {'class' : 'form-control', 'placeholder': form.url.vars.label }}) }}
+        {{ form_errors(form.url) }}
+        {{ form_widget(form.position, {'attr' : {'class' : 'position'}}) }}
+    </div>
+    <div class="collection-manage">
+        <a href="#" class="collection-up btn btn-default" title="Move fruit up">
+            <i class="fas fa-arrow-circle-up"></i>
+        </a>
+        <a href="#" class="collection-down btn btn-default" title="Move fruit down">
+            <i class="fas fa-arrow-circle-down"></i>
+        </a>
+        <a href="#" class="collection-remove btn btn-default" title="Delete fruit">
+            <i class="fas fa-trash"></i>
+        </a>
+        <a href="#" class="collection-add btn btn-default" title="Add fruit">
+            <i class="fas fa-plus-circle"></i>
+        </a>
+        <a href="#" class="collection-duplicate btn btn-default" title="Duplicate fruit">
+            <i class="fas fa-clone"></i>
+        </a>
+    </div>
+{% endblock %}

@@ -15,10 +15,12 @@ class DownloadLinkFixtures extends Fixture
 
     public function loadDownloadLinks(ObjectManager $manager): void
     {
+        $position = 0;
         foreach ($this->getDownloadLinksData() as $link) {
             $downloadLink = new DownloadLink();
             $downloadLink->setName($link['name']);
             $downloadLink->setUrl($link['url']);
+            $downloadLink->setPosition($position++);
 
             $manager->persist($downloadLink);
         }
@@ -31,19 +33,19 @@ class DownloadLinkFixtures extends Fixture
         return [
             [
                 'name' => 'Example #1',
-                'url' => '#'
+                'url' => 'http://e1.example.example',
             ],
             [
                 'name' => 'Example #2',
-                'url' => '#'
+                'url' => 'http://e2.example.example',
             ],
             [
                 'name' => 'Example #3',
-                'url' => '#'
+                'url' => 'http://e3.example.example',
             ],
             [
                 'name' => 'Example #4',
-                'url' => '#'
+                'url' => 'http://e4.example.example',
             ],
         ];
     }

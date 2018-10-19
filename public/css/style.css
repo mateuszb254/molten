@@ -1346,6 +1346,7 @@ textarea:focus {
     width: 510px;
     margin-top: 10px;
     margin-left: 75px;
+    text-align: center;
 }
 
 .mirror {

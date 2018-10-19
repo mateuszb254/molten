@@ -1,36 +1,30 @@
 {% extends 'admin/base.html.twig' %}
+{% form_theme form
+'admin/download/theme/download_link_collection.html.twig'
+'common/theme/jquery.collection.html.twig' %}
 {% block header %}{% trans %}download.links{% endtrans %}{% endblock %}
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive m-t-40">
-                        <table id="links-table" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>{% trans %}download.links.name{% endtrans %}</th>
-                                <th>{% trans %}download.links.url{% endtrans %}</th>
-                                <th style="width: 145px">{% trans %}download.links.manage{% endtrans %}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for link in links %}
-                                <tr>
-                                    <td>{{ link.name }}</td>
-                                    <td>{{ link.url }}</td>
-                                    <td>
-                                        {% include 'admin/download/form/_delete.html.twig' with {'id' : link.id } %}
-                                        <a href="{{ path('admin_download_edit', {'id': link.id}) }}"
-                                           class="float-left btn btn-info">{% trans %}edit{% endtrans %}</a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-body text-center">
+                    {{ form_start(form) }}
+                    {{ form_widget(form.links) }}
+                    <button style="margin-top: 20px;" class="btn btn-primary" type="submit">Zapisz</button>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/common/collection.jquery.js') }}"></script>
+    <script>
+        $('#download_link_collection_links').collection({
+            'allow_duplicate': true,
+            'position_field_selector': '.position',
+            'add': ' <a href="#" class="collection-add btn btn-default" title="Add fruit"><i class="fas fa-plus-circle"></i> </a>'
+        });
+    </script>
 {% endblock %}

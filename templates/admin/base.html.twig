@@ -21,8 +21,8 @@
         <link href="{{ asset('admin/css/lib/owl.theme.default.min.css') }}" rel="stylesheet"/>
         <link href="{{ asset('admin/css/helper.css') }}" rel="stylesheet">
         <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+              integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
               crossorigin="anonymous">
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -235,30 +235,19 @@
                             </a>
                         </li>
                         <li>
-                            <a class="has-arrow" href="#" aria-expanded="false">
-                                <i class="fa fa-download"></i><span class="hide-menu">
+                            <a href="{{ path('admin_download_manage') }}" aria-expanded="false">
+                                <i class="fas fa-download"></i>
+                                <span class="hide-menu">
                                     {% trans %}download.links{% endtrans %}
                                 </span>
                             </a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li>
-                                    <a href="{{ path('admin_download_add') }}">
-                                        {% trans %}download.links.add{% endtrans %}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('admin_download_manage') }}">
-                                        {% trans %}download.links.manage{% endtrans %}
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-label">{% trans %}shop{% endtrans %}</li>
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false">
-                                <i class="fas fa-ticket"></i>
+                                <i class="fas fa-shopping-cart"></i>
                                 <span class="hide-menu">
                                 {% trans %}shop.categories{% endtrans %}
                             </span>
@@ -281,7 +270,7 @@
                         <li class="nav-label">{% trans %}payments{% endtrans %}</li>
                         <li>
                             <a class="has-arrow" href="#" aria-expanded="false">
-                                <i class="fas fa-ticket"></i>
+                                <i class="fas fa-ticket-alt"></i>
                                 <span class="hide-menu">
                                     {% trans %}payment.promotion_code{% endtrans %}
                                 </span>
@@ -303,7 +292,7 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <li>
                             <a class="has-arrow  " href="#" aria-expanded="false">
-                                <i class="fas fa-ticket"></i>
+                                <i class="fab fa-paypal"></i>
                                 <span class="hide-menu">
                                     {% trans %}payment.paypal{% endtrans %}
                                 </span>
