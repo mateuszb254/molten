@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+{% form_theme form
+'admin/shop/theme/category_collection.html.twig'
+'common/theme/jquery.collection.html.twig' %}
+{% block header %}{% trans %}shop.categories{% endtrans %}{% endblock %}
+{% block content %}
+    <div class="card text-center">
+        <div class="card-body">
+            {{ form_start(form) }}
+            {{ form_widget(form.categories) }}
+            <button style="margin-top: 20px;" class="btn btn-primary" type="submit">
+                {% trans %}Save{% endtrans %}
+            </button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/common/collection.jquery.js') }}"></script>
+    <script>
+        $('#shop_category_collection_categories').collection({
+            'add': '<a href="#" class="collection-add btn btn-default" title="Add fruit"> <i class="fas fa-plus-circle"></i> </a>',
+            'position_field_selector': '.position'
+        })
+        ;
+    </script>
+{% endblock %}

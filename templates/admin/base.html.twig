@@ -244,26 +244,13 @@
                         </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li class="nav-label">{% trans %}shop{% endtrans %}</li>
                         <li>
-                            <a class="has-arrow  " href="#" aria-expanded="false">
+                            <a href="{{ path('admin_shop_index') }}" aria-expanded="false">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span class="hide-menu">
-                                {% trans %}shop.categories{% endtrans %}
+                                {% trans %}shop{% endtrans %}
                             </span>
                             </a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li>
-                                    <a href="{{ path('admin_shop_category_new') }}">
-                                        {% trans %}shop.categories.new{% endtrans %}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('admin_shop_category_show') }}">
-                                        {% trans %}shop.categories.manage{% endtrans %}
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}

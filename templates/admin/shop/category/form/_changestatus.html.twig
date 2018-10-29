@@ -1,4 +1,0 @@
-<form method="post" action="{{ path('admin_shop_category_status', {'id': category.id }) }}" class="float-left">
-    <input type="hidden" name="_token" value="{{ csrf_token('change_status' ~ category.id) }}">
-    <button class="btn btn-{{ category.status == constant('STATUS_ACTIVE', category) ? 'success' : 'warning' }}">{% if category.status == constant('STATUS_ACTIVE', category) %}{% trans %}turn.off{% endtrans %}{% else %}{% trans %}turn.on{% endtrans %}{% endif %}</button>
-</form>

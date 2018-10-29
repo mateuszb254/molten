@@ -1,0 +1,35 @@
+{% block shop_product_label %}{% endblock %}
+{% block shop_product_widget %}
+    <div class="row">
+        {{ form_widget(form.item, {'attr' : {'list' : 'items', 'class' : 'form-control', 'placeholder': form.item.vars.label}}) }}
+        <small>
+            {{ form_errors(form.item) }}
+        </small>
+        {{ form_widget(form.description, {'attr' : {'class' : 'form-control', 'placeholder': form.description.vars.label}}) }}
+        <small>
+            {{ form_errors(form.description) }}
+        </small>
+        {{ form_widget(form.price, {'attr' : {'class' : 'form-control', 'placeholder': form.price.vars.label}}) }}
+        <small>
+            {{ form_errors(form.price) }}
+        </small>
+        {{ form_widget(form.position, {'attr' : {'class' : 'position'}}) }}
+    </div>
+    <div class="collection-manage">
+        <a href="#" class="collection-up btn btn-default">
+            <i class="fas fa-arrow-circle-up"></i>
+        </a>
+        <a href="#" class="collection-down btn btn-default">
+            <i class="fas fa-arrow-circle-down"></i>
+        </a>
+        <a href="#" class="collection-remove btn btn-default">
+            <i class="fas fa-trash"></i>
+        </a>
+        <a href="#" class="collection-add btn btn-default">
+            <i class="fas fa-plus-circle"></i>
+        </a>
+        <a href="#" class="collection-duplicate btn btn-default">
+            <i class="fas fa-clone"></i>
+        </a>
+    </div>
+{% endblock %}

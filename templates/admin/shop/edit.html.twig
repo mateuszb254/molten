@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+{% form_theme form.products
+'admin/shop/theme/product_collection.html.twig'
+'common/theme/jquery.collection.html.twig' %}
+{% block header %}{% trans %}shop.category{% endtrans %} - {{ category.name|trans }}{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card text-center">
+                {{ form_start(form) }}
+                <div class="form-group row">
+                    {{ form_label(form.name, null, {'label_attr' : {'class': 'col-lg-4 col-form-label'}}) }}
+                    <div class="col-lg-6">
+                        {{ form_widget(form.name, { 'attr' : { 'class' : 'form-control' } }) }}
+                        {% if form_errors(form.name) %}
+                            <small class="form-control-feedback">
+                                {{ form_errors(form.name) }}
+                            </small>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                        {% trans %}submit{% endtrans %}
+                    </button>
+                </div>
+                {{ form_widget(form.products) }}
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                    {% trans %}submit{% endtrans %}
+                </button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <datalist id="items">
+        {% for item in items %}
+            <option value="{{ item.name }}"></option>
+        {% endfor %}
+    </datalist>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/common/collection.jquery.js') }}"></script>
+    <script>$('#shop_products').collection({
+            'add': '<a href="#" class="collection-add btn btn-default" title="Add fruit"> <i class="fas fa-plus-circle"></i> </a>',
+            'position_field_selector': '.position',
+            'allow_duplicate' : true
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% block shop_category_label %}{% endblock %}
+{% block shop_category_widget %}
+    <div class="row">
+        {{ form_widget(form.name, {'attr' : {'class' : 'form-control', 'placeholder': form.name.vars.label}}) }}
+        <small>
+            {{ form_errors(form.name) }}
+        </small>
+        {{ form_widget(form.status, {'attr' : {'class' : 'form-control'}}) }}
+        <small>
+            {{ form_errors(form.status) }}
+        </small>
+        {{ form_widget(form.position, {'attr' : {'class' : 'position'}}) }}
+    </div>
+    <div class="collection-manage">
+        {% if form.vars.data.id is defined %}
+            <a href="{{ path('admin_shop_edit', {'id' : form.vars.data.id}) }}" class="btn btn-default">
+                <i class="fas fa-cart-plus"></i>
+            </a>
+        {% endif %}
+        <a href="#" class="collection-up btn btn-default">
+            <i class="fas fa-arrow-circle-up"></i>
+        </a>
+        <a href="#" class="collection-down btn btn-default">
+            <i class="fas fa-arrow-circle-down"></i>
+        </a>
+        <a href="#" class="collection-remove btn btn-default">
+            <i class="fas fa-trash"></i>
+        </a>
+        <a href="#" class="collection-add btn btn-default">
+            <i class="fas fa-plus-circle"></i>
+        </a>
+        <a href="#" class="collection-duplicate btn btn-default">
+            <i class="fas fa-clone"></i>
+        </a>
+    </div>
+{% endblock %}
