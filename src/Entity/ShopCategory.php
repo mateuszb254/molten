@@ -26,7 +26,7 @@ class ShopCategory
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=false, length=35)
+     * @ORM\Column(type="string", unique=true, nullable=false, length=35)
      */
     private $name;
 
@@ -41,10 +41,15 @@ class ShopCategory
     private $status = self::STATUS_INACTIVE;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ShopProduct", mappedBy="category", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\ShopProduct", mappedBy="category", orphanRemoval=true, cascade={"persist"})
      * @ORM\OrderBy({"price": "DESC"})
      */
     private $products;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
 
     public function __construct()
     {
@@ -94,9 +99,37 @@ class ShopCategory
         return $this;
     }
 
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
     public function getProducts(): Collection
     {
         return $this->products;
+    }
+
+    public function addProduct(ShopProduct $product): self
+    {
+        $product->setCategory($this);
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    public function removeProduct(ShopProduct $product): self
+    {
+        $product->setCategory(null);
+        $this->products->removeElement($product);
+
+        return $this;
     }
 
     public function __toString()

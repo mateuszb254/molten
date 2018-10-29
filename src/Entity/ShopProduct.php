@@ -17,11 +17,6 @@ class ShopProduct
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=65)
-     */
-    private $name;
-
-    /**
      * @ORM\Column(type="text", length=300)
      */
     private $description;
@@ -32,25 +27,24 @@ class ShopProduct
     private $price;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Item")
+     * @ORM\JoinColumn(referencedColumnName="vnum", nullable=false)
+     */
+    private $item;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ShopCategory", inversedBy="products")
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -80,9 +74,33 @@ class ShopProduct
         return $this->category;
     }
 
-    public function setCategory(ShopCategory $category): self
+    public function setCategory(?ShopCategory $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getItem(): ?Item
+    {
+        return $this->item;
+    }
+
+    public function setItem(Item $item): self
+    {
+        $this->item = $item;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
