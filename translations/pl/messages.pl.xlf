@@ -363,6 +363,10 @@
                 <source>shop</source>
                 <target>Sklep</target>
             </trans-unit>
+            <trans-unit id="shop.category">
+                <source>shop.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
             <trans-unit id="shop.category.name">
                 <source>shop.category.name</source>
                 <target>Nazwa kategori</target>
@@ -403,21 +407,33 @@
                 <source>shop.categories.manage</source>
                 <target>Zarządzaj</target>
             </trans-unit>
+            <trans-unit id="shop.product.name">
+                <source>shop.product.name</source>
+                <target>Nazwa przedmiotu</target>
+            </trans-unit>
+            <trans-unit id="shop.product.description">
+                <source>shop.product.description</source>
+                <target>Opis produktu</target>
+            </trans-unit>
+            <trans-unit id="shop.product.price">
+                <source>shop.product.price</source>
+                <target>Cena produktu</target>
+            </trans-unit>
             <trans-unit id="shop.product.inactive">
                 <source>shop.product.inactive</source>
-                <target>Produkt jest aktualnie niedostepny.</target>
+                <target>Produkt jest aktualnie niedostepny</target>
             </trans-unit>
             <trans-unit id="shop.product.not.found">
                 <source>shop.product.not.found</source>
-                <target>Nie znalezlismy produktu w naszej ofercie.</target>
+                <target>Nie znalezlismy produktu w naszej ofercie</target>
             </trans-unit>
             <trans-unit id="shop.product.bought">
                 <source>shop.product.bought</source>
-                <target>Zakupiono produkt..</target>
+                <target>Zakupiono produkt</target>
             </trans-unit>
             <trans-unit id="shop.not.enough.coins">
                 <source>shop.not.enough.coins</source>
-                <target>Niewystarczająca ilość monet.</target>
+                <target>Niewystarczająca ilość monet</target>
             </trans-unit>
             <trans-unit id="tickets.title">
                 <source>tickets.title</source>
@@ -529,6 +545,10 @@
                 <source>user.edit.success</source>
                 <target>Zmieniono dane użytkownika. Przejdz do całej
                     <![CDATA[<a href="%admin_users_index%">listy użytkowników.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Użytkownicy</target>
             </trans-unit>
             <trans-unit id="users.login">
                 <source>users.login</source>

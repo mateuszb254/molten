@@ -363,6 +363,78 @@
                 <source>shop</source>
                 <target>Shop</target>
             </trans-unit>
+            <trans-unit id="shop.category">
+                <source>shop.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="shop.category.name">
+                <source>shop.category.name</source>
+                <target>Category name</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status">
+                <source>shop.category.status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="shop.category.new.success">
+                <source>shop.category.new.success</source>
+                <target>Category has been added.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.delete.success">
+                <source>shop.category.delete.success</source>
+                <target>Category has been removed.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.edit.success">
+                <source>shop.category.edit.success</source>
+                <target>Category has been edited.</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status0.success">
+                <source>shop.category.status0.success</source>
+                <target>Category "%name%" has been turned off</target>
+            </trans-unit>
+            <trans-unit id="shop.category.status1.success">
+                <source>shop.category.status1.success</source>
+                <target>Category "%name%" has been turned off.</target>
+            </trans-unit>
+            <trans-unit id="shop.categories">
+                <source>shop.categories</source>
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.new">
+                <source>shop.categories.new</source>
+                <target>Add</target>
+            </trans-unit>
+            <trans-unit id="shop.categories.manage">
+                <source>shop.categories.manage</source>
+                <target>Manage</target>
+            </trans-unit>
+            <trans-unit id="shop.product.name">
+                <source>shop.product.name</source>
+                <target>Item name</target>
+            </trans-unit>
+            <trans-unit id="shop.product.description">
+                <source>shop.product.description</source>
+                <target>Product description</target>
+            </trans-unit>
+            <trans-unit id="shop.product.price">
+                <source>shop.product.price</source>
+                <target>Product price</target>
+            </trans-unit>
+            <trans-unit id="shop.product.inactive">
+                <source>shop.product.inactive</source>
+                <target>The product is not available now.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.not.found">
+                <source>shop.product.not.found</source>
+                <target>We did not found this item in our offer.</target>
+            </trans-unit>
+            <trans-unit id="shop.product.bought">
+                <source>shop.product.bought</source>
+                <target>Purchase completed</target>
+            </trans-unit>
+            <trans-unit id="shop.not.enough.coins">
+                <source>shop.not.enough.coins</source>
+                <target>You have not enough coins.</target>
+            </trans-unit>
 
             <!--    -->
             <trans-unit id="support">
@@ -451,6 +523,10 @@
                 <source>user.edit.success</source>
                 <target>User has been modified. Go to manage
                     <![CDATA[<a href="%admin_users_index%">user section.</a>]]></target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Users</target>
             </trans-unit>
             <trans-unit id="users.login">
                 <source>users.login</source>
