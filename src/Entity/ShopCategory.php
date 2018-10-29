@@ -42,7 +42,7 @@ class ShopCategory
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ShopProduct", mappedBy="category", orphanRemoval=true, cascade={"persist"})
-     * @ORM\OrderBy({"price": "DESC"})
+     * @ORM\OrderBy({"position": "ASC"})
      */
     private $products;
 
