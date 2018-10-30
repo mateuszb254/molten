@@ -28,7 +28,7 @@ class ShopProduct
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Item")
-     * @ORM\JoinColumn(referencedColumnName="vnum", nullable=false)
+     * @ORM\JoinColumn(referencedColumnName="vnum", nullable=false, onDelete="CASCADE")
      */
     private $item;
 
