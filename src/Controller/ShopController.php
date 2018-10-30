@@ -79,10 +79,6 @@ class ShopController extends AbstractController implements UserControllerInterfa
 
         $em = $this->getDoctrine()->getManager();
 
-        $userProduct = new UserProduct();
-        $userProduct->setProduct($product);
-        $userProduct->setUser($user);
-
         $userLog = new UserLog();
         $userLog->setUser($user);
         $userLog->setProduct($product);
@@ -90,7 +86,6 @@ class ShopController extends AbstractController implements UserControllerInterfa
 
         $em->persist($user);
         $em->persist($userLog);
-        $em->persist($userProduct);
         $em->flush();
 
         $this->addFlash('success', $translator->trans('shop.product.bought'));
