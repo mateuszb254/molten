@@ -4,14 +4,12 @@ namespace App\Controller;
 
 use App\Entity\ShopCategory;
 use App\Entity\UserLog;
-use App\Entity\UserProduct;
 use App\Repository\ShopCategoryRepository;
 use App\Repository\ShopProductRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -37,8 +35,12 @@ class ShopController extends AbstractController implements UserControllerInterfa
     /**
      * @Route("/{slug}", name="shop_products", methods={"GET", "POST"})
      */
-    public function products(ShopCategory $shopCategory, ShopCategoryRepository $shopCategoryRepository): Response
+    public function products(ShopCategory $shopCategory, ShopCategoryRepository $shopCategoryRepository, TranslatorInterface $translator): Response
     {
+        if ($shopCategory->getStatus() === ShopCategory::STATUS_INACTIVE) {
+            throw $this->createNotFoundException($translator->trans('shop.category.inactive'));
+        }
+
         $categories = $shopCategoryRepository->findAllActiveCategories();
 
         return $this->render('user/shop/products.html.twig', [
