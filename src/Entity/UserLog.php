@@ -29,6 +29,7 @@ class UserLog
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ShopProduct")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $product;
 
