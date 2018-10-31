@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Account;
 use App\Entity\ShopCategory;
 use App\Entity\UserLog;
 use App\Repository\ShopCategoryRepository;
@@ -58,18 +59,18 @@ class ShopController extends AbstractController implements UserControllerInterfa
 
         $product = $productRepository->find($productId);
 
-        if(!$product) {
+        if (!$product) {
             throw $this->createNotFoundException($translator->trans('shop.product.not.found'));
         }
 
-       if($product->getCategory()->getStatus() === ShopCategory::STATUS_INACTIVE) {
+        if ($product->getCategory()->getStatus() === ShopCategory::STATUS_INACTIVE) {
             throw $this->createNotFoundException($translator->trans('shop.product.inactive'));
         }
 
-       $user = $tokenStorage->getToken()->getUser();
+        /** @var Account $user */
+        $user = $tokenStorage->getToken()->getUser();
 
-        if($user->getCoins() < $product->getPrice())
-        {
+        if ($user->getCoins() < $product->getPrice()) {
             $this->addFlash('alert', $translator->trans('shop.not.enough.coins'));
 
             return $this->redirectToRoute('shop_products', [
@@ -77,7 +78,16 @@ class ShopController extends AbstractController implements UserControllerInterfa
             ]);
         }
 
-        $user->setCoins($user->getCoins()-$product->getPrice());
+        if ($user->hasItem($product->getItem())) {
+            $this->addFlash('alert', $translator->trans('shop.item.already.having'));
+
+            return $this->redirectToRoute('shop_products', [
+                'slug' => $slug
+            ]);
+        }
+
+        $user->setCoins($user->getCoins() - $product->getPrice());
+        $user->addItem($product->getItem());
 
         $em = $this->getDoctrine()->getManager();
 
