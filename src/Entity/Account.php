@@ -141,12 +141,18 @@ class Account implements UserInterface
      */
     private $items;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Player", mappedBy="account", orphanRemoval=true)
+     */
+    private $players;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
         $this->registeredAt = new \DateTime();
         $this->lastActivity = new \DateTime();
         $this->items = new ArrayCollection();
+        $this->players = new ArrayCollection();
     }
 
     public function getId(): int
@@ -388,6 +394,37 @@ class Account implements UserInterface
     public function grantCoins(int $amount): self
     {
         $this->coins += $amount;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Player[]
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): self
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+            $player->setAccount($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): self
+    {
+        if ($this->players->contains($player)) {
+            $this->players->removeElement($player);
+            // set the owning side to null (unless already changed)
+            if ($player->getAccount() === $this) {
+                $player->setAccount(null);
+            }
+        }
 
         return $this;
     }

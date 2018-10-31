@@ -34,6 +34,11 @@ class Player
      */
     private $kingdom;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Account", inversedBy="players")
+     */
+    private $account;
+
     public function getId()
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Player
     public function setKingdom(int $kingdom): self
     {
         $this->kingdom = $kingdom;
+
+        return $this;
+    }
+
+    public function getAccount(): ?Account
+    {
+        return $this->account;
+    }
+
+    public function setAccount(?Account $account): self
+    {
+        $this->account = $account;
 
         return $this;
     }
