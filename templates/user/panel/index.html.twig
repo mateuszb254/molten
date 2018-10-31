@@ -59,38 +59,31 @@
                 </div>
                 <div class="account-info-chars">
                     <h2>{% trans %}characters{% endtrans %}</h2>
-                    <div class="account-info-char">
-                        <div class="account-info-char-frame">
-                            <img src="content/thumb.png" alt="">
+                    {% set displayed = 0 %}
+                    {% for player in app.user.players %}
+                        <div class="account-info-char">
+                            <div class="account-info-char-frame">
+                                <img style="margin: auto; display: block; padding-top: 10px;"
+                                     src="{{ asset('images/characters/character-example.png') }}" alt="">
+                            </div>
+                            <div class="character-info">
+                                <p><span>{{ player.name }}</span></p>
+                                <p>{% trans %}character.level{% endtrans %}: <span>{{ player.level }}</span></p>
+                            </div>
                         </div>
-                        <div class="character-info">
-                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                        {% set displayed = displayed + 1 %}
+                    {% endfor %}
+                    {% for i in displayed..3 %}
+                        <div class="account-info-char">
+                            <div class="account-info-char-frame">
+                                <img src="" alt="">
+                            </div>
+                            <div class="character-info">
+                                <p><span>-</span></p>
+                                <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="account-info-char">
-                        <div class="account-info-char-frame">
-                            <img src="content/thumb.png" alt="">
-                        </div>
-                        <div class="character-info">
-                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
-                        </div>
-                    </div>
-                    <div class="account-info-char">
-                        <div class="account-info-char-frame">
-                            <img src="content/thumb.png" alt="">
-                        </div>
-                        <div class="character-info">
-                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
-                        </div>
-                    </div>
-                    <div class="account-info-char">
-                        <div class="account-info-char-frame">
-                            <img src="content/thumb.png" alt="">
-                        </div>
-                        <div class="character-info">
-                            <p>{% trans %}character.level{% endtrans %}: <span>-</span></p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         {% endblock %}
