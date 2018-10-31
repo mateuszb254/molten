@@ -39,21 +39,21 @@ class TicketFixtures extends Fixture implements DependentFixtureInterface
                 'title' => 'Problem z płatnością PayPal',
                 'content' => "Witam,\nKupiłem pakiet za 200 złotych i nie doszły mi monety.\n\nNumer identyfikacyjny transakcji: 9KN79****L379**3M.",
                 'status' => Ticket::STATUS_OPEN,
-                'author' => $this->getReference(AccountFixtures::USER_REFERENCE),
+                'author' => $this->getReference(AccountFixtures::USER_REFERENCE_NAME),
                 'category' => $this->getReference(TicketCategoryFixtures::PAYMENTS_REFERENCE)
             ],
             [
                 'title' => 'Błąd na stronie.',
                 'content' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue a eros eget cursus. In vel lorem mi. Nullam mauris nisl, tristique et elementum at, faucibus molestie risus. Praesent et nisl et ex tincidunt imperdiet. Maecenas placerat, ipsum id ullamcorper pulvinar, nisi nisi pulvinar dui, nec tempor leo nunc eu libero. Suspendisse id viverra est, a rutrum leo. Cras sodales enim et nulla porttitor mollis. ",
                 'status' => Ticket::STATUS_OPEN,
-                'author' => $this->getReference(AccountFixtures::USER_REFERENCE),
+                'author' => $this->getReference(AccountFixtures::USER_BANNED_REFERENCE_NAME),
                 'category' => $this->getReference(TicketCategoryFixtures::SITE_BUG_REFERENCE)
             ],
             [
                 'title' => 'Tresc zgloszenia',
                 'content' => "Tresc zgloszenie, ktore zostalo zamkniete przez administratora.",
                 'status' => Ticket::STATUS_CLOSED,
-                'author' => $this->getReference(AccountFixtures::USER_REFERENCE),
+                'author' => $this->getReference(AccountFixtures::USER_REFERENCE_NAME),
                 'category' => $this->getReference(TicketCategoryFixtures::PAYMENTS_REFERENCE)
             ],
         ];

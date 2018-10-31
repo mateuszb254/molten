@@ -10,8 +10,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AccountFixtures extends Fixture implements DependentFixtureInterface
 {
-    public const ADMIN_USER_REFERENCE = 'admin';
-    public const USER_REFERENCE = 'user';
+    public const GLOBAL_ADMIN_REFERENCE_NAME = 'global_admin';
+    public const ADMIN_USER_REFERENCE_NAME = 'admin';
+    public const MODERATOR_REFERENCE_NAME = 'moderator';
+    public const USER_REFERENCE_NAME = 'user';
+    public const USER_BANNED_REFERENCE_NAME = 'user_banned';
 
     private $encoder;
 
@@ -22,44 +25,38 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        $this->loadUsers($manager);
+        $this->loadAccounts($manager);
     }
 
-    private function loadUsers(ObjectManager $manager): void
+    private function loadAccounts(ObjectManager $manager): void
     {
-        foreach ($this->getUsersData() as $userData) {
-            $user = new Account();
-            $user->setLogin($userData['login']);
-            $user->setPassword($this->encoder->encodePassword($user, $userData['password']));
-            $user->setEmail($userData['email']);
-            $user->setCode($userData['code']);
-            $user->setQuestion($userData['question']);
-            $user->setAnswer($userData['answer']);
-            $user->setRole($userData['role']);
-            $user->setCoins($userData['coins']);
+        foreach ($this->getAccountsData() as $accountData) {
+            $account = new Account();
+            $account->setLogin($accountData['login']);
+            $account->setPassword($this->encoder->encodePassword($account, $accountData['password']));
+            $account->setEmail($accountData['email']);
+            $account->setCode($accountData['code']);
+            $account->setQuestion($accountData['question']);
+            $account->setAnswer($accountData['answer']);
+            $account->setRole($accountData['role']);
+            $account->setCoins($accountData['coins']);
 
-            if (array_key_exists('banTime', $userData)) $user->setBanTime($userData['banTime']);
-            if (array_key_exists('banReason', $userData)) $user->setBanReason($userData['banReason']);
+            if (array_key_exists('banTime', $accountData)) $account->setBanTime($accountData['banTime']);
+            if (array_key_exists('banReason', $accountData)) $account->setBanReason($accountData['banReason']);
 
-            $manager->persist($user);
+            $manager->persist($account);
 
-            if ($user->getLogin() === self::ADMIN_USER_REFERENCE) {
-                $this->addReference(self::ADMIN_USER_REFERENCE, $user);
-            }
-
-            if ($user->getLogin() === self::USER_REFERENCE) {
-                $this->addReference(self::USER_REFERENCE, $user);
-            }
+           $this->addReference($account->getLogin(), $account);
         }
 
         $manager->flush();
     }
 
-    private function getUsersData(): array
+    private function getAccountsData(): array
     {
         return [
             [
-                'login' => 'global_admin',
+                'login' => self::GLOBAL_ADMIN_REFERENCE_NAME,
                 'password' => 'global_admin',
                 'email' => 'global_admin@nagadev.pl',
                 'code' => 11111,
@@ -69,7 +66,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
                 'coins' => 5000
             ],
             [
-                'login' => 'admin',
+                'login' => self::ADMIN_USER_REFERENCE_NAME,
                 'password' => 'admin',
                 'email' => 'admin@nagadev.pl',
                 'code' => 11111,
@@ -79,7 +76,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
                 'coins' => 5000
             ],
             [
-                'login' => 'moderator',
+                'login' => self::MODERATOR_REFERENCE_NAME,
                 'password' => 'moderator',
                 'email' => 'moderator@nagadev.pl',
                 'code' => 22222,
@@ -89,7 +86,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
                 'coins' => 5000
             ],
             [
-                'login' => 'user',
+                'login' => self::USER_REFERENCE_NAME,
                 'password' => 'user',
                 'email' => 'user@nagadev.pl',
                 'code' => 22222,
@@ -99,7 +96,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
                 'coins' => 5000
             ],
             [
-                'login' => 'user_banned',
+                'login' => self::USER_BANNED_REFERENCE_NAME,
                 'password' => 'user',
                 'email' => 'user_banned@nagadev.pl',
                 'code' => 33333,
