@@ -132,11 +132,21 @@ class Account implements UserInterface
      */
     private $resetPasswordTokenCreatedAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Item")
+     * @ORM\JoinTable("account_item",
+     *     joinColumns={@ORM\JoinColumn(name="account_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="item_id", referencedColumnName="vnum", onDelete="CASCADE")}
+     *     )
+     */
+    private $items;
+
     public function __construct()
     {
         $this->logs = new ArrayCollection();
         $this->registeredAt = new \DateTime();
         $this->lastActivity = new \DateTime();
+        $this->items = new ArrayCollection();
     }
 
     public function getId(): int
@@ -271,7 +281,7 @@ class Account implements UserInterface
     {
         return [$this->role];
     }
-    
+
     public function getLogs(): ?Collection
     {
         return $this->logs;
@@ -351,6 +361,23 @@ class Account implements UserInterface
         $this->resetPasswordTokenCreatedAt = $resetPasswordTokenCreatedAt;
 
         return $this;
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item): self
+    {
+        $this->items[] = $item;
+
+        return $this;
+    }
+
+    public function hasItem(Item $item): bool
+    {
+        return $this->items->contains($item);
     }
 
     public function isBanned(): bool
