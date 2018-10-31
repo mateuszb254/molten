@@ -3,12 +3,15 @@
 namespace App\DataFixtures;
 
 use App\Entity\ShopCategory;
-use App\Service\Slugger;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class ShopCategoryFixtures extends Fixture
 {
+    public const CATEGORY_1_REFERENCE_NAME = 'Category-1';
+    public const CATEGORY_2_REFERENCE_NAME = 'Category-2';
+    public const CATEGORY_3_REFERENCE_NAME = 'Category-3-Inactive';
+
     public function load(ObjectManager $manager): void
     {
         $this->loadCategories($manager);
@@ -16,15 +19,16 @@ class ShopCategoryFixtures extends Fixture
 
     private function loadCategories(ObjectManager $manager): void
     {
+        $position = 0;
         foreach ($this->getCategoriesData() as $categoryData) {
             $category = new ShopCategory();
             $category->setName($categoryData['name']);
-            $category->setSlug(Slugger::slugify($category->getName()));
             $category->setStatus($categoryData['status']);
+            $category->setPosition($position++);
 
             $manager->persist($category);
 
-            $this->addReference('category-'.$category->getName(), $category);
+            $this->addReference($categoryData['name'], $category);
         }
 
         $manager->flush();
@@ -34,19 +38,15 @@ class ShopCategoryFixtures extends Fixture
     {
         return [
             [
-                'name' => 'Przedmioty unikatowe',
+                'name' => self::CATEGORY_1_REFERENCE_NAME,
                 'status' => ShopCategory::STATUS_ACTIVE
             ],
             [
-                'name' => 'Przedmioty testowe',
+                'name' => self::CATEGORY_2_REFERENCE_NAME,
                 'status' => ShopCategory::STATUS_ACTIVE
             ],
             [
-                'name' => 'Różności',
-                'status' => ShopCategory::STATUS_ACTIVE
-            ],
-            [
-                'name' => 'Kategoria która jest wyłączona',
+                'name' => self::CATEGORY_3_REFERENCE_NAME,
                 'status' => ShopCategory::STATUS_INACTIVE
             ],
         ];

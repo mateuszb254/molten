@@ -1,4 +1,5 @@
 <?php
+
 namespace App\DataFixtures;
 
 use App\Entity\ShopProduct;
@@ -13,11 +14,12 @@ class ShopProductFixtures extends Fixture implements DependentFixtureInterface
         $this->loadProducts($manager);
     }
 
-    private function loadProducts(ObjectManager $manager)
+    public function loadProducts(ObjectManager $manager): void
     {
-        foreach($this->getProducts() as $productData) {
+        foreach ($this->getProductsData() as $productData) {
             $product = new ShopProduct();
-            $product->setName($productData['name']);
+            $product->setItem($productData['item']);
+            $product->setPosition($productData['position']);
             $product->setCategory($productData['category']);
             $product->setDescription($productData['description']);
             $product->setPrice($productData['price']);
@@ -28,76 +30,37 @@ class ShopProductFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    private function getProducts()
+    private function getProductsData(): array
     {
-        return [
-            [
-                'name' => 'Item 1',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 1',
-                'price' => 100
-            ],
-            [
-                'name' => 'Item 2',
-                'category' => $this->getReference('category-Przedmioty testowe'),
-                'description' => 'Description of Item 2',
-                'price' => 60
-            ],
-            [
-                'name' => 'Item 3',
-                'category' => $this->getReference('category-Przedmioty testowe'),
-                'description' => 'Description of Item 3',
-                'price' => 35
-            ],
-            [
-                'name' => 'Item 4',
-                'category' => $this->getReference('category-Przedmioty testowe'),
-                'description' => 'Description of Item 4',
-                'price' => 22
-            ],
-            [
-                'name' => 'Item 5',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 5',
-                'price' => 55
-            ],
-            [
-                'name' => 'Item 6',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 6',
-                'price' => 55
-            ],
-            [
-                'name' => 'Item 7',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 7',
-                'price' => 55
-            ],
-            [
-                'name' => 'Item 8',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 8',
-                'price' => 55
-            ],
-            [
-                'name' => 'Item 9',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 9',
-                'price' => 55
-            ],
-            [
-                'name' => 'Item 10',
-                'category' => $this->getReference('category-Przedmioty unikatowe'),
-                'description' => 'Description of Item 10',
-                'price' => 55
-            ],
+        $productsData = [];
+
+        $positions = [
+            ShopCategoryFixtures::CATEGORY_1_REFERENCE_NAME => 0,
+            ShopCategoryFixtures::CATEGORY_2_REFERENCE_NAME => 0
         ];
+
+        $prices = [100, 200, 300, 400, 500, 600, 700, 1000];
+        for ($i = 0; $i <= 10; $i++) {
+            $categoryReferenceName = mt_rand(0, 1) ? ShopCategoryFixtures::CATEGORY_1_REFERENCE_NAME : ShopCategoryFixtures::CATEGORY_2_REFERENCE_NAME;
+
+            $productsData[] = [
+                'item' => $this->getReference('item-' . mt_rand(0, ItemFixtures::$endIdReference)),
+                'category' => $this->getReference($categoryReferenceName),
+                'description' => 'Description...',
+                'price' => $prices[array_rand($prices)],
+                'position' => $positions[$categoryReferenceName]
+            ];
+
+            $positions[$categoryReferenceName]++;
+        }
+
+        return $productsData;
     }
 
     public function getDependencies()
     {
         return [
-          ShopCategoryFixtures::class
+            ItemFixtures::class, ShopCategoryFixtures::class
         ];
     }
 }
