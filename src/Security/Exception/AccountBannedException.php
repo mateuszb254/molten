@@ -3,19 +3,10 @@
 namespace App\Security\Exception;
 
 use App\Entity\Account;
-use Exception;
 use Symfony\Component\Security\Core\Exception\AccountStatusException;
 
 class AccountBannedException extends AccountStatusException
 {
-    private $account;
-
-    public function __construct($message = "", $code = 0, Exception $previous = null, Account $account)
-    {
-        parent::__construct($message, $code, $previous);
-        $this->setUser($account);
-    }
-
     public function getMessageKey()
     {
         return 'account.banned';
@@ -23,9 +14,15 @@ class AccountBannedException extends AccountStatusException
 
     public function getMessageData()
     {
+        $user = $this->getUser();
+
+        if (!$user instanceof Account) {
+            return [];
+        }
+
         return [
-            '%reason%' => $this->getUser()->getBanReason(),
-            '%expires%' => $this->getUser()->getBanTime()->format('Y-m-d H:i:s')
+            '%reason%' => $user->getBanReason(),
+            '%expires%' => $user->getBanTime()->format('Y-m-d H:i:s')
         ];
     }
 }
