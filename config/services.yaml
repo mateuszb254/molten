@@ -75,7 +75,7 @@ services:
             $publicKey: '%repcatcha.public_key%'
             $apiUrl: '%recaptcha.api_url%'
 
-    App\Service\MaintenanceManager:
+    App\Service\Maintenance\MaintenanceManager:
         arguments:
             $configPath: '%maintenance_path%'
 

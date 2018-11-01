@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Form\MaintenanceType;
-use App\Service\MaintenanceManager;
+use App\Service\Maintenance\MaintenanceManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

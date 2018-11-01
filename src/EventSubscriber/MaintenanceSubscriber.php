@@ -3,8 +3,8 @@
 namespace App\EventSubscriber;
 
 use App\Controller\UserControllerInterface;
-use App\Exception\MaintenanceException;
-use App\Service\MaintenanceManager;
+use App\Service\Maintenance\Exception\MaintenanceException;
+use App\Service\Maintenance\MaintenanceManager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -19,14 +19,14 @@ class MaintenanceSubscriber implements EventSubscriberInterface
     private $twig;
 
     /**
-     * @param \App\Service\MaintenanceManager $maintenanceManager
+     * @param \App\Service\Maintenance\MaintenanceManager $maintenanceManager
      */
     private $maintenanceManager;
 
     /**
      * MaintenanceSubscriber constructor.
      * @param \Twig_Environment $twig
-     * @param \App\Service\MaintenanceManager $maintenanceManager
+     * @param \App\Service\Maintenance\MaintenanceManager $maintenanceManager
      */
     public function __construct(\Twig_Environment $twig, MaintenanceManager $maintenanceManager)
     {
@@ -40,6 +40,7 @@ class MaintenanceSubscriber implements EventSubscriberInterface
      * logic and throws App\Exception\MaintenanceException exception
      *
      * @param \Symfony\Component\HttpKernel\Event\FilterControllerEvent $event
+     * @throws \App\Service\Maintenance\Exception\MaintenanceException
      */
     public function onKernelController(FilterControllerEvent $event)
     {

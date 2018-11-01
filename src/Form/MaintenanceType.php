@@ -2,8 +2,7 @@
 
 namespace App\Form;
 
-use App\Form\Model\Maintenanc;
-use App\Service\MaintenanceManager;
+use App\Service\Maintenance\MaintenanceManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
