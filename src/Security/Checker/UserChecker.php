@@ -2,7 +2,6 @@
 
 namespace App\Security\Checker;
 
-use App\Exception\AccountBannedException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
