@@ -1,0 +1,9 @@
+{% block recaptcha_widget %}
+    <div style="display: block; width: 50%; margin: auto;">
+        {{ form_widget(form) }}
+        {% if form_errors(form) %}
+            <span class="form-error" style="text-align: center; color: red; font-size: 12px;">{{ form_errors(form) }}</span>
+        {% endif %}
+    </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
