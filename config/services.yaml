@@ -70,12 +70,6 @@ services:
           arguments:
               $config: '%paypal%'
 
-    App\Service\Recaptcha:
-        arguments:
-            $secretKey: '%recaptcha.secret_key%'
-            $publicKey: '%repcatcha.public_key%'
-            $apiUrl: '%recaptcha.api_url%'
-
     App\Service\Maintenance\MaintenanceManager:
         arguments:
             $configPath: '%maintenance_path%'
