@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Form\Type\RecaptchaType;
 use App\Validator\Constraints\ExistentEmail;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -16,6 +17,6 @@ class ForgottenPasswordType extends AbstractType
             'constraints' => new ExistentEmail([
                 'message' => 'email.nonexistent'
             ])
-        ]);
+        ])->add('recaptcha', RecaptchaType::class);
     }
 }

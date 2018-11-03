@@ -16,6 +16,7 @@
                     <span class="form-error">{{ form_errors(form.email) }}</span>
                 {% endif %}
             </div>
+            {{ form_widget(form.recaptcha) }}
             <p><input type="submit" value="" name="" class="button_send"/></p>
             {{ form_end(form) }}
         </div>
