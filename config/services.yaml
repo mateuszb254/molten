@@ -10,6 +10,7 @@ parameters:
     repcatcha.public_key: '%env(RECAPTCHA_PUBLIC_KEY)%'
     recaptcha.secret_key: '%env(RECAPTCHA_SECRET_KEY)%'
     recaptcha.api_url: 'https://www.google.com/recaptcha/api/siteverify'
+    recaptcha.enabled: true
 
     #MaintenanceManager config
     maintenance_path: '%kernel.project_dir%/config/maintenance.yaml'
@@ -86,6 +87,19 @@ services:
     App\Service\TermsManager:
         arguments:
             $termsPath: '%terms_path%'
+
+    # App\Form
+    App\Form\Type\RecaptchaType:
+        arguments:
+            $publicKey: '%repcatcha.public_key%'
+            $enabled: '%recaptcha.enabled%'
+
+    # App\Validator
+    App\Validator\Constraints\RecaptchaValidator:
+        arguments:
+            $apiUrl: '%recaptcha.api_url%'
+            $secretKey: '%recaptcha.secret_key%'
+            $enabled: '%recaptcha.enabled%'
 
     # App\Twig
     App\Twig\KingdomExtension:
