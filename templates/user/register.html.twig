@@ -70,9 +70,7 @@
                     <span class="form-error" style="left: 43px;">{{ form_errors(register_form.rules) }}</span>
                     {% endif %}
                 </div>
-                <div style="display: block; width: 50%; margin: auto;">
-                    {{ recaptcha|raw }}
-                </div>
+               {{ form_widget(register_form.recaptcha) }}
                 <p><input type="submit" value="" name="" class="button_register"/></p>
                 {{ form_end(register_form) }}
             </div>

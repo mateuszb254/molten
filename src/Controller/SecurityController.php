@@ -26,35 +26,28 @@ class SecurityController extends AbstractController implements UserControllerInt
      * @Route("/register", name="register")
      * @Method({"GET", "POST"})
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, Recaptcha $recaptcha, TranslatorInterface $translator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(RegisterType::class);
         $form->handleRequest($request);
 
-        if ($request->isMethod('POST')) {
-            if ($recaptcha->validate($request->get('g-recaptcha-response'))) {
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $account = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $account = $form->getData();
 
-                    $password = $passwordEncoder->encodePassword($account, $account->getPlainPassword());
-                    $account->setPassword($password);
+            $password = $passwordEncoder->encodePassword($account, $account->getPlainPassword());
+            $account->setPassword($password);
 
-                    $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
 
-                    $em->persist($account);
-                    $em->flush();
+            $em->persist($account);
+            $em->flush();
 
-                    $this->addFlash('success', $translator->trans('registration.success'));
-                    return $this->redirectToRoute('register');
-                }
-            } else {
-                $this->addFlash('alert', $translator->trans('recaptcha'));
-            }
+            $this->addFlash('success', $translator->trans('registration.success'));
+            return $this->redirectToRoute('register');
         }
 
         return $this->render('user/register.html.twig', [
-            'register_form' => $form->createView(),
-            'recaptcha' => $recaptcha->createView()
+            'register_form' => $form->createView()
         ]);
     }
 

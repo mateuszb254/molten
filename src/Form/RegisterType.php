@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Account;
+use App\Form\Type\RecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -45,14 +46,14 @@ class RegisterType extends AbstractType
                 ]),
                 'required' => true
             ))
-        ;
+            ->add('recaptcha', RecaptchaType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Account::class,
-            'required' => true
+            'required' => false
         ]);
     }
 }
