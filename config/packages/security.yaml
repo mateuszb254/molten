@@ -28,6 +28,7 @@ security:
                 check_path: login
                 default_target_path: user_panel
                 always_use_default_target_path: true
+                csrf_token_generator: security.csrf.token_manager
             logout:
                 path: logout
                 target: homepage

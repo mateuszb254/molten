@@ -1,10 +1,11 @@
 <div class="box_login not_logged">
     <form action="{{ path('login') }}" method="post">
         <dl>
-            <dt><label id="username">{% trans %}label.login{% endtrans %}</label></dt>
+            <dt><label for="username">{% trans %}label.login{% endtrans %}</label></dt>
             <dd><input type="text" id="username" name="_username" class="input_login"/></dd>
-            <dt><label>{% trans %}label.password{% endtrans %}</label></dt>
+            <dt><label for="password">{% trans %}label.password{% endtrans %}</label></dt>
             <dd><input id="password" type="password" value="" name="_password" class="input_login"/></dd>
+            <dd><input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"></dd>
         </dl>
         <div class="links">
             <a href="{{ path('forgotten') }}" title="Zapomniałem hasła" class="remind">{% trans %}forgotten{% endtrans %}</a><br/>

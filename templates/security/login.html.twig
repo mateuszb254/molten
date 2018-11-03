@@ -14,6 +14,7 @@
                     {% if error %}
                         <span class="form-error">{{ error.messageKey|trans(error.messageData, 'security')|nl2br }}</span>
                     {% endif %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 </div>
                 <div class="form-row">
                     <label for="password">{% trans %}label.password{% endtrans %}</label>
