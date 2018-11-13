@@ -133,6 +133,7 @@ class PromotionCode
     public function setUsedBy(?Account $usedBy): self
     {
         $this->usedBy = $usedBy;
+        $this->usedDate = new \DateTime();
 
         return $this;
     }

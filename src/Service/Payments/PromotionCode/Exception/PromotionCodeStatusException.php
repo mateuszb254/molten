@@ -4,7 +4,7 @@ namespace App\Service\Payments\PromotionCode\Exception;
 
 use App\Entity\PromotionCode;
 
-abstract class PromotionCodeStatusException extends \Exception
+abstract class PromotionCodeStatusException extends PromotionCodeException
 {
     /**
      * @var PromotionCode $promotionCode
@@ -42,15 +42,5 @@ abstract class PromotionCodeStatusException extends \Exception
     public function getMessageKey(): string
     {
         return 'a promotion code status exception occurred.';
-    }
-
-    /**
-     * Message data to be used by the translation component.
-     *
-     * @return array
-     */
-    public function getMessageData(): array
-    {
-        return array();
     }
 }

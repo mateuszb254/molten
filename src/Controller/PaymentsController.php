@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use App\Form\PromotionCodeType;
-use App\Repository\PromotionCodeRepository;
-use App\Service\Payments\PromotionCode\Exception\PromotionCodeStatusException;
+use App\Service\Payments\PromotionCode\Exception\PromotionCodeException;
 use App\Service\Payments\PromotionCode\PromotionCodeUsage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,30 +30,21 @@ class PaymentsController extends AbstractController implements UserControllerInt
     /**
      * @Route("/codes", name="payments_promotion_code")
      */
-    public function promotionCode(Request $request, PromotionCodeRepository $promotionCodeRepository, PromotionCodeUsage $promotionCodeUsage, TranslatorInterface $translator): Response
+    public function promotionCode(Request $request, PromotionCodeUsage $promotionCodeUsage, TranslatorInterface $translator): Response
     {
         $form = $this->createForm(PromotionCodeType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $promotionCode = $promotionCodeRepository->findOneByCode($form->get('promotion_code')->getData());
-
-            if (!$promotionCode) {
-                $this->addFlash('alert', $translator->trans('payment.promotion_code.notValid'));
-
-                return $this->redirectToRoute('payments_promotion_code');;
-            }
-
             try {
-                $promotionCodeUsage->useCode($promotionCode);
+                $promotionCode = $promotionCodeUsage->useCode($form->get('promotion_code')->getData(), $this->getUser());
 
                 $this->addFlash('success', $translator->trans('payment.promotion_code.success', [
                     '%coins%' => $promotionCode->getValue()
                 ]));
 
                 return $this->redirectToRoute('payments_promotion_code');
-            } catch (PromotionCodeStatusException $exception) {
-                $exception->setPromotionCode($promotionCode);
+            } catch (PromotionCodeException $exception) {
                 $error = $exception;
             }
         }

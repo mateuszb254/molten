@@ -6,7 +6,6 @@ use App\Entity\Account;
 use App\Entity\PromotionCode;
 use App\Service\UserLogger;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * This class provides usage promotion codes by user
@@ -17,11 +16,6 @@ class PromotionCodeUsage
      * @var $promotionCodeChecker PromotionCodeChecker
      */
     private $promotionCodeChecker;
-
-    /**
-     * @var $user \App\Entity\Account
-     */
-    private $user;
 
     /**
      * @var $objectManager ObjectManager
@@ -36,14 +30,12 @@ class PromotionCodeUsage
     /**
      * PromotionCodeUsage constructor.
      * @param PromotionCodeChecker $promotionCodeChecker
-     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
      * @param \Doctrine\Common\Persistence\ObjectManager $objectManager
      * @param \App\Service\UserLogger $userLogger
      */
-    public function __construct(PromotionCodeChecker $promotionCodeChecker, TokenStorageInterface $tokenStorage, ObjectManager $objectManager, UserLogger $userLogger)
+    public function __construct(PromotionCodeChecker $promotionCodeChecker, ObjectManager $objectManager, UserLogger $userLogger)
     {
         $this->promotionCodeChecker = $promotionCodeChecker;
-        $this->user = $tokenStorage->getToken()->getUser();
         $this->objectManager = $objectManager;
         $this->userLogger = $userLogger;
     }
@@ -51,19 +43,22 @@ class PromotionCodeUsage
     /**
      * This method provides using code by user
      *
-     * @param PromotionCode $promotionCode
+     * @param string $code
+     * @param Account $account
+     * @return PromotionCode
      */
-    public function useCode(PromotionCode $promotionCode): void
+    public function useCode(string $code, Account $account): PromotionCode
     {
-        $this->promotionCodeChecker->checkCode($promotionCode);
+        $promotionCode = $this->promotionCodeChecker->checkCode($code, $account);
 
-        $promotionCode->setUsedBy($this->user);
-        $promotionCode->setUsedDate(new \DateTime());
+        $promotionCode->setUsedBy($account);
 
-        $this->user->grantCoins($promotionCode->getValue());
+        $account->grantCoins($promotionCode->getValue());
+
+        $this->userLogger->addLog($account, 'PROMOTION_CODE', sprintf('%s %s', $promotionCode->getCode(), $promotionCode->getTag() !== null ? '(' . $promotionCode->getTag() . ')' : ''));
 
         $this->objectManager->flush();
 
-        $this->userLogger->addLog($this->user, 'PROMOTION_CODE', sprintf('%s %s', $promotionCode->getCode(), $promotionCode->getTag() !== null ? '(' . $promotionCode->getTag() . ')' : ''));
+        return $promotionCode;
     }
 }

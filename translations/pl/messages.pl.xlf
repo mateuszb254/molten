@@ -658,8 +658,8 @@
                 <source>payment.promotion_code.success</source>
                 <target>Doładowaliśmy status Twoich smoczych monet o %coins%.</target>
             </trans-unit>
-            <trans-unit id="payment.promotion_code.notValid">
-                <source>payment.promotion_code.notValid</source>
+            <trans-unit id="payment.promotion_code.invalid">
+                <source>payment.promotion_code.invalid</source>
                 <target>Podany kod jest niepoprawny.</target>
             </trans-unit>
             <trans-unit id="payment.promotion_code.used">
