@@ -27,11 +27,6 @@ class PromotionCodeChecker
     private $promotionCodeRepository;
 
     /**
-     * @var $user \App\Entity\Account
-     */
-    private $user;
-
-    /**
      * PromotionCodeChecker constructor.
      * @param \App\Repository\PromotionCodeRepository $promotionCodeRepository
      */
@@ -58,11 +53,14 @@ class PromotionCodeChecker
             throw new PromotionCodeInvalidException();
         }
 
-        if ($this->isExpired($promotionCode)) throw ((new PromotionCodeExpiredException())->setPromotionCode($promotionCode));
-        if ($this->isUsed($promotionCode)) throw ((new PromotionCodeUsedException())->setPromotionCode($promotionCode));
+        if ($this->isExpired($promotionCode))
+            throw ((new PromotionCodeExpiredException())->setPromotionCode($promotionCode));
+        if ($this->isUsed($promotionCode))
+            throw ((new PromotionCodeUsedException())->setPromotionCode($promotionCode));
 
         if ($promotionCode->getType() === PromotionCode::ONE_PER_USER_TYPE && $promotionCode->getTag() !== null) {
-            if ($this->isOneCodePerTagUsed($promotionCode, $account)) throw ((new PromotionCodeOnePerUserException())->setPromotionCode($promotionCode));
+            if ($this->isOneCodePerTagUsed($promotionCode, $account))
+                throw ((new PromotionCodeOnePerUserException())->setPromotionCode($promotionCode));
         }
 
         return $promotionCode;
