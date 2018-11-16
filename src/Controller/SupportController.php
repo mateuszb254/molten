@@ -56,7 +56,6 @@ class SupportController extends AbstractController implements UserControllerInte
                 $ticket->setStatus(Ticket::STATUS_OPEN);
 
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($ticket);
                 $em->flush();
             }
             return $this->redirectToRoute('support_ticket_details', [

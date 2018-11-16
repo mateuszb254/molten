@@ -64,7 +64,6 @@ class UserController extends AbstractController implements UserControllerInterfa
 
             $user->setPassword($password);
 
-            $em->persist($user);
             $em->flush();
 
             $userLogger->addLog($user, 'CHANGE_PASSWORD');
@@ -95,7 +94,6 @@ class UserController extends AbstractController implements UserControllerInterfa
             $user = $this->getUser();
             $user->setEmail($newMail);
 
-            $em->persist($user);
             $em->flush();
 
             $userLogger->addLog($user, 'CHANGE_EMAIL');
@@ -126,7 +124,6 @@ class UserController extends AbstractController implements UserControllerInterfa
             $user = $this->getUser();
             $user->setCode($newCode);
 
-            $em->persist($user);
             $em->flush();
 
             $userLogger->addLog($user, 'CHANGE_CODE');

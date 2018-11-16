@@ -39,22 +39,20 @@ class SupportController extends AbstractController implements AdminControllerInt
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /**
-             * @var $answer TicketAnswer
-             */
+            $em = $this->getDoctrine()->getManager();
+
+            /** @var $answer TicketAnswer */
             $answer = $form->getData();
             $answer->setIsAdminAnswer(true);
 
             $ticket->addAnswer($answer);
 
-            if($form->get('status')->getData() === true) {
+            if ($form->get('status')->getData() === true) {
                 $ticket->setStatus(Ticket::STATUS_CLOSED);
             } else {
                 $ticket->setStatus(Ticket::STATUS_ANSWERED);
             }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);
             $em->flush();
 
             $this->addFlash('success', $translator->trans('support.answer.success', [
